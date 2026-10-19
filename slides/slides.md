@@ -31,7 +31,7 @@ Bài tập 1 tuần · Vinmec Exploration Sprint
 - Hẹp thì làm sâu được: 3 phỏng vấn, 3 phương án, thử với người thật trong một tuần
 - Gần với điều mình thấy ở CarePath: khám chỉ vài phút, phần lớn là chờ
 
-<span class="todo">[KIỂM TRA SAU PHỎNG VẤN: lý do chọn còn đúng với P1–P3 không]</span>
+**Sau phỏng vấn, dữ liệu kéo trọng tâm:** ở Vinmec có hẹn, chờ đến lượt đã ổn — sự bất định dồn về **chờ kết quả cận lâm sàng** và hàng chờ dài không có ước tính (viện công)
 
 ---
 
@@ -39,7 +39,7 @@ Bài tập 1 tuần · Vinmec Exploration Sprint
 # Mình đã làm gì
 
 - **Dùng thử MyVinmec**, ghi lại làm gì, thấy gì, vướng ở đâu
-- **3 phỏng vấn ẩn danh (P1–P3)** theo Mom Test: hỏi chuyện đã xảy ra, không hỏi ý kiến
+- **Phỏng vấn ẩn danh theo Mom Test** (P1, P2 đã xong; P3 đang hẹn): hỏi chuyện đã xảy ra, không hỏi ý kiến
 - **Journey map** và need statement theo Biodesign
 - **Prototype 3 phương án A / B / C** (model GPT, dữ liệu giả lập)
 - **Thử với 2–3 người**, ghi log, sửa sau mỗi lượt
@@ -49,24 +49,24 @@ Bài tập 1 tuần · Vinmec Exploration Sprint
 <!-- Slide 4: Journey map -->
 # Journey map và điểm đau
 
-<span class="todo">[CHÈN HÌNH JOURNEY MAP SAU KHI CÓ DỮ LIỆU P1–P3]</span>
+Check-in → chờ gọi tên → khám → cận lâm sàng → **chờ kết quả** → đọc kết quả (chi tiết: `02-journey-map/`)
 
-- Điểm đau 1: <span class="todo">[ĐIỀN SAU: điểm đau nhiều người kể nhất]</span>
-- Điểm đau 2: <span class="todo">[ĐIỀN SAU]</span>
-- Cảm xúc chỉ vẽ theo điều người kể, chỗ không có dữ liệu để trống
+- 🔴 **Mù trạng thái kết quả cận lâm sàng**: rời chỗ được (viện gọi) nhưng không biết xong chưa, xem ở đâu (P1)
+- 🔴 **Hàng chờ dài không có ước tính** ở viện công: số 800 nhìn bảng 400, tự tính lấy (P2)
+- 🔴 **App trống phần "trong buổi khám"**: không check-in, không hàng chờ, không trạng thái kết quả (ghi chép MyVinmec, 19/10)
+- Cảm xúc vẽ theo lời kể; chỗ không có dữ liệu ghi "không có dữ liệu" 
 
 ---
 
 <!-- Slide 5: Insight -->
-# Insight từ 3 phỏng vấn (OBSERVED)
+# Insight từ phỏng vấn (OBSERVED)
 
-<span class="todo">[ĐIỀN SAU: chỉ điền điều đã thấy, nghe, có nguồn P#]</span>
+- **O1 · P2, viện công:** lấy số 8h (bảng ~400, mình ~800) → về nhà, *tự canh thời gian mỗi ca siêu âm rồi nhân lên*, quay lại trúng lượt ~14h. Hệ thống không cho ước tính → người bệnh tự chế công cụ
+- **O2 · P1, Vinmec:** điểm khó chịu duy nhất cả buổi = chờ kết quả: *"chờ sốt ruột… mong kết quả cập nhật trước trong phần mềm, nhưng thường cập nhật sau khi kết thúc khám"*
+- **O3 · cả hai:** không sợ lỡ lượt — nhưng nhờ "tấm đệm" riêng (người nhà giữ chỗ, viện gọi, biết luật đẩy số). Người không có đệm? → P3
+- **O4 · cả hai:** chờ lâu mà **được giải thích** thì chấp nhận được
 
-- <span class="todo">[O1: ai làm gì, khi nào, hậu quả gì. Nguồn P#]</span>
-- <span class="todo">[O2]</span>
-- <span class="todo">[O3]</span>
-
-Chỉ nói "trong 3 cuộc, n người kể...". Không nói "người bệnh Việt Nam...".
+Trong 2 cuộc đã phỏng vấn, cả 2 người kể… — không nói "người bệnh Việt Nam…", không nói "validated".
 
 ---
 
@@ -77,7 +77,7 @@ Chỉ nói "trong 3 cuộc, n người kể...". Không nói "người bệnh Vi
 
 > **Cách để người bệnh ngoại trú biết mình đang ở đâu và còn chờ khoảng bao lâu, vì sao, cho người bệnh đang chờ khám gặp sự bất định về lượt của mình.**
 
-<span class="todo">[CHỐT LẠI SAU P1–P3; ghi 1 trích dẫn làm căn cứ]</span>
+Căn cứ: *"mong muốn kết quả xn và chụp chiếu đc cập nhật trước trong phần mềm hồ sơ"* (P1) · workaround tự canh giờ (P2) · app chưa có phần "trong buổi khám" (ghi chép MyVinmec)
 
 Không nêu giải pháp.
 
@@ -95,18 +95,17 @@ Không nêu giải pháp.
 - Mọi phương án: hiện **khoảng** thay vì số phút, có nút khẩn cấp cố định
 - Dữ liệu giả lập, không có dữ liệu bệnh nhân thật
 
-<span class="todo">[CHÈN ẢNH MÀN HÌNH A / B / C]</span>
+![w:980 Prototype: khung điện thoại với 3 tab A/B/C và bảng điều phối cho người phỏng vấn](prototype-abc.png)
 
 ---
 
 <!-- Slide 8: Kết quả thử -->
 # Thử với người dùng và mình sửa gì
 
-<span class="todo">[ĐIỀN SAU KHI CÓ LOG THỬ THẬT]</span>
+Thiết kế thử: 5 nhịp (comfort → context → task → observe → compare), người thử cầm chuột, đổi thứ tự A/B/C giữa các người, log tự ghi first action và hesitation
 
-- Người thử làm gì, khựng ở đâu: <span class="todo">[...]</span>
-- Phương án nào họ dùng đúng, phương án nào hiểu sai: <span class="todo">[...]</span>
-- Mình sửa: <span class="todo">[trước → sau]</span>
+- <span class="todo">Vòng thử đang thực hiện — log và phần "mình sửa gì" cập nhật trong `05-prototype/log-thu-nghiem.md` trước buổi present</span>
+- Task giao theo đích, không chỉ đường: "quyết định xem bạn có kịp đi ăn trưa không"
 - Giới hạn: n = 2–3, đủ cho quyết định thiết kế tiếp theo, **không phải "validated"**
 
 ---
@@ -114,7 +113,10 @@ Không nêu giải pháp.
 <!-- Slide 9: Best practice + rủi ro -->
 # Bài học cho Vinmec và rủi ro chính
 
-**Best practice quốc tế** <span class="todo">[ĐIỀN SAU: 3 nguồn từ 04-best-practice, mỗi nguồn 1 dòng bài học]</span>
+**Best practice quốc tế** (nguồn đã verify trong `04-best-practice/`)
+- **SingHealth Health Buddy** (Singapore): số người trước mình, cập nhật ~5 phút → minh bạch vị trí hàng chờ là làm được ở quy mô hệ thống
+- **Maister, *Psychology of Waiting Lines***: chờ không lời giải thích dài hơn chờ được giải thích — khớp O4
+- **RCT Alrajhi 2020**: riêng việc báo số phút chưa chắc tăng hài lòng (p=0.476) nhưng 70% người bệnh vẫn muốn có — đừng hứa số chính xác, hãy cho khoảng + lý do
 
 **Rủi ro chính, cách giảm**
 - Báo thừa giờ thì người bệnh đi xa, lỡ lượt: hiện **khoảng, thiên dè dặt**, không số giả chính xác
