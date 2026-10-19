@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trợ lý hàng chờ — Prototype</title>
+<style>
+  :root {
+    --primary: #1B4F8A;
+    --primary-2: #2A6BB3;
+    --primary-soft: #E6EEF8;
+    --bg: #E9EEF5;
+    --card: #FFFFFF;
+    --text: #1A2433;
+    --muted: #5B6B80;
+    --line: #D9E1EC;
+    --ok: #1E8E5A;
+    --ok-soft: #E3F4EB;
+    --warn: #B86E00;
+    --warn-soft: #FFF3DD;
+    --danger: #C62828;
+    --danger-soft: #FDECEC;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  button { font: inherit; cursor: pointer; }
+  .layout {
+    display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: flex-start;
+    padding: 24px 16px;
+  }
+
+  /* ---------- Phone frame ---------- */
+  .phone {
+    width: 390px; max-width: 100%; height: 820px;
+    background: #F5F8FC;
+    border-radius: 36px; border: 10px solid #121821;
+    box-shadow: 0 20px 50px rgba(18, 40, 70, .25);
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+  }
+  @media (max-width: 480px) {
+    .layout { padding: 0; gap: 0; }
+    .phone { width: 100%; height: 100vh; height: 100dvh; border: 0; border-radius: 0; box-shadow: none; }
+    .facilitator { margin: 16px; }
+  }
+  .statusbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 18px 2px; font-size: 12px; font-weight: 600; color: #fff; background: var(--primary);
+  }
+  .appbar {
+    background: var(--primary); color: #fff; padding: 8px 14px 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .appbar h1 { font-size: 17px; margin: 0; flex: 1; font-weight: 650; }
+  .appbar small { display: block; font-weight: 400; opacity: .8; font-size: 12px; }
+  .icon-btn {
+    background: rgba(255,255,255,.14); border: 0; color: #fff; width: 36px; height: 36px;
+    border-radius: 10px; font-size: 18px;
+  }
+  .tabs {
+    display: flex; gap: 6px; padding: 8px 12px; background: var(--primary);
+  }
+  .tab {
+    flex: 1; border: 0; padding: 7px 0; border-radius: 10px;
+    background: rgba(255,255,255,.12); color: #fff; font-weight: 600; font-size: 14px;
+  }
+  .tab.active { background: #fff; color: var(--primary); }
+
+  .screen { flex: 1; overflow-y: auto; padding: 12px 12px 4px; display: flex; flex-direction: column; gap: 10px; }
+
+  .banner {
+    background: var(--primary-soft); border: 1px solid #C9DAEE; border-radius: 12px;
+    padding: 8px 10px; font-size: 13px; color: #173E6B; display: flex; gap: 8px;
+  }
+  .banner b { color: var(--primary); }
+
+  .card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--line); padding: 12px 14px; }
+  .status-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .clinic { font-size: 13px; color: var(--muted); }
+  .clinic b { color: var(--text); }
+  .mynum { text-align: right; }
+  .mynum .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  .mynum .val { font-size: 26px; font-weight: 750; color: var(--primary); line-height: 1.1; }
+  .ahead-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+  .ahead-big { font-size: 34px; font-weight: 750; color: var(--text); line-height: 1; min-width: 44px; }
+  .ahead-txt { font-size: 13px; color: var(--muted); }
+  .ahead-txt b { color: var(--text); }
+  .dots { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .dot { width: 18px; height: 18px; border-radius: 50%; background: #CFDBEA; display: grid; place-items: center; font-size: 10px; color: #fff; }
+  .dot.room { background: var(--primary-2); }
+  .dot.me { background: var(--ok); }
+  .eta {
+    margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line);
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  }
+  .eta .range { font-size: 18px; font-weight: 700; }
+  .eta .sub { font-size: 12px; color: var(--muted); }
+  .badge { font-size: 12px; font-weight: 650; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .badge.stable { background: var(--ok-soft); color: var(--ok); }
+  .badge.vary { background: var(--warn-soft); color: var(--warn); }
+  .reasons { margin: 8px 0 0; padding: 8px 10px; background: var(--warn-soft); border-radius: 10px; font-size: 13px; color: #6B4300; }
+  .reasons p { margin: 0; }
+  .reasons p + p { margin-top: 4px; }
+  .called {
+    background: var(--ok); color: #fff; border-radius: var(--radius); padding: 14px; text-align: center;
+    font-weight: 700; font-size: 17px; animation: pulse 1.6s infinite;
+  }
+  .called small { display: block; font-weight: 400; font-size: 13px; opacity: .9; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(30,142,90,.5);} 50% { box-shadow: 0 0 0 8px rgba(30,142,90,0);} }
+
+  .ask-btn {
+    width: 100%; border: 0; background: var(--primary); color: #fff; padding: 13px; border-radius: 12px;
+    font-weight: 650; font-size: 15px;
+  }
+
+  /* ---------- Chat ---------- */
+  .chat { display: flex; flex-direction: column; gap: 8px; }
+  .chat-head { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted); }
+  .mode-pill { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: #E4E9F0; color: var(--muted); }
+  .mode-pill.live { background: var(--ok-soft); color: var(--ok); }
+  .mode-pill.mock { background: var(--warn-soft); color: var(--warn); }
+  .link-btn { background: none; border: 0; color: var(--primary-2); font-size: 12px; padding: 0; }
+  .msg { max-width: 88%; padding: 9px 12px; border-radius: 14px; font-size: 14px; white-space: pre-wrap; word-wrap: break-word; }
+  .msg.user { align-self: flex-end; background: var(--primary); color: #fff; border-bottom-right-radius: 4px; }
+  .msg.bot { align-self: flex-start; background: #fff; border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+  .msg.push { align-self: flex-start; background: #F0F6FF; border: 1px solid #BFD3EE; border-bottom-left-radius: 4px; }
+  .msg .tag { display: block; font-size: 10.5px; color: var(--muted); margin-top: 4px; }
+  .msg.push .ptitle { font-weight: 650; color: var(--primary); display: block; margin-bottom: 2px; font-size: 12.5px; }
+  .typing { align-self: flex-start; font-size: 13px; color: var(--muted); padding: 4px 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    border: 1px solid #BFD3EE; background: #fff; color: var(--primary); padding: 6px 10px; border-radius: 999px;
+    font-size: 13px;
+  }
+  .chip:disabled { opacity: .45; cursor: default; }
+  .verdict { border-radius: 12px; padding: 10px 12px; font-size: 13.5px; border: 1px solid; max-width: 92%; }
+  .verdict .vt { font-weight: 750; font-size: 15px; display: block; margin-bottom: 2px; }
+  .verdict.ok { background: var(--ok-soft); border-color: #A9DCC2; color: #145C3B; }
+  .verdict.mid { background: var(--warn-soft); border-color: #F0CF93; color: #6B4300; }
+  .verdict.no { background: var(--danger-soft); border-color: #F2B8B8; color: #8E1C1C; }
+  .verdict .why { display: block; margin-top: 4px; font-size: 12.5px; opacity: .9; }
+  .emergency {
+    background: var(--danger); color: #fff; border-radius: 12px; padding: 12px; font-size: 14px; max-width: 96%;
+  }
+  .emergency b { font-size: 15px; display: block; margin-bottom: 4px; }
+  .emergency button { margin-top: 8px; width: 100%; border: 0; border-radius: 10px; padding: 10px; background: #fff; color: var(--danger); font-weight: 700; }
+  .handoff { align-self: flex-start; }
+  .handoff button { border: 1px solid var(--primary); background: #fff; color: var(--primary); border-radius: 10px; padding: 7px 12px; font-size: 13px; font-weight: 600; }
+
+  .composer { padding: 8px 12px 4px; background: #fff; border-top: 1px solid var(--line); }
+  .composer form { display: flex; gap: 8px; }
+  .composer input {
+    flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font: inherit; font-size: 14px; outline: none;
+  }
+  .composer input:focus { border-color: var(--primary-2); }
+  .composer button[type=submit] { border: 0; background: var(--primary); color: #fff; border-radius: 12px; padding: 0 14px; font-weight: 650; }
+  .composer button:disabled { opacity: .5; }
+  .disclaimer { font-size: 11px; color: var(--muted); text-align: center; margin: 6px 0 2px; }
+
+  .bottombar { display: flex; gap: 8px; padding: 8px 12px; background: #fff; border-top: 1px solid var(--line); }
+  .staff-btn {
+    flex: 1; border: 0; background: #0F3A66; color: #fff; padding: 11px; border-radius: 12px; font-weight: 650; font-size: 14px;
+  }
+  .ff-btn { border: 1px solid var(--line); background: #F5F8FC; color: var(--text); border-radius: 12px; padding: 0 12px; font-size: 13px; font-weight: 600; }
+  .footer { font-size: 10.5px; color: var(--muted); text-align: center; padding: 4px 10px 8px; background: #fff; }
+
+  /* ---------- Toast (B push) ---------- */
+  .toast {
+    position: absolute; left: 10px; right: 10px; top: 34px; z-index: 30;
+    background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(10,30,60,.28); padding: 10px 12px;
+    border-left: 5px solid var(--primary-2); transform: translateY(-140%); transition: transform .3s ease;
+  }
+  .toast.show { transform: translateY(0); }
+  .toast .t1 { font-size: 11px; color: var(--muted); }
+  .toast .t2 { font-weight: 700; font-size: 14px; margin: 2px 0; }
+  .toast .t3 { font-size: 13px; color: var(--text); }
+  .toast .acts { display: flex; gap: 8px; margin-top: 8px; }
+  .toast .acts button { flex: 1; border: 1px solid var(--line); background: #F5F8FC; border-radius: 10px; padding: 6px; font-size: 12.5px; }
+  .muted-chip { font-size: 12px; color: var(--muted); background: #EEF1F5; border-radius: 999px; padding: 3px 10px; align-self: flex-start; border: 0; }
+
+  /* ---------- Modal ---------- */
+  .modal-bg { position: absolute; inset: 0; background: rgba(10,25,45,.45); z-index: 40; display: none; align-items: flex-end; }
+  .modal-bg.show { display: flex; }
+  .modal { background: #fff; width: 100%; border-radius: 20px 20px 0 0; padding: 16px; max-height: 85%; overflow-y: auto; }
+  .modal h2 { margin: 0 0 8px; font-size: 17px; }
+  .modal label { display: block; font-size: 13px; font-weight: 600; margin: 12px 0 4px; }
+  .modal input[type=password], .modal input[type=text] { width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; font: inherit; font-size: 14px; }
+  .modal .hint { font-size: 12px; color: var(--muted); margin: 4px 0 0; }
+  .modal .row { display: flex; gap: 8px; margin-top: 14px; }
+  .btn { border: 0; border-radius: 10px; padding: 10px 14px; font-weight: 650; }
+  .btn.primary { background: var(--primary); color: #fff; flex: 1; }
+  .btn.ghost { background: #EEF1F5; color: var(--text); }
+  .btn.danger { background: var(--danger-soft); color: var(--danger); }
+  .switch-row { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; font-size: 14px; }
+
+  /* ---------- Facilitator panel ---------- */
+  .facilitator {
+    width: 360px; max-width: 100%; background: #fff; border-radius: 16px; border: 1px solid var(--line);
+    padding: 14px 16px; font-size: 13.5px;
+  }
+  .facilitator h2 { font-size: 15px; margin: 0 0 4px; color: var(--primary); }
+  .facilitator h3 { font-size: 13px; margin: 14px 0 6px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .facilitator p { margin: 4px 0; }
+  .facilitator .ctl { display: flex; flex-wrap: wrap; gap: 6px; }
+  .facilitator .ctl button, .facilitator select {
+    border: 1px solid var(--line); background: #F5F8FC; border-radius: 9px; padding: 6px 10px; font-size: 13px; font: inherit;
+  }
+  .facilitator details { margin-top: 8px; }
+  .facilitator summary { cursor: pointer; font-weight: 600; }
+  .facilitator ul { padding-left: 18px; margin: 6px 0; }
+  .log-box { background: #F5F8FC; border: 1px solid var(--line); border-radius: 9px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 11.5px; height: 150px; overflow-y: auto; padding: 6px 8px; white-space: pre-wrap; }
+  .kv { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 12.5px; }
+  .kv span:nth-child(odd) { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ================= PHONE ================= -->
+  <div class="phone" id="phone">
+    <div class="statusbar"><span id="clock">11:20</span><span>Prototype · 4G ▮▮▮</span></div>
+    <div class="appbar">
+      <h1>Theo dõi lượt khám<small>Màn hình giả lập — sau khi check-in</small></h1>
+      <button class="icon-btn" id="btnSettings" aria-label="Cài đặt">⚙</button>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-v="A" role="tab">Phương án A</button>
+      <button class="tab" data-v="B" role="tab">Phương án B</button>
+      <button class="tab" data-v="C" role="tab">Phương án C</button>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <div class="t1">🔔 Thông báo từ Trợ lý hàng chờ · <span id="toastTime"></span></div>
+      <div class="t2" id="toastTitle"></div>
+      <div class="t3" id="toastBody"></div>
+      <div class="acts">
+        <button id="toastHide">Ẩn</button>
+        <button id="toastMute">🔕 Tắt thông báo</button>
+      </div>
+    </div>
+
+    <div class="screen" id="screen">
+      <div class="banner" role="note">
+        <span>🤖</span>
+        <span><b>Trợ lý hàng chờ</b> giúp bạn theo dõi lượt và ước tính thời gian chờ. Mình <b>KHÔNG</b> tư vấn triệu chứng, thuốc hay kết quả khám — những việc đó hãy hỏi nhân viên y tế.</span>
+      </div>
+
+      <div id="calledBox"></div>
+
+      <div class="card" id="statusCard">
+        <div class="status-top">
+          <div class="clinic">Phòng khám <b>Nội tổng quát</b><br>Phòng <b>2.07</b> · Tầng 2<br>Đang khám: số <b id="serving">2443</b></div>
+          <div class="mynum"><div class="lbl">Số của bạn</div><div class="val">2451</div></div>
+        </div>
+        <div class="ahead-row">
+          <div class="ahead-big" id="aheadNum">7</div>
+          <div class="ahead-txt"><b>người trước bạn</b><br>(chưa tính người đang ở trong phòng)</div>
+        </div>
+        <div class="dots" id="dots" aria-hidden="true"></div>
+        <div class="eta">
+          <div>
+            <div class="sub">Ước tính đến lượt</div>
+            <div class="range" id="etaRange">khoảng 40–65 phút nữa</div>
+            <div class="sub" id="etaSub">Nhịp gần đây: khoảng 6–8 phút/lượt</div>
+          </div>
+          <span class="badge stable" id="confBadge">Ổn định</span>
+        </div>
+        <div id="reasonsBox"></div>
+        <div class="sub" style="font-size:11px;color:var(--muted);margin-top:6px" id="updated">Cập nhật lúc 11:20 · dữ liệu mô phỏng</div>
+      </div>
+
+      <div id="askWrap"><button class="ask-btn" id="btnAsk">💬 Hỏi trợ lý</button></div>
+
+      <div class="chat" id="chatWrap" hidden>
+        <div class="chat-head">
+          <span>Trợ lý hàng chờ <span class="mode-pill" id="modePill">…</span></span>
+          <button class="link-btn" id="btnCloseChat" hidden>Thu gọn</button>
+        </div>
+        <div id="mutedNote"></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="composer" id="composer" hidden>
+      <form id="chatForm" autocomplete="off">
+        <input id="chatInput" type="text" placeholder="Hỏi về hàng chờ, ví dụ: còn bao lâu?" maxlength="300">
+        <button type="submit" id="btnSend">Gửi</button>
+      </form>
+      <div class="disclaimer">Thông tin chờ là ước tính, không phải cam kết. Không dùng cho tư vấn y khoa.</div>
+    </div>
+
+    <div class="bottombar">
+      <button class="staff-btn" id="btnStaff">🧑‍⚕️ Gọi nhân viên hỗ trợ</button>
+      <button class="ff-btn" id="btnFF" title="Tua nhanh 5 phút mô phỏng">⏩ Tua nhanh</button>
+    </div>
+    <div class="footer">Prototype học tập, không phải sản phẩm Vinmec. Dữ liệu hàng chờ là giả lập.</div>
+
+    <!-- Settings modal -->
+    <div class="modal-bg" id="settingsBg">
+      <div class="modal" role="dialog" aria-label="Cài đặt">
+        <h2>⚙ Cài đặt</h2>
+        <label for="inKey">OpenAI API key</label>
+        <input type="password" id="inKey" placeholder="sk-..." autocomplete="off">
+        <p class="hint">Key chỉ lưu trong trình duyệt này (localStorage) và được gửi thẳng tới api.openai.com. Không dùng trên máy dùng chung. Để trống = chế độ kịch bản mẫu (offline).</p>
+        <label for="inModel">Model</label>
+        <input type="text" id="inModel" placeholder="">
+        <p class="hint">Để trống = dùng hằng số MODEL trong mã nguồn (<span id="defModel"></span>).</p>
+        <div class="switch-row">
+          <span>Thông báo chủ động (phương án B)</span>
+          <input type="checkbox" id="inNotif">
+        </div>
+        <div class="row">
+          <button class="btn danger" id="btnClearKey">Xóa key</button>
+          <button class="btn ghost" id="btnCloseSettings">Đóng</button>
+          <button class="btn primary" id="btnSaveSettings">Lưu</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Staff modal -->
+    <div class="modal-bg" id="staffBg">
+      <div class="modal" role="dialog" aria-label="Gọi nhân viên">
+        <h2>🧑‍⚕️ Đã gửi yêu cầu hỗ trợ</h2>
+        <p>Nhân viên quầy <b>Nội tổng quát (tầng 2)</b> sẽ đến chỗ bạn hoặc gọi lại cho bạn.</p>
+        <p class="hint">(Giả lập — prototype không gửi yêu cầu thật.)</p>
+        <p style="background:var(--danger-soft);color:var(--danger);padding:8px 10px;border-radius:10px;font-size:13px">Nếu đang có dấu hiệu khẩn cấp (đau ngực, khó thở, ngất…), đừng chờ: hãy báo ngay nhân viên y tế gần nhất.</p>
+        <div class="row"><button class="btn primary" id="btnCloseStaff">Đã hiểu</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FACILITATOR PANEL ================= -->
+  <aside class="facilitator" aria-label="Bảng điều phối">
+    <h2>Bảng điều phối (người phỏng vấn)</h2>
+    <p style="color:var(--muted)">Không cho người thử đọc phần mô tả phương án trước khi làm task.</p>
+
+    <h3>Mô phỏng hàng chờ</h3>
+    <div class="ctl">
+      <select id="speed" aria-label="Tốc độ">
+        <option value="0">⏸ Dừng</option>
+        <option value="10000" selected>Chậm (1 phút / 10 giây)</option>
+        <option value="5000">Thường (1 phút / 5 giây)</option>
+        <option value="1000">Nhanh (1 phút / 1 giây)</option>
+      </select>
+      <button id="fFF">⏩ +5 phút</button>
+      <button id="fConsult">🩺 Kích hoạt hội chẩn</button>
+      <button id="fReset">↺ Reset điểm xuất phát</button>
+    </div>
+    <p><label><input type="checkbox" id="fResetOnTab" checked> Đổi tab = reset về điểm xuất phát (khuyên dùng)</label></p>
+    <p><label><input type="checkbox" id="fAutoConsult" checked> Tự kích hoạt hội chẩn ở phút mô phỏng thứ 12</label></p>
+    <div class="kv" id="simState"></div>
+
+    <details>
+      <summary>Mô tả 3 phương án (chỉ cho người điều phối)</summary>
+      <ul>
+        <li><b>A — User-led (Standard):</b> màn hình tĩnh + nút "Hỏi trợ lý"; AI chỉ trả lời khi được hỏi, tự giả định thời gian chuyến đi nếu người dùng không nói.</li>
+        <li><b>B — Proactive (Standard++):</b> AI tự đẩy thông báo theo mốc (còn 5 người, còn 2 người, hội chẩn, lượt kéo dài bất thường) kèm lý do; có nút Ẩn / Tắt thông báo.</li>
+        <li><b>C — Collaborative (Wild):</b> AI hỏi trước "Bạn định đi đâu, mất bao lâu?" rồi mới trả lời Kịp / Sát giờ / Không kịp; hỏi xin phép trước khi đặt nhắc.</li>
+      </ul>
+      <p><b>Constants:</b> cùng phòng khám, số 2451, 7 người trước, cùng chuỗi thời gian lượt, cùng thẻ trạng thái, cùng banner kỳ vọng, cùng nút gọi nhân viên. Chỉ khác cơ chế AI (trigger · vai trò AI · việc user phải quyết).</p>
+    </details>
+
+    <h3>Log phiên (để điền OBSERVED)</h3>
+    <div class="log-box" id="logBox"></div>
+    <div class="ctl" style="margin-top:6px">
+      <button id="fCopyLog">📋 Copy log</button>
+      <button id="fDownloadLog">⬇ Tải JSON</button>
+      <button id="fClearLog">🗑 Xóa log</button>
+    </div>
+  </aside>
+</div>
+
+<script src="config.local.js"></script>
+<script>
+/* =====================================================================
+   CẤU HÌNH — đổi model ở đây
+   ===================================================================== */
+const MODEL = 'gpt-4o-mini';
+const API_URL = 'https://api.openai.com/v1/chat/completions';
+const LS_KEY = 'wq_openai_key';
+const LS_MODEL = 'wq_model';
+const LS_NOTIF = 'wq_notif_b';
+const LS_LOG = 'wq_session_log';
+
+/* =====================================================================
+   MOCK DATA — kịch bản hàng chờ (giữ nguyên cho cả A/B/C = constants)
+   ===================================================================== */
+const SCENARIO = {
+  clinic: 'Nội tổng quát',
+  room: '2.07 (tầng 2)',
+  myNumber: 2451,
+  startServing: 2443,          // số đang ở trong phòng khám
+  startClock: 11 * 60 + 20,    // 11:20
+  history: [7, 6, 8, 7, 6, 7], // phút của 6 lượt gần nhất
+  currentDuration: 7,          // thời lượng thật của lượt đang khám (hệ thống KHÔNG biết)
+  currentElapsed: 3,
+  // thời lượng thật của từng lượt tiếp theo (hệ thống không biết trước)
+  upcoming: { 2444: 6, 2445: 8, 2446: 7, 2447: 16, 2448: 6, 2449: 8, 2450: 7, 2451: 8 },
+  consult: { actualMinutes: 12, announcedLow: 10, announcedHigh: 15, autoAtSimMinute: 12 },
+  returnBuffer: 5,             // phút dự phòng để quay lại khu chờ
+  trips: [
+    { id: 'vs',   icon: '🚻', label: 'Đi vệ sinh',        minutes: 5,  kw: [/\bve sinh\b/, /\bwc\b/, /toilet/, /\bdi tieu\b/] },
+    { id: 'nuoc', icon: '☕', label: 'Mua nước / cà phê', minutes: 15, kw: [/\bnuoc\b/, /\bca phe\b/, /cafe|coffee/, /tra sua/, /\bdo uong\b/] },
+    { id: 'xe',   icon: '🚗', label: 'Ra xe / ra ngoài',  minutes: 20, kw: [/\bra xe\b/, /\bgui xe\b/, /\bra ngoai\b/, /\blay do\b/] },
+    { id: 'an',   icon: '🍜', label: 'Đi ăn trưa',        minutes: 40, kw: [/\ban trua\b/, /\ban com\b/, /\bdi an\b/, /\ban sang\b/, /\ban uong\b/, /\ban gi\b/, /\ban\b/, /\bcom\b/, /\bpho\b/, /\bbun\b/] },
+  ],
+};
+
+/* =====================================================================
+   SYSTEM PROMPT (v1) — bản sao đầy đủ nằm trong prompts.md
+   ===================================================================== */
+const BASE_PROMPT = `Bạn là "Trợ lý hàng chờ" trong một ứng dụng bệnh viện (bản prototype học tập). Người dùng là người bệnh hoặc người nhà ĐANG NGỒI CHỜ khám sau khi đã check-in.
+
+NHIỆM VỤ DUY NHẤT: giúp họ hiểu tình trạng hàng chờ để tự quyết định ngồi tiếp, đi vệ sinh, đi mua nước hay đi ăn mà không sợ lỡ lượt.
+
+BẠN LÀM ĐƯỢC:
+- Cho biết số người trước họ, ước tính thời gian chờ, mức tin cậy và lý do nếu hàng chờ chậm — CHỈ dựa trên NGỮ CẢNH HÀNG CHỜ bên dưới.
+- Đánh giá một chuyến đi ngắn có kịp quay lại trước lượt không, dùng bảng đánh giá sẵn trong ngữ cảnh.
+
+BẠN KHÔNG LÀM:
+- Không tư vấn y khoa: không bàn về triệu chứng, bệnh, thuốc, liều dùng, kết quả xét nghiệm, hay việc có được ăn/uống/nhịn trước khi khám hoặc xét nghiệm hay không. Khi gặp những câu này: nói nhẹ nhàng rằng mình không thể tư vấn, mời họ hỏi nhân viên y tế hoặc bác sĩ, và kết thúc câu trả lời bằng thẻ [[HANDOFF]].
+- Nếu người dùng nhắc dấu hiệu khẩn cấp (đau ngực, khó thở, ngất, co giật, chảy máu nhiều, yếu hoặc liệt nửa người, méo miệng, lơ mơ...): chỉ trả lời 1–2 câu, yêu cầu BÁO NGAY nhân viên y tế gần nhất, và kết thúc bằng thẻ [[EMERGENCY]]. Không hỏi thêm, không trấn an kiểu "chắc không sao đâu".
+- Không bịa thông tin không có trong ngữ cảnh (quy định khi lỡ lượt, tên bác sĩ, giá, vị trí căng-tin...). Nếu không biết, nói thẳng "mình không có thông tin này" và gợi ý hỏi quầy tiếp đón hoặc bấm "Gọi nhân viên hỗ trợ".
+- Không hứa chắc chắn. Không bao giờ đưa ra một con số phút duy nhất.
+
+CÁCH NÓI VỀ THỜI GIAN:
+- Luôn dùng KHOẢNG (ví dụ "khoảng 40–65 phút nữa"), giữ đúng khoảng trong ngữ cảnh, không tự thu hẹp.
+- Luôn nêu mức tin cậy bằng lời: "ổn định" hoặc "dao động"; nếu dao động thì nói lý do có trong ngữ cảnh.
+- Khi hàng chờ chậm: giải thích lý do nếu ngữ cảnh có; nếu ngữ cảnh ghi "chưa rõ lý do" thì nói thật là chưa rõ.
+- Khi đánh giá chuyến đi: dùng đúng 3 mức KỊP / SÁT GIỜ / KHÔNG KỊP theo bảng trong ngữ cảnh. Với SÁT GIỜ hoặc khi hàng chờ dao động, nghiêng về phía an toàn (gợi ý việc ngắn hơn hoặc chờ thêm).
+- Khi khuyên đi hay ở, nhắc ngắn rằng đây là ước tính, không phải cam kết.
+
+GIỌNG VĂN: tiếng Việt, xưng "mình" – gọi "bạn", ấm áp, ngắn gọn (tối đa 3–4 câu), không dùng markdown hay danh sách dài. Không tự nhận là bác sĩ hay nhân viên y tế.`;
+
+const VARIANT_PROMPTS = {
+  A: `CHẾ ĐỘ A — CHỜ ĐƯỢC HỎI:
+Chỉ trả lời đúng câu người dùng hỏi. Không chủ động đề xuất thêm việc khác, không hỏi ngược lại. Nếu người dùng hỏi có kịp đi đâu đó mà không nói thời gian, hãy tự dùng thời gian điển hình trong bảng đánh giá và NÓI RÕ giả định đó (ví dụ "nếu đi ăn khoảng 40 phút thì...").`,
+  B: `CHẾ ĐỘ B — CHỦ ĐỘNG BÁO:
+Ứng dụng tự gửi thông báo theo mốc (các tin bắt đầu bằng "[Thông báo chủ động]" trong hội thoại là do hệ thống gửi). Khi trả lời, có thể nhắc mốc tiếp theo người dùng nên chú ý (ví dụ: khi còn 5 người nên quay lại khu chờ). Nếu người dùng hỏi có kịp mà không nói thời gian, tự dùng thời gian điển hình trong bảng và nói rõ giả định. Nếu người dùng thấy bị làm phiền, nhắc họ có thể bấm "Tắt thông báo".`,
+  C: `CHẾ ĐỘ C — HỎI TRƯỚC KHI ĐOÁN:
+Nếu người dùng muốn rời khu chờ hoặc hỏi có kịp không mà CHƯA nói rõ đi đâu hoặc mất bao lâu, KHÔNG được đoán: hỏi lại đúng MỘT câu ngắn, ví dụ "Bạn định đi đâu, mất khoảng bao lâu?". Khi đã biết thời gian, trả lời KỊP / SÁT GIỜ / KHÔNG KỊP dựa trên ngữ cảnh, rồi hỏi họ có muốn mình nhắc khi còn 3 người không. Không hỏi quá một câu liên tiếp; nếu người dùng không muốn trả lời thì dùng thời gian điển hình và nói rõ giả định.`,
+};
+
+/* =====================================================================
+   STATE + SIMULATION
+   ===================================================================== */
+let S = null;          // queue state
+let variant = 'A';
+let chatHistory = [];  // {role, content} gửi cho LLM
+let chatOpen = false;
+let busy = false;
+let reminderAt = null; // C: nhắc khi còn N người (opt-in)
+let timer = null;
+let sessionLog = [];
+
+function resetState() {
+  S = {
+    clock: SCENARIO.startClock,
+    simMinutes: 0,
+    serving: SCENARIO.startServing,
+    curDur: SCENARIO.currentDuration,
+    curElapsed: SCENARIO.currentElapsed,
+    history: SCENARIO.history.slice(),
+    paused: false, pauseLeft: 0, pauseElapsed: 0,
+    consultDone: false, consultEndedAt: null,
+    slowFlagFor: null,
+    milestones: {},
+    called: false,
+  };
+}
+
+function ahead() { return Math.max(0, SCENARIO.myNumber - S.serving - 1); }
+function fmtClock(m) { const h = Math.floor(m / 60) % 24, mm = m % 60; return String(h).padStart(2, '0') + ':' + String(mm).padStart(2, '0'); }
+function mean(a) { return a.reduce((s, x) => s + x, 0) / a.length; }
+function sd(a) { const m = mean(a); return Math.sqrt(mean(a.map(x => (x - m) ** 2))); }
+
+function tick() {
+  if (S.called) return;
+  S.clock++; S.simMinutes++;
+  if (document.getElementById('fAutoConsult').checked && !S.consultDone && !S.paused &&
+      S.simMinutes === SCENARIO.consult.autoAtSimMinute) startConsult('auto');
+
+  if (S.paused) {
+    S.pauseLeft--; S.pauseElapsed++;
+    if (S.pauseLeft <= 0) {
+      S.paused = false; S.consultDone = true; S.consultEndedAt = S.clock;
+      queueEvent('consult_end');
+    }
+  } else {
+    S.curElapsed++;
+    const avg = mean(S.history.slice(-6));
+    if (S.curElapsed > avg * 1.6 && S.slowFlagFor !== S.serving) {
+      S.slowFlagFor = S.serving; queueEvent('slow');
+    }
+    if (S.curElapsed >= S.curDur) {
+      S.history.push(S.curDur);
+      S.serving++; S.curElapsed = 0;
+      S.curDur = SCENARIO.upcoming[S.serving] || 7;
+      if (S.serving >= SCENARIO.myNumber) { S.called = true; queueEvent('called'); }
+      else queueEvent('advance');
+    }
+  }
+  render();
+}
+
+function startConsult(src) {
+  if (S.paused || S.consultDone || S.called) return;
+  S.paused = true; S.pauseLeft = SCENARIO.consult.actualMinutes; S.pauseElapsed = 0;
+  logEvent('consult_start', { src });
+  queueEvent('consult_start');
+  render();
+}
+
+/* Ước tính — hệ thống chỉ biết lịch sử, không biết thời lượng thật */
+function estimate() {
+  const recent = S.history.slice(-6);
+  const avg = mean(recent), dev = sd(recent);
+  const a = ahead();
+  const reasons = [];
+  if (S.called) return { called: true, ahead: 0, low: 0, high: 0, level: 'ổn định', reasons, avg };
+  const remCur = Math.max(1, avg - S.curElapsed);
+  let low = remCur * 0.5 + a * avg * 0.8;
+  let high = remCur * 1.5 + a * avg * 1.25;
+  const slowNow = !S.paused && S.slowFlagFor === S.serving && S.curElapsed > avg * 1.6;
+  if (S.paused) {
+    low += Math.max(0, SCENARIO.consult.announcedLow - S.pauseElapsed);
+    high += Math.max(3, SCENARIO.consult.announcedHigh - S.pauseElapsed);
+    reasons.push(`Phòng khám đang tạm dừng: bác sĩ được mời hội chẩn (thông báo từ phòng khám: ${SCENARIO.consult.announcedLow}–${SCENARIO.consult.announcedHigh} phút, đã dừng ${S.pauseElapsed} phút).`);
+  }
+  if (slowNow) {
+    high += 5;
+    reasons.push(`Lượt đang khám (số ${S.serving}) đã kéo dài ${S.curElapsed} phút, lâu hơn thường lệ. Chưa rõ lý do.`);
+  }
+  if (!S.paused && S.consultEndedAt !== null && S.clock - S.consultEndedAt <= 10) {
+    reasons.push('Phòng khám vừa hoạt động lại sau hội chẩn, nhịp có thể chưa ổn định.');
+  }
+  if (dev / avg > 0.3) reasons.push('Thời gian mỗi lượt gần đây chênh nhau nhiều.');
+  low = Math.max(0, Math.floor(low / 5) * 5);
+  high = Math.ceil(high / 5) * 5;
+  if (high - low < 10) high = low + 10;
+  return {
+    called: false, ahead: a, low, high, avg,
+    avgLow: Math.max(1, Math.floor(avg - dev)), avgHigh: Math.ceil(avg + dev),
+    level: reasons.length ? 'dao động' : 'ổn định', reasons, paused: S.paused, slowNow,
+  };
+}
+
+function fmtRange(e) {
+  if (e.called) return 'đã đến lượt bạn';
+  if (e.low <= 0) return `trong vòng khoảng ${e.high} phút`;
+  return `khoảng ${e.low}–${e.high} phút nữa`;
+}
+
+/* Đánh giá chuyến đi — tính tất định trong JS để AI không tự bịa phép tính */
+function feasibility(minutes, e = estimate()) {
+  const need = minutes + SCENARIO.returnBuffer;
+  let code, label, why;
+  if (e.called) { code = 'no'; label = 'KHÔNG KỊP'; why = 'Đã đến lượt bạn.'; }
+  else if (need <= e.low) {
+    code = 'ok'; label = 'KỊP';
+    why = `Đi ~${minutes}' + ~${SCENARIO.returnBuffer}' quay lại = ~${need}', ngắn hơn mức sớm nhất của ước tính (${e.low}').`;
+  } else if (need <= e.high) {
+    code = 'mid'; label = 'SÁT GIỜ';
+    why = `~${need}' (gồm ${SCENARIO.returnBuffer}' quay lại) nằm trong khoảng ước tính ${e.low}–${e.high}': có thể đến lượt trước khi bạn quay lại.`;
+  } else {
+    code = 'no'; label = 'KHÔNG KỊP';
+    why = `~${need}' (gồm ${SCENARIO.returnBuffer}' quay lại) dài hơn cả mức muộn nhất của ước tính (${e.high}').`;
+  }
+  if (code === 'ok' && e.level === 'dao động') why += ' Hàng chờ đang dao động nên hãy để ý thông báo.';
+  return { code, label, why, need, minutes };
+}
+
+/* =====================================================================
+   CONTEXT nhúng vào mỗi request
+   ===================================================================== */
+function buildContext(lastUserText) {
+  const e = estimate();
+  const lines = [];
+  lines.push(`[NGỮ CẢNH HÀNG CHỜ — cập nhật lúc ${fmtClock(S.clock)}, dữ liệu mô phỏng]`);
+  lines.push(`- Phòng khám: ${SCENARIO.clinic}, phòng ${SCENARIO.room}`);
+  lines.push(`- Số của người dùng: ${SCENARIO.myNumber}`);
+  if (e.called) {
+    lines.push(`- TRẠNG THÁI: ĐÃ ĐẾN LƯỢT — người dùng cần vào phòng ${SCENARIO.room} ngay.`);
+  } else {
+    lines.push(`- Đang khám: số ${S.serving} (đã vào ${S.curElapsed} phút)`);
+    lines.push(`- Số người trước người dùng: ${e.ahead} (chưa tính người đang khám)`);
+    lines.push(`- Nhịp gần đây: khoảng ${e.avgLow}–${e.avgHigh} phút/lượt (6 lượt gần nhất)`);
+    lines.push(`- Ước tính đến lượt: ${fmtRange(e)}`);
+    lines.push(`- Mức tin cậy: ${e.level}`);
+    lines.push(`- Sự kiện bất thường / lý do: ${e.reasons.length ? e.reasons.join(' ') : 'không có'}`);
+    lines.push(`- Bảng đánh giá chuyến đi (đã cộng ${SCENARIO.returnBuffer} phút quay lại):`);
+    for (const t of SCENARIO.trips) lines.push(`  • ${t.label} (~${t.minutes} phút): ${feasibility(t.minutes, e).label}`);
+    for (const m of [10, 30, 60]) lines.push(`  • Việc khác ~${m} phút: ${feasibility(m, e).label}`);
+    const parsed = lastUserText ? parseMinutes(lastUserText) : null;
+    if (parsed) lines.push(`- Người dùng vừa nêu thời gian ~${parsed} phút → ${feasibility(parsed, e).label}`);
+  }
+  if (variant === 'C' && reminderAt) lines.push(`- Người dùng đã đồng ý được nhắc khi còn ${reminderAt} người.`);
+  if (variant === 'B') lines.push(`- Thông báo chủ động: ${notifOn() ? 'đang bật' : 'người dùng đã tắt'}`);
+  return lines.join('\n');
+}
+
+function buildSystemPrompt(lastUserText) {
+  return BASE_PROMPT + '\n\n' + VARIANT_PROMPTS[variant] + '\n\n' + buildContext(lastUserText);
+}
+
+/* =====================================================================
+   TEXT HELPERS: chuẩn hóa, phát hiện ý định, an toàn
+   ===================================================================== */
+function norm(s) {
+  return ' ' + s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/[^\w\s']/g, ' ').replace(/\s+/g, ' ') + ' ';
+}
+const EMERGENCY_RX = [/\bdau nguc\b/, /\btuc nguc\b/, /\bkho tho\b/, /\bkhong tho\b/, /\bngat\b/, /\bxiu\b/, /\bco giat\b/,
+  /\bchay mau\b/, /\bdot quy\b/, /\bmeo mieng\b/, /\bliet\b/, /\byeu nua nguoi\b/, /\bbat tinh\b/, /\blo mo\b/,
+  /\bnon ra mau\b/, /\bcap cuu\b/, /\bkhan cap\b/, /\btim dap nhanh\b/, /\bdau dau du doi\b/];
+// Lưu ý: sau khi bỏ dấu, "đâu"→"dau", "liệu"→"lieu", "tiệm"→"tiem", "thuộc"→"thuoc", "họ/hồ"→"ho"
+// nên chỉ bắt theo cụm từ, không bắt từ đơn lẻ dễ nhầm.
+const MEDICAL_RX = [/\bthuoc\b(?! (phong|khoa|ve|tang|khu))/, /\btrieu chung\b/, /\bchan doan\b/, /\bxet nghiem\b/, /\bket qua\b/,
+  /\bbi dau\b/, /\bcon dau\b/, /\bdau (bung|dau|lung|hong|rang|bao tu|da day|khop|mat|tai|qua)\b/, /\bsot\b/,
+  /\bhuyet ap\b/, /\btieu duong\b/, /\blieu (dung|luong|thuoc)\b/, /\bkhang sinh\b/, /\bnhin an\b/, /\bnhin doi\b/,
+  /\btiem (phong|vac|thuoc)\b/, /\bmui tiem\b/, /\bvac ?xin\b/, /\bdi ung\b/, /\bbi benh\b/, /\bbenh gi\b/, /\bmang thai\b/,
+  /\bbi ho\b/, /\bho (khan|nhieu|dom|ra mau)\b/, /\bbuon non\b/, /\bchong mat\b/, /\bmet\b/, /\bsieu am\b/];
+function isEmergency(t) { const n = norm(t); return EMERGENCY_RX.some(r => r.test(n)); }
+function isMedical(t) { const n = norm(t); return MEDICAL_RX.some(r => r.test(n)); }
+function parseMinutes(t) {
+  const n = norm(t);
+  let m = n.match(/\b(\d{1,3}) ?(phut|p)\b/) || n.match(/\b(\d{1,3})'/);
+  if (m) return parseInt(m[1], 10);
+  if (/\bnua tieng\b/.test(n)) return 30;
+  if (/\bmot tieng\b/.test(n)) return 60;
+  m = n.match(/\b(\d) ?tieng\b/); // không bắt "giờ" vì dễ nhầm với giờ đồng hồ (11 giờ)
+  if (m) return parseInt(m[1], 10) * 60;
+  return null;
+}
+function detectTrip(t) {
+  const n = norm(t);
+  return SCENARIO.trips.find(tr => tr.kw.some(r => r.test(n))) || null;
+}
+
+/* =====================================================================
+   OFFLINE "KỊCH BẢN MẪU" — câu trả lời soạn sẵn khi chưa có API key
+   ===================================================================== */
+function scriptedReply(text) {
+  const n = norm(text);
+  const e = estimate();
+  const conf = e.level === 'ổn định' ? 'Mức tin cậy: ổn định.' : `Mức tin cậy: dao động — ${e.reasons[0]}`;
+  const out = { text: '', handoff: false, askTrip: false, verdict: null };
+
+  if (isMedical(text)) {
+    out.text = 'Câu này liên quan đến sức khỏe nên mình không thể tư vấn. Bạn hãy hỏi nhân viên y tế ở quầy hoặc bác sĩ khi vào khám nhé — mình có thể giúp bạn gọi nhân viên ngay.';
+    out.handoff = true; return out;
+  }
+  if (e.called) { out.text = `Đã đến lượt bạn! Mời bạn vào phòng ${SCENARIO.room} ngay nhé.`; return out; }
+
+  const trip = detectTrip(text);
+  const mins = parseMinutes(text);
+  const wantsLeave = trip || mins || /\b(kip|di dau|ra ngoai|roi di|di dau do|di mot chut)\b/.test(n);
+  if (wantsLeave) {
+    if (variant === 'C' && !mins && !trip) {
+      out.text = 'Trước khi trả lời, cho mình hỏi: bạn định đi đâu, mất khoảng bao lâu?';
+      out.askTrip = true; return out;
+    }
+    if (variant === 'C' && trip && !mins && !text.includes('khoảng')) {
+      out.text = `Bạn định ${trip.label.toLowerCase()} — mất khoảng bao lâu? (ví dụ "15 phút")`;
+      out.askTrip = true; return out;
+    }
+    const minutes = mins || trip.minutes;
+    const f = feasibility(minutes, e);
+    const assume = mins ? '' : `Mình giả định ${trip.label.toLowerCase()} mất khoảng ${minutes} phút. `;
+    const tail = { ok: 'Nhớ đây chỉ là ước tính, không phải cam kết.', mid: 'Nếu được, bạn nên chọn việc ngắn hơn hoặc chờ thêm vài lượt.', no: 'Bạn nên ở gần khu chờ thì an toàn hơn.' }[f.code];
+    // Thẻ kết luận (verdict card) đã hiện lý do → tin nhắn chỉ nêu giả định + bối cảnh + lời khuyên
+    out.text = `${assume}${f.label}. Còn ${e.ahead} người trước bạn, ${fmtRange(e)} (${e.level}). ${tail}`;
+    out.verdict = f;
+    if (variant === 'B' && notifOn() && !S.milestones.m5 && e.ahead > 5) out.text += ' Mình sẽ tự báo khi còn 5 người.';
+    return out;
+  }
+  if (/\b(sao|vi sao|tai sao|lau the|lau qua|cham|dung)\b/.test(n)) {
+    out.text = e.reasons.length
+      ? `Hàng chờ đang dao động vì: ${e.reasons.join(' ')} Ước tính mới: ${fmtRange(e)}.`
+      : `Hiện hàng chờ đang ổn định, khoảng ${e.avgLow}–${e.avgHigh} phút mỗi lượt. Còn ${e.ahead} người trước bạn, ${fmtRange(e)}.`;
+    return out;
+  }
+  if (/\b(lo luot|qua luot|bo lo|mat luot|goi ten)\b/.test(n)) {
+    out.text = 'Mình không có thông tin về quy định khi lỡ lượt. Nhân viên quầy tiếp đón sẽ trả lời chính xác — bạn có thể bấm "Gọi nhân viên hỗ trợ".';
+    out.handoff = true; return out;
+  }
+  if (/\b(nhan vien|nguoi that|tong dai|le tan)\b/.test(n)) {
+    out.text = 'Bạn bấm nút "🧑‍⚕️ Gọi nhân viên hỗ trợ" ở cuối màn hình, nhân viên quầy sẽ đến hỗ trợ bạn.';
+    out.handoff = true; return out;
+  }
+  if (/\b(bao lau|khi nao|may phut|con bao|bao nhieu nguoi|den luot|toi luot|con may)\b/.test(n)) {
+    out.text = `Còn ${e.ahead} người trước bạn, ${fmtRange(e)}. ${conf}`;
+    if (variant === 'B' && notifOn() && !S.milestones.m5 && e.ahead > 5) out.text += ' Mình sẽ tự báo bạn khi còn 5 người.';
+    return out;
+  }
+  if (/\b(chao|hello|hi|alo)\b/.test(n)) {
+    out.text = `Chào bạn! Hiện còn ${e.ahead} người trước bạn, ${fmtRange(e)}. Bạn cần mình kiểm tra gì?`;
+    return out;
+  }
+  out.text = 'Mình chỉ hỗ trợ được về hàng chờ: còn bao lâu, vì sao chậm, có kịp đi đâu đó không. Với câu hỏi khác, bạn hãy hỏi nhân viên quầy nhé.';
+  out.handoff = true;
+  return out;
+}
+
+/* =====================================================================
+   OPENAI CALL
+   ===================================================================== */
+function getKey() { try { return localStorage.getItem(LS_KEY) || (window.OPENAI_API_KEY || ''); } catch (_) { return window.OPENAI_API_KEY || ''; } }
+function getModel() { try { return localStorage.getItem(LS_MODEL) || window.OPENAI_MODEL || MODEL; } catch (_) { return window.OPENAI_MODEL || MODEL; } }
+function notifOn() { try { return localStorage.getItem(LS_NOTIF) !== '0'; } catch (_) { return true; } }
+function liveMode() { return !!getKey(); }
+
+async function callLLM(lastUserText) {
+  const messages = [{ role: 'system', content: buildSystemPrompt(lastUserText) }]
+    .concat(chatHistory.slice(-12).map(m => ({ role: m.role, content: m.content })));
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + getKey() },
+    body: JSON.stringify({ model: getModel(), messages, temperature: 0.3, max_tokens: 350 }),
+  });
+  if (!res.ok) {
+    let detail = '';
+    try { const j = await res.json(); detail = (j.error && j.error.message) || ''; } catch (_) {}
+    throw new Error('HTTP ' + res.status + (detail ? ' — ' + detail.slice(0, 120) : ''));
+  }
+  const j = await res.json();
+  return (j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || '';
+}
+
+/* =====================================================================
+   CHAT UI
+   ===================================================================== */
+const $ = id => document.getElementById(id);
+const chatEl = () => $('chat');
+
+function scrollChat() { const sc = $('screen'); sc.scrollTop = sc.scrollHeight; }
+
+function addMsg(kind, text, opts = {}) {
+  const d = document.createElement('div');
+  d.className = 'msg ' + kind;
+  if (opts.title) { const t = document.createElement('span'); t.className = 'ptitle'; t.textContent = opts.title; d.appendChild(t); }
+  d.appendChild(document.createTextNode(text));
+  if (opts.tag) { const t = document.createElement('span'); t.className = 'tag'; t.textContent = opts.tag; d.appendChild(t); }
+  chatEl().appendChild(d); scrollChat();
+  return d;
+}
+
+function addNode(node) { chatEl().appendChild(node); scrollChat(); return node; }
+
+function addChips(items, onPick) {
+  const wrap = document.createElement('div'); wrap.className = 'chips';
+  items.forEach(it => {
+    const b = document.createElement('button'); b.className = 'chip'; b.type = 'button'; b.textContent = it.label;
+    b.onclick = () => { wrap.querySelectorAll('button').forEach(x => x.disabled = true); onPick(it); };
+    wrap.appendChild(b);
+  });
+  return addNode(wrap);
+}
+
+function addVerdict(f) {
+  const d = document.createElement('div');
+  d.className = 'verdict ' + f.code;
+  const icon = { ok: '✅', mid: '⚠️', no: '⛔' }[f.code];
+  const vt = document.createElement('span'); vt.className = 'vt'; vt.textContent = `${icon} ${f.label}`;
+  const why = document.createElement('span'); why.className = 'why'; why.textContent = f.why + ' (Ước tính, không phải cam kết.)';
+  d.appendChild(vt); d.appendChild(why);
+  return addNode(d);
+}
+
+function addHandoff() {
+  const d = document.createElement('div'); d.className = 'handoff';
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = '🧑‍⚕️ Chuyển nhân viên hỗ trợ';
+  b.onclick = () => openStaff('handoff_in_chat');
+  d.appendChild(b); return addNode(d);
+}
+
+function addEmergency() {
+  const d = document.createElement('div'); d.className = 'emergency'; d.setAttribute('role', 'alert');
+  d.innerHTML = '<b>⚠️ Báo ngay nhân viên y tế gần nhất</b>Nếu bạn hoặc người đi cùng đang đau ngực, khó thở, ngất, co giật, chảy máu nhiều hay yếu/liệt nửa người: đừng chờ trong ứng dụng. Hãy gọi to nhân viên gần nhất hoặc đến ngay quầy tiếp đón. Trợ lý không đánh giá được mức độ nặng.';
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = '🧑‍⚕️ Gọi nhân viên ngay';
+  b.onclick = () => openStaff('emergency_block');
+  d.appendChild(b); return addNode(d);
+}
+
+const SUGGESTIONS = [
+  { label: 'Còn bao lâu nữa đến lượt mình?' },
+  { label: 'Vì sao hàng chờ chậm?' },
+  { label: 'Mình có kịp đi ăn trưa không?' },
+  { label: 'Mình đi vệ sinh được không?' },
+];
+
+function showSuggestions() { addChips(SUGGESTIONS, it => { logEvent('chip', { text: it.label }); send(it.label); }); }
+
+function setBusy(b) {
+  busy = b; $('btnSend').disabled = b; $('chatInput').disabled = b;
+  const ex = $('typing'); if (ex) ex.remove();
+  if (b) { const t = document.createElement('div'); t.className = 'typing'; t.id = 'typing'; t.textContent = 'Trợ lý đang trả lời…'; addNode(t); }
+}
+
+async function send(text, extra = {}) {
+  text = text.trim(); if (!text || busy) return;
+  addMsg('user', text);
+  chatHistory.push({ role: 'user', content: text });
+  logEvent('user_msg', { text });
+
+  // An toàn tất định: khẩn cấp KHÔNG đi qua LLM
+  if (isEmergency(text)) {
+    addEmergency();
+    const reply = 'Mình không đánh giá được tình trạng này. Hãy báo ngay nhân viên y tế gần nhất hoặc bấm "Gọi nhân viên ngay" ở trên.';
+    addMsg('bot', reply, { tag: 'phản hồi an toàn cố định' });
+    chatHistory.push({ role: 'assistant', content: reply });
+    logEvent('emergency_shown', { text });
+    return;
+  }
+
+  if (extra.verdict) addVerdict(extra.verdict);
+
+  if (liveMode()) {
+    setBusy(true);
+    try {
+      const raw = await callLLM(text);
+      setBusy(false);
+      const emergency = raw.includes('[[EMERGENCY]]');
+      const handoff = raw.includes('[[HANDOFF]]');
+      const clean = raw.replace(/\[\[(HANDOFF|EMERGENCY)\]\]/g, '').trim() || '(trợ lý không trả lời được — hãy thử lại hoặc gọi nhân viên)';
+      if (emergency) addEmergency();
+      addMsg('bot', clean, { tag: 'AI · ' + getModel() });
+      chatHistory.push({ role: 'assistant', content: clean });
+      if (handoff || (!emergency && isMedical(text))) addHandoff();
+      logEvent('bot_msg', { mode: 'live', text: clean, handoff, emergency });
+      afterReply(text, clean);
+      return;
+    } catch (err) {
+      setBusy(false);
+      addMsg('bot', `Không gọi được AI (${err.message}). Mình trả lời tạm bằng kịch bản mẫu bên dưới.`, { tag: 'lỗi kết nối' });
+      logEvent('api_error', { error: err.message });
+    }
+  }
+  // Fallback: kịch bản mẫu
+  const r = scriptedReply(text);
+  if (r.verdict && !extra.verdict) addVerdict(r.verdict);
+  addMsg('bot', r.text, { tag: 'kịch bản mẫu (chưa dùng AI thật)' });
+  chatHistory.push({ role: 'assistant', content: r.text });
+  if (r.handoff) addHandoff();
+  if (r.askTrip) showTripChips();
+  logEvent('bot_msg', { mode: 'mock', text: r.text });
+  afterReply(text, r.text);
+}
+
+/* C: sau khi đã có đánh giá chuyến đi → hỏi xin phép đặt nhắc (Ask, không Act) */
+function afterReply(userText, botText) {
+  if (variant !== 'C' || reminderAt || S.called) return;
+  const hasMinutes = parseMinutes(userText) || (detectTrip(userText) && userText.includes('khoảng'));
+  if (!hasMinutes) return;
+  addMsg('bot', 'Bạn có muốn mình nhắc khi còn 3 người trước bạn không?');
+  addChips([{ label: '🔔 Có, nhắc mình', v: true }, { label: 'Không cần', v: false }], it => {
+    logEvent('reminder_answer', { accept: it.v });
+    if (it.v) { reminderAt = 3; addMsg('bot', 'Đã đặt: mình sẽ nhắc khi còn 3 người. Bạn có thể bỏ nhắc bất cứ lúc nào bằng cách nhắn "bỏ nhắc".'); }
+    else addMsg('bot', 'Ok, mình sẽ không nhắc. Bạn cứ hỏi lại khi cần.');
+  });
+}
+
+function showTripChips() {
+  const items = SCENARIO.trips.map(t => ({ label: `${t.icon} ${t.label} (~${t.minutes}')`, trip: t }));
+  items.push({ label: '✍️ Tự nhập', custom: true });
+  addChips(items, it => {
+    if (it.custom) { logEvent('trip_chip', { custom: true }); $('chatInput').focus(); $('chatInput').placeholder = 'Ví dụ: ra ngoài mua đồ khoảng 25 phút'; return; }
+    logEvent('trip_chip', { trip: it.trip.id });
+    const text = `Mình định ${it.trip.label.toLowerCase()}, khoảng ${it.trip.minutes} phút`;
+    send(text, { verdict: feasibility(it.trip.minutes) });
+  });
+}
+
+/* =====================================================================
+   PROACTIVE (B) + REMINDER (C) + CALLED
+   ===================================================================== */
+let toastTimer = null;
+function showToast(title, body) {
+  $('toastTitle').textContent = title; $('toastBody').textContent = body; $('toastTime').textContent = fmtClock(S.clock);
+  $('toast').classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(hideToast, 9000);
+}
+function hideToast() { $('toast').classList.remove('show'); }
+
+function push(title, body) {
+  const content = `[Thông báo chủ động] ${title}. ${body}`;
+  chatHistory.push({ role: 'assistant', content });
+  addMsg('push', body, { title: '🔔 ' + title, tag: 'Thông báo chủ động · ' + fmtClock(S.clock) });
+  showToast(title, body);
+  logEvent('push', { title, body });
+}
+
+function queueEvent(type) {
+  const e = estimate();
+  logEvent('queue_' + type, { serving: S.serving, ahead: e.ahead, range: fmtRange(e), level: e.level });
+  if (type === 'called') {
+    // Hệ thống gọi số: giống nhau ở cả A/B/C (không phải hành vi AI)
+    if (variant === 'B' || reminderAt) showToast('Đến lượt bạn', `Mời số ${SCENARIO.myNumber} vào phòng ${SCENARIO.room}.`);
+    return;
+  }
+  if (variant === 'C' && reminderAt && e.ahead <= reminderAt && !S.milestones.reminder) {
+    S.milestones.reminder = true;
+    const body = `Như bạn đã nhờ: còn ${e.ahead} người trước bạn, ${fmtRange(e)}. Bạn nên quay lại khu chờ phòng ${SCENARIO.room}.`;
+    chatHistory.push({ role: 'assistant', content: '[Nhắc theo yêu cầu] ' + body });
+    addMsg('push', body, { title: '🔔 Nhắc theo yêu cầu của bạn', tag: fmtClock(S.clock) });
+    showToast('Nhắc theo yêu cầu của bạn', body);
+    logEvent('reminder_fired', {});
+  }
+  if (variant !== 'B' || !notifOn()) return;
+  if (type === 'advance' && e.ahead <= 5 && !S.milestones.m5) {
+    S.milestones.m5 = true;
+    push('Còn 5 người trước bạn', `Ước tính ${fmtRange(e)} (${e.level}). Nếu bạn đang ở xa, nên bắt đầu quay lại khu chờ phòng ${SCENARIO.room}.`);
+  } else if (type === 'advance' && e.ahead <= 2 && !S.milestones.m2) {
+    S.milestones.m2 = true;
+    push('Sắp đến lượt', `Còn ${e.ahead} người trước bạn, ${fmtRange(e)}. Bạn nên ngồi gần cửa phòng ${SCENARIO.room}.`);
+  } else if (type === 'consult_start') {
+    push('Hàng chờ tạm dừng', `Bác sĩ được mời hội chẩn, phòng khám tạm dừng khoảng ${SCENARIO.consult.announcedLow}–${SCENARIO.consult.announcedHigh} phút. Ước tính mới: ${fmtRange(e)} — mức tin cậy: dao động.`);
+  } else if (type === 'consult_end') {
+    push('Phòng khám hoạt động lại', `Bác sĩ đã quay lại. Còn ${e.ahead} người trước bạn, ${fmtRange(e)}. Nhịp có thể chưa ổn định trong vài lượt đầu.`);
+  } else if (type === 'slow') {
+    push('Lượt hiện tại kéo dài hơn thường lệ', `Số ${S.serving} đã khám ${S.curElapsed} phút, lâu hơn mức thường gặp. Mình chưa rõ lý do. Ước tính đã nới ra: ${fmtRange(e)}.`);
+  }
+}
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+function render() {
+  const e = estimate();
+  $('clock').textContent = fmtClock(S.clock);
+  $('serving').textContent = S.called ? SCENARIO.myNumber : S.serving;
+  $('aheadNum').textContent = e.ahead;
+  $('etaRange').textContent = e.called ? 'Đến lượt bạn' : (e.ahead === 0 ? `Bạn là người tiếp theo · ${fmtRange(e)}` : fmtRange(e));
+  $('etaSub').textContent = e.called ? '' : `Nhịp gần đây: khoảng ${e.avgLow}–${e.avgHigh} phút/lượt`;
+  const badge = $('confBadge');
+  badge.textContent = e.level === 'ổn định' ? 'Ổn định' : 'Dao động';
+  badge.className = 'badge ' + (e.level === 'ổn định' ? 'stable' : 'vary');
+  badge.title = e.level === 'ổn định' ? 'Các lượt gần đây đều nhau, không có sự kiện bất thường' : 'Có yếu tố làm ước tính kém chắc chắn — xem lý do bên dưới';
+  const rb = $('reasonsBox'); rb.innerHTML = '';
+  if (e.reasons.length) {
+    const d = document.createElement('div'); d.className = 'reasons';
+    e.reasons.forEach(r => { const p = document.createElement('p'); p.textContent = '⏳ ' + r; d.appendChild(p); });
+    rb.appendChild(d);
+  }
+  $('updated').textContent = `Cập nhật lúc ${fmtClock(S.clock)} · dữ liệu mô phỏng`;
+  // dots
+  const dots = $('dots'); dots.innerHTML = '';
+  if (!e.called) {
+    const room = document.createElement('div'); room.className = 'dot room'; room.title = 'Đang khám'; room.textContent = '▶'; dots.appendChild(room);
+    for (let i = 0; i < Math.min(e.ahead, 12); i++) { const d = document.createElement('div'); d.className = 'dot'; dots.appendChild(d); }
+    const me = document.createElement('div'); me.className = 'dot me'; me.title = 'Bạn'; me.textContent = '★'; dots.appendChild(me);
+  }
+  $('calledBox').innerHTML = e.called ? `<div class="called">🔔 Mời số ${SCENARIO.myNumber} vào phòng ${SCENARIO.room}<small>Hệ thống gọi số · ${fmtClock(S.clock)}</small></div>` : '';
+  // mode pill
+  const pill = $('modePill');
+  if (liveMode()) { pill.textContent = 'AI thật · ' + getModel(); pill.className = 'mode-pill live'; }
+  else { pill.textContent = 'Kịch bản mẫu — chưa có API key'; pill.className = 'mode-pill mock'; }
+  // muted note (B)
+  const mn = $('mutedNote'); mn.innerHTML = '';
+  if (variant === 'B' && !notifOn()) {
+    const b = document.createElement('button'); b.className = 'muted-chip'; b.textContent = '🔕 Đã tắt thông báo chủ động — bấm để bật lại';
+    b.onclick = () => { setNotif(true); logEvent('notif_on', { src: 'chip' }); };
+    mn.appendChild(b);
+  }
+  renderSim(e);
+}
+
+function renderSim(e) {
+  $('simState').innerHTML = '';
+  const kv = [
+    ['Giờ mô phỏng', fmtClock(S.clock) + ` (+${S.simMinutes}')`],
+    ['Đang khám', `${S.serving} · ${S.curElapsed}/${S.curDur}' (thật)`],
+    ['Hội chẩn', S.paused ? `đang dừng, còn ${S.pauseLeft}' (thật)` : (S.consultDone ? 'đã xong' : 'chưa')],
+    ['Ước tính', fmtRange(e) + ' · ' + e.level],
+    ['Chế độ AI', liveMode() ? 'AI thật · ' + getModel() : 'kịch bản mẫu'],
+  ];
+  kv.forEach(([k, v]) => { const a = document.createElement('span'); a.textContent = k; const b = document.createElement('span'); b.textContent = v; $('simState').append(a, b); });
+}
+
+function setChatOpen(open) {
+  chatOpen = open;
+  $('chatWrap').hidden = !open;
+  $('composer').hidden = !open;
+  $('askWrap').hidden = open || variant !== 'A';
+  $('btnCloseChat').hidden = variant !== 'A';
+}
+
+/* =====================================================================
+   VARIANT INIT — mỗi phương án bắt đầu từ cùng điểm xuất phát
+   ===================================================================== */
+function initVariant(v, doReset) {
+  variant = v;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.v === v));
+  if (doReset) resetState();
+  chatHistory = []; reminderAt = null; chatEl().innerHTML = ''; hideToast();
+  $('chatInput').placeholder = 'Hỏi về hàng chờ, ví dụ: còn bao lâu?';
+  render();
+  const e = estimate();
+  if (v === 'A') {
+    setChatOpen(false);
+  } else if (v === 'B') {
+    setChatOpen(true);
+    const intro = `Mình sẽ tự báo bạn khi: còn 5 người, còn 2 người, hoặc hàng chờ chậm bất thường (kèm lý do nếu có). Hiện còn ${e.ahead} người, ${fmtRange(e)} (${e.level}). Bạn có thể tắt thông báo bất cứ lúc nào.`;
+    addMsg('push', intro, { title: '🔔 Trợ lý sẽ chủ động báo', tag: 'Thông báo chủ động · ' + fmtClock(S.clock) });
+    chatHistory.push({ role: 'assistant', content: '[Thông báo chủ động] ' + intro });
+    showSuggestions();
+  } else if (v === 'C') {
+    setChatOpen(true);
+    const q = `Chào bạn 👋 Hiện còn ${e.ahead} người trước bạn. Trước khi gợi ý, cho mình hỏi: bạn định đi đâu, mất khoảng bao lâu? (Hoặc bạn cứ hỏi điều khác về hàng chờ.)`;
+    addMsg('bot', q);
+    chatHistory.push({ role: 'assistant', content: q });
+    showTripChips();
+  }
+  logEvent('variant_start', { variant: v, reset: !!doReset });
+}
+
+/* =====================================================================
+   SETTINGS / STAFF / LOG
+   ===================================================================== */
+function setNotif(on) { try { localStorage.setItem(LS_NOTIF, on ? '1' : '0'); } catch (_) {} $('inNotif').checked = on; render(); }
+
+function openSettings() {
+  $('inKey').value = getKey();
+  try { $('inModel').value = localStorage.getItem(LS_MODEL) || ''; } catch (_) {}
+  $('inModel').placeholder = MODEL; $('defModel').textContent = MODEL;
+  $('inNotif').checked = notifOn();
+  $('settingsBg').classList.add('show');
+}
+function closeSettings() { $('settingsBg').classList.remove('show'); }
+
+function openStaff(src) { $('staffBg').classList.add('show'); logEvent('staff_call', { src }); }
+
+function logEvent(type, data = {}) {
+  const entry = { t: new Date().toISOString().slice(11, 19), sim: S ? fmtClock(S.clock) : '', v: variant, type, ...data };
+  sessionLog.push(entry);
+  try { localStorage.setItem(LS_LOG, JSON.stringify(sessionLog.slice(-500))); } catch (_) {}
+  const box = $('logBox');
+  if (box) {
+    const short = Object.entries(data).map(([k, v]) => `${k}=${typeof v === 'string' ? v.slice(0, 60) : v}`).join(' ');
+    box.textContent += `${entry.t} [${entry.v}] ${type} ${short}\n`;
+    box.scrollTop = box.scrollHeight;
+  }
+}
+
+function setSpeed(ms) {
+  clearInterval(timer); timer = null;
+  if (ms > 0) timer = setInterval(tick, ms);
+}
+
+/* =====================================================================
+   WIRE UP
+   ===================================================================== */
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  if (t.dataset.v === variant) return;
+  initVariant(t.dataset.v, $('fResetOnTab').checked);
+}));
+$('btnAsk').onclick = () => {
+  setChatOpen(true); logEvent('ask_open', {});
+  if (!chatEl().children.length) {
+    const greet = 'Chào bạn, mình là trợ lý hàng chờ. Bạn muốn biết gì về lượt khám của mình?';
+    addMsg('bot', greet); chatHistory.push({ role: 'assistant', content: greet });
+    showSuggestions();
+  }
+  $('chatInput').focus();
+};
+$('btnCloseChat').onclick = () => { setChatOpen(false); logEvent('ask_close', {}); };
+$('chatForm').addEventListener('submit', ev => {
+  ev.preventDefault();
+  const v = $('chatInput').value; $('chatInput').value = '';
+  if (variant === 'C' && reminderAt && /\bbo nhac\b|\bhuy nhac\b/.test(norm(v))) {
+    addMsg('user', v); reminderAt = null; addMsg('bot', 'Đã bỏ nhắc.'); logEvent('reminder_cancel', {}); return;
+  }
+  send(v);
+});
+$('btnStaff').onclick = () => openStaff('bottom_bar');
+$('btnCloseStaff').onclick = () => $('staffBg').classList.remove('show');
+$('btnFF').onclick = () => { logEvent('fast_forward', { by: 'participant' }); for (let i = 0; i < 5; i++) tick(); };
+$('btnSettings').onclick = openSettings;
+$('btnCloseSettings').onclick = closeSettings;
+$('btnSaveSettings').onclick = () => {
+  try {
+    const k = $('inKey').value.trim(); if (k) localStorage.setItem(LS_KEY, k); else localStorage.removeItem(LS_KEY);
+    const m = $('inModel').value.trim(); if (m) localStorage.setItem(LS_MODEL, m); else localStorage.removeItem(LS_MODEL);
+  } catch (_) { alert('Trình duyệt chặn localStorage — không lưu được key.'); }
+  setNotif($('inNotif').checked);
+  logEvent('settings_saved', { live: liveMode(), model: getModel() });
+  closeSettings(); render();
+};
+$('btnClearKey').onclick = () => { try { localStorage.removeItem(LS_KEY); } catch (_) {} $('inKey').value = ''; render(); };
+$('toastHide').onclick = () => { hideToast(); logEvent('toast_dismiss', {}); };
+$('toastMute').onclick = () => { hideToast(); setNotif(false); logEvent('notif_off', { src: 'toast' }); };
+
+$('speed').onchange = ev => { setSpeed(+ev.target.value); logEvent('speed', { ms: +ev.target.value }); };
+$('fFF').onclick = () => { logEvent('fast_forward', { by: 'facilitator' }); for (let i = 0; i < 5; i++) tick(); };
+$('fConsult').onclick = () => startConsult('facilitator');
+$('fReset').onclick = () => initVariant(variant, true);
+$('fCopyLog').onclick = () => {
+  const txt = JSON.stringify(sessionLog, null, 2);
+  if (navigator.clipboard) navigator.clipboard.writeText(txt).then(() => alert('Đã copy log.'), () => alert('Không copy được — dùng Tải JSON.'));
+};
+$('fDownloadLog').onclick = () => {
+  const blob = new Blob([JSON.stringify(sessionLog, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'log-phien-' + new Date().toISOString().slice(0, 16).replace(/[:T]/g, '-') + '.json'; a.click();
+};
+$('fClearLog').onclick = () => { sessionLog = []; $('logBox').textContent = ''; try { localStorage.removeItem(LS_LOG); } catch (_) {} };
+
+/* Khởi động */
+resetState();
+initVariant('A', true);
+setSpeed(+$('speed').value);
+</script>
+</body>
+</html>
