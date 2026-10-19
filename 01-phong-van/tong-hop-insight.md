@@ -9,7 +9,7 @@
 | Số cuộc phỏng vấn đã có | 2 (P1, P2); P3 đang hẹn |
 | Mẫu | P1: nữ, 35-44, tự khám có người nhà đi cùng, BV tư lớn (Vinmec), từng khám nhiều ở công. P2: nữ, 18-24, tự khám có mẹ đi cùng, BV tư (lần gần nhất) + kể chi tiết một lần ở BV công tuyến cuối; bản thân/người nhà là nhân viên y tế |
 | Hạn chế của mẫu | Mẫu nhỏ (n=2), thuận tiện (họ hàng, bạn bè), kể lại từ trí nhớ; CẢ HAI đều "quen hệ thống" theo cách riêng (P1 có nền y khoa; P2 trong ngành y) — thiếu góc nhìn người không rành quy trình; P2 quá mốc 60 ngày của screener |
-| Nguồn khác | `ghi-chep-myvinmec.md` [CHƯA CÓ — đang làm] |
+| Nguồn khác | `ghi-chep-myvinmec.md` (19/10/2026, có screenshot đã che định danh) |
 
 ## 1. Ma trận so sánh P1/P2/P3 theo điểm đau
 
@@ -53,7 +53,10 @@ Ghi chú khác biệt: cả hai đều có người đi cùng; trải nghiệm T
 
 | # | Điều app cho thấy / không cho thấy | Screenshot |
 |---|---|---|
-| A1 | [ĐIỀN SAU KHI DÙNG THỬ — đặc biệt: app có chỗ xem kết quả không, có thông tin gì về hàng chờ/trong ngày khám không] | |
+| A1 | App KHÔNG có chức năng nào cho "trong buổi khám": không check-in, không số thứ tự, không trạng thái hàng chờ, không ước giờ, không trạng thái kết quả đang xử lý | mv-1-1 và mục 3 của ghi chép |
+| A2 | Không đặt được lịch trong ngày (ô "Hôm nay" bị mờ); giờ đặt phải "chờ tổng đài xác nhận lại khung thời gian khám chính xác" | mv-3-3, mv-3-4 |
+| A3 | Kết quả/hồ sơ chỉ xuất hiện SAU buổi khám (Hồ sơ sức khỏe liệt kê lượt khám đã xong; Đơn thuốc theo ngày) — khớp lời P1 | mv-6-2, mv-6-3 |
+| A4 | Chọn dịch vụ theo "triệu chứng" là danh sách tên bệnh chuyên môn xếp A-Z (Alzheimer, Bạch tạng…), khó cho người thường | mv-3-6 |
 
 ## 3. INTERPRETED – diễn giải của mình
 
@@ -102,7 +105,7 @@ Ghi chú khác biệt: cả hai đều có người đi cùng; trải nghiệm T
 
 | Việc | Vì sao | Khi nào |
 |---|---|---|
-| Ghi chép MyVinmec (soi chỗ xem kết quả + thông tin trong ngày khám) | Đối chiếu trực tiếp lời P1 về app | Hôm nay |
+| ~~Ghi chép MyVinmec~~ ĐÃ XONG 19/10 — bổ sung: thử hỏi mascot chat AI một câu về thời gian chờ | Đối chiếu trực tiếp lời P1 về app | Khi tiện |
 | P3: người ít đi viện / không người nhà ngành y | Phân xử H3 (tấm đệm) và kiểm tra I1 | Trước buổi present |
 | Hỏi bù P1: chờ kết quả bao nhiêu phút, "viện gọi" bằng gì | Lấp hai ô trống của đoạn chờ dài nhất | Khi tiện |
 | Thử prototype với 2-3 người, ưu tiên kịch bản "đang chờ kết quả" | Khớp điểm đau trọng tâm mới | Sau khi nộp link |

@@ -1,77 +1,59 @@
 # Ghi chép dùng thử MyVinmec – khoảnh khắc "chờ đến lượt khám"
 
-> [ĐIỀN SAU KHI DÙNG THỬ THẬT] File này là template. Mọi ô trống phải điền từ những gì mình thật sự làm và thật sự thấy trên app. Chỗ nào không làm được hoặc app không có thì ghi đúng như vậy ("không tìm thấy", "app không hiển thị"), đừng đoán.
-
 ## 0. Thông tin phiên dùng thử
 
 | Mục | Ghi |
 |---|---|
-| Ngày/giờ dùng | |
-| Thiết bị, hệ điều hành | |
-| Phiên bản app (Cài đặt hoặc cửa hàng ứng dụng) | |
-| Tài khoản | Tài khoản của chính mình. Không dùng thông tin của người khác. |
-| Mình đã đến cơ sở Vinmec nào chưa? | Có / Không. Nếu không, phần "ngày khám" ở nhiệm vụ 5 chỉ ghi những gì app cho thấy trước và sau lịch hẹn. |
+| Ngày/giờ dùng | Tối 19/10/2026, ~21:30–23:15 |
+| Thiết bị, hệ điều hành | iPhone, iOS |
+| Phiên bản app | [BẠN ĐIỀN nếu tiện — App Store] |
+| Tài khoản | Tài khoản mới tự đăng ký (để xem luồng người dùng mới) + xem màn hình hồ sơ trên một tài khoản người thân trong gia đình có dữ liệu khám thật, **với sự đồng ý của người đó**; mọi screenshot liên quan đã che tên, hồ sơ, đơn thuốc |
+| Mình đã đến cơ sở Vinmec nào trong phiên này chưa? | Không — phần "ngày khám" chỉ ghi những gì app cho thấy trước/sau lịch hẹn |
 
-Lưu ý: không đặt lịch khám giả gây chiếm chỗ của người bệnh thật. Nếu cần dừng ở bước xác nhận, dừng và ghi rõ "dừng ở bước xác nhận, không bấm đặt". Nếu đã đặt thật, hủy lịch theo đúng cách app hướng dẫn và ghi lại cách hủy có dễ không.
+Lưu ý tuân thủ: luồng đặt lịch được đi đến **màn hình xác nhận cuối cùng rồi dừng, không bấm XÁC NHẬN**, để không chiếm chỗ của người bệnh thật.
 
 ## 1. Kịch bản nhiệm vụ
 
-Đi theo thứ tự. Mỗi nhiệm vụ, bấm đồng hồ và ghi số bước/số lần chạm nếu tiện.
-
-| # | Nhiệm vụ | Mục đích với khoảnh khắc "chờ" |
-|---|---|---|
-| 1 | Tìm và cài app MyVinmec, mở lần đầu | Biết điểm bắt đầu của người dùng mới |
-| 2 | Đăng ký/đăng nhập (ghi lại những thông tin app đòi) | Xem rào cản đầu vào và app có hỏi quyền gì (thông báo, vị trí) |
-| 3 | Đặt lịch khám: chọn cơ sở, chuyên khoa, ngày giờ, tới bước xác nhận | Xem app có nói gì về giờ hẹn, giờ đến sớm, thời gian chờ dự kiến |
-| 4 | Sau khi đặt (hoặc ở màn hình xác nhận): đọc mọi thông báo, nhắc lịch, hướng dẫn trước ngày khám | Xem app chuẩn bị người dùng cho việc chờ ra sao |
-| 5 | Tìm xem trong ngày khám app cho mình làm gì: check-in, số thứ tự, trạng thái hàng chờ, ước tính giờ, thông báo khi đến lượt | Trọng tâm của bài. Nếu cần làm thật tại cơ sở thì ghi rõ; nếu không thì ghi "chỉ xem được màn hình/mô tả X" |
-| 6 | Tìm xem kết quả (xét nghiệm, chẩn đoán hình ảnh) và xem app báo thế nào khi kết quả đang chờ/đã có | Chờ kết quả cận lâm sàng là một phần của khoảnh khắc đã chọn |
-| 7 | Tìm nơi hỗ trợ: chat, hotline, hỏi đáp. Thử hỏi một câu về thời gian chờ | Xem khi người dùng lo lắng thì app trả lời được đến đâu |
+(Theo template: 1 cài app → 2 đăng ký → 3 đặt lịch tới bước xác nhận → 4 thông báo/nhắc lịch → 5 chức năng trong ngày khám → 6 xem kết quả → 7 kênh hỗ trợ.)
 
 ## 2. Bảng ghi chép từng bước
 
-Một dòng cho mỗi hành động đáng kể. Sao chép thêm dòng khi cần. Tên file screenshot đặt theo quy ước `mv-<số nhiệm vụ>-<số thứ tự>.png`, lưu trong `01-phong-van/anh-myvinmec/` (chỉ chụp màn hình app, không chụp thông tin cá nhân; che hoặc cắt tên, số điện thoại, mã bệnh nhân).
-
 | NV | Tôi làm gì | Tôi thấy gì | Tôi vướng ở đâu | Screenshot |
 |---|---|---|---|---|
-| | | | | |
-| | | | | |
-| | | | | |
-
-Ví dụ cách ghi (chỉ minh họa định dạng, KHÔNG phải kết quả thật):
-
-| NV | Tôi làm gì | Tôi thấy gì | Tôi vướng ở đâu | Screenshot |
-|---|---|---|---|---|
-| 5 | Mở mục lịch hẹn của tôi, tìm nút liên quan đến "check-in" | (ghi đúng chữ/biểu tượng trên màn hình) | (ghi cụ thể: không biết nút nằm ở đâu / chữ khó hiểu / ...) | mv-5-1.png |
-
-Quy tắc ghi: cột "Tôi thấy gì" chỉ mô tả sự việc quan sát được, trích đúng chữ trên màn hình trong ngoặc kép. Cột "vướng" ghi chỗ mình dừng lại, bấm nhầm, phải quay lại, hoặc không hiểu. Cảm nhận chung ("app khá ổn") để sang phần 4.
+| 2 | Đăng ký tài khoản mới bằng SĐT + mật khẩu | Màn hình "Đăng ký thành công — Chào mừng Quý khách đến với MyVinmec", mời "Cập nhật thông tin cá nhân để nhận được những gợi ý chăm sóc sức khỏe" | Không vướng; không thấy app nói gì về trải nghiệm trong ngày khám ở bước làm quen | mv-2-1, mv-2-2 |
+| 1 | Xem trang chủ | Lưới chức năng: "Lịch hẹn, Liên hệ, Dịch vụ y tế, Sổ tiêm, Đơn thuốc, Danh mục giá & quyền lợi, Quyền lợi CBNV Vingroup, Cộng đồng hỏi đáp bác sĩ, Cẩm nang làm mẹ, Nhắc lịch uống thuốc, Tạm ứng viện phí, Tất cả dịch vụ"; banner tiêm phòng; mục "Dịch vụ mới": "Cổng dịch vụ khách hàng", "Đặt lịch nhanh – Xác nhận lịch tự động"; mascot chat AI + nút Zalo nổi | KHÔNG thấy mục nào tên kiểu "hàng chờ", "check-in", "số thứ tự", "hôm nay đi khám" | mv-1-1 |
+| 3 | Mở Đặt lịch hẹn, điền thông tin người đặt | Form: chọn khách hàng (Tôi/người thân), họ tên, ngày sinh, SĐT, giới tính; chọn địa điểm; "Ngày khám mong muốn": **ô "Hôm nay (19)" bị mờ, không chọn được** — sớm nhất là ngày mai | Không đặt được lịch trong ngày qua app | mv-3-1, mv-3-2, mv-3-3 |
+| 3 | Chọn ngày 21/10, buổi Sáng | Dòng chữ: **"Lưu ý: Sau khi đặt hẹn, quý khách vui lòng chờ tổng đài xác nhận lại khung thời gian khám chính xác."** | Giờ mình chọn chưa phải giờ chốt — phải chờ tổng đài gọi lại; không nói khi nào gọi | mv-3-4 |
+| 3 | Thử 3 đường chọn dịch vụ: theo bác sĩ / theo chuyên khoa / theo triệu chứng | Theo bác sĩ: danh sách có học hàm, chuyên khoa, rating (vd 4.8/5) và "Phí khám giờ hành chính dự kiến" (690.000đ–1.200.000đ). Theo chuyên khoa: danh sách A-Z kèm mô tả ngắn, có khoa ghi đỏ "Chỉ khám cho khách hàng dưới 16 tuổi". Theo triệu chứng: danh sách rất dài xếp A-Z, nhiều mục là **tên bệnh** ("Alzheimer", "Bạch tạng", "Bệnh eales, glôcôm", "Bệnh lý mạch vành, can thiệp mạch vành, đặt stent…") | Chọn theo "triệu chứng" khó: người thường mô tả "đau bụng, sốt" sẽ phải dò danh sách tên bệnh chuyên môn xếp alphabet; phải dùng ô tìm kiếm mới khả thi | mv-3-9, mv-3-5, mv-3-6 |
+| 3 | Chọn giờ khám | Lưới slot 20 phút: 08:20 → 16:40 (trống 11:40–13:00 = nghỉ trưa); "Phí khám dự kiến 690.000đ" | Slot chỉ là "mong muốn" — đối chiếu dòng lưu ý tổng đài ở trên | mv-3-7 |
+| 3 | Đến màn hình "Thông tin đặt hẹn" cuối cùng | Tóm tắt: hình thức, khách hàng, lý do, bác sĩ, thời gian, địa điểm, chuyên khoa, phí + "Phí khám tại bệnh viện có thể thay đổi tùy theo dịch vụ sử dụng" + nút XÁC NHẬN | **Dừng tại đây, không bấm XÁC NHẬN** (không chiếm chỗ) | mv-3-8 |
+| 4 | Mở mục Lịch hẹn (tài khoản mới) | "Hiện tại bạn chưa có lịch hẹn nào" + hướng dẫn: "Nếu bạn đã nhận được tin nhắn SMS xác nhận đặt hẹn từ BV ĐKQT Vinmec nhưng chưa thấy thông tin lịch hẹn ở đây: 1. Kiểm tra bạn đã kết nối hồ sơ y tế chưa… 3. Liên hệ CSKH theo số hotline" | Lịch đặt xong có thể KHÔNG tự hiện trong app nếu chưa "kết nối hồ sơ y tế" — thêm một tầng bất định | mv-4-1 |
+| 5 | Tìm mọi chức năng cho NGÀY KHÁM (check-in, số thứ tự, hàng chờ, ước giờ) trên trang chủ, Đặt lịch, Hồ sơ, Tất cả dịch vụ | **Không tìm thấy chức năng nào.** Không check-in, không số thứ tự, không trạng thái hàng chờ, không ước tính giờ, không thông báo "sắp đến lượt" | Đây là khoảng trống lớn nhất đối với khoảnh khắc đã chọn | — |
+| 6 | Xem mục Hồ sơ trên tài khoản có dữ liệu thật (đã được đồng ý, ảnh đã che) | "Hồ sơ sức khỏe Vinmec" chia Ngoại trú/Nội trú/Cấp cứu/Giải phẫu bệnh, liệt kê **từng lượt khám đã xong** theo ngày với nút "Xem chi tiết"; "Đơn thuốc" theo ngày | Hồ sơ là dữ liệu **sau buổi khám**; không thấy trạng thái "kết quả đang xử lý / sắp có" cho buổi khám đang diễn ra — khớp lời P1 "kq thường cập nhật sau khi kết thúc khám" | mv-6-1, mv-6-2, mv-6-3 |
+| 7 | Kênh hỗ trợ | Thấy nút Zalo nổi, mascot chat AI, mục "Cộng đồng hỏi đáp bác sĩ", hotline trong màn Lịch hẹn | [CHƯA THỬ HỎI mascot AI một câu về thời gian chờ — làm bổ sung] | mv-1-1 |
 
 ## 3. Câu hỏi định hướng cho riêng khoảnh khắc chờ
 
-Trả lời bằng đúng những gì app cho thấy. Mỗi câu chọn một trong: Có (kèm screenshot) / Không thấy / Không kiểm tra được (kèm lý do).
-
-| Câu hỏi | Trả lời | Bằng chứng (screenshot hoặc mô tả) |
+| Câu hỏi | Trả lời | Bằng chứng |
 |---|---|---|
-| App có cho biết còn bao nhiêu người trước mình không? | | |
-| App có hiển thị số thứ tự của mình và số đang được gọi không? | | |
-| App có ước tính giờ được vào khám không? Nếu có, dựa trên gì (app có nói không)? Ước tính đó cập nhật khi tình hình đổi không? | | |
-| App có báo khi sắp đến lượt không? Báo trước bao lâu, qua kênh nào (thông báo đẩy, SMS, Zalo)? | | |
-| Nếu rời ghế chờ (đi vệ sinh, đi ăn, ra bãi xe) thì app nói gì? Có cách "giữ chỗ" hay biết mình có bị bỏ lượt không? | | |
-| Nếu bị gọi mà mình không có mặt thì quy định là gì, app có nêu không? | | |
-| Khi đang chờ kết quả cận lâm sàng, app có cho biết trạng thái (đã lấy mẫu, đang xử lý, đã có)? Có ước tính thời gian có kết quả không? | | |
-| Nếu việc chờ lâu hơn dự kiến, app có thông báo hay giải thích không? | | |
-| Nơi nào trong app mình tìm được các thông tin trên? Mất bao nhiêu bước để tới? | | |
-| Có thông tin nào về thời gian chờ mà app nói khác với những gì mình đọc ở nơi khác (website, hướng dẫn)? | | |
+| App có cho biết còn bao nhiêu người trước mình không? | **Không thấy** | Rà trang chủ, Đặt lịch, Hồ sơ (mv-1-1) |
+| App có hiển thị số thứ tự của mình và số đang được gọi không? | **Không thấy** | như trên |
+| App có ước tính giờ được vào khám không? | **Không thấy**; ngược lại giờ hẹn đặt qua app còn phải "chờ tổng đài xác nhận lại" | mv-3-4 |
+| App có báo khi sắp đến lượt không? | **Không thấy** trong app; theo P1, viện **gọi** khi có kết quả xét nghiệm (kênh ngoài app, chưa rõ gọi điện hay SMS) | P1 §3#8 |
+| Nếu rời ghế chờ thì app nói gì? Có cách giữ chỗ? | **Không thấy** bất kỳ nội dung nào về việc này | — |
+| Bị gọi mà vắng mặt thì quy định là gì, app có nêu? | **Không thấy** | — |
+| Chờ kết quả cận lâm sàng: app có trạng thái (đã lấy mẫu/đang xử lý/đã có)? | **Không thấy trạng thái**; chỉ có "Hồ sơ sức khỏe" hiện lượt khám ĐÃ XONG và "Đơn thuốc" sau buổi khám | mv-6-2, mv-6-3 |
+| Chờ lâu hơn dự kiến, app có thông báo/giải thích? | **Không kiểm tra được trong ngày khám thật** (phiên này không ở viện); không thấy chức năng nào có vẻ làm việc đó | — |
+| Mất bao nhiêu bước tới các thông tin trên? | Không áp dụng — các thông tin đó không tồn tại trong app ở phiên này | — |
+| Thông tin app khác với nguồn khác? | Tin nhắn SMS của viện (theo P1) dặn đến sớm 15'; app không nói gì về việc đến sớm trong luồng đặt | P1 §3#2 |
 
 ## 4. Nhận xét sau khi dùng (tách riêng khỏi facts)
 
-> [ĐIỀN SAU KHI DÙNG THỬ THẬT]
-
-- Điều mình quan sát chắc chắn (có screenshot):
-- Điều mình chưa kiểm tra được và vì sao:
-- Diễn giải/giả thuyết của mình (ghi rõ đây là suy luận, chưa phải evidence):
-- Câu hỏi mới nảy ra để đem vào phỏng vấn người thật (đưa vào `interview-guide.md` nếu cần, nhưng vẫn phải hỏi về quá khứ):
+- **Quan sát chắc chắn (có screenshot):** app hiện tại tập trung vào TRƯỚC buổi khám (đặt lịch, giá, chọn bác sĩ) và SAU buổi khám (hồ sơ, đơn thuốc); phần TRONG buổi khám — check-in, hàng chờ, trạng thái kết quả — trống hoàn toàn; không đặt được lịch trong ngày; giờ hẹn phải chờ tổng đài chốt lại.
+- **Chưa kiểm tra được:** hành vi app trong ngày khám tại cơ sở (có thể có thông báo đẩy không quan sát được từ ngoài viện); mascot chat AI trả lời gì khi hỏi về chờ; dịch vụ mới "Đặt lịch nhanh – Xác nhận lịch tự động" (chưa mở).
+- **Diễn giải (suy luận, chưa phải evidence):** khoảng trống "trong buổi khám" của app khớp chính xác với hai điểm đau từ phỏng vấn — P1 muốn thấy trạng thái kết quả, P2 phải tự ước lượng hàng chờ. Nghĩa là need statement nhắm vào quãng này không giẫm lên tính năng có sẵn nào của MyVinmec.
+- **Câu hỏi mới cho phỏng vấn sau:** khi nhận SMS hẹn và tổng đài gọi chốt giờ, anh/chị có tin giờ đó không, đến sớm bao nhiêu? Đã bao giờ dùng app/Zalo của viện trong lúc ngồi chờ chưa, để làm gì?
 
 ## 5. Giới hạn của phần dùng thử này
 
-Điền sau khi dùng: mình chỉ là một người dùng, không phải người bệnh đang ngồi chờ thật; nhiều chức năng trong ngày khám có thể chỉ hiện khi đang ở cơ sở. Vì vậy ghi chép này cho biết "app cho mình thấy gì", không chứng minh "người bệnh gặp gì". Phần đó dành cho phỏng vấn.
+Mình dùng app ngoài bệnh viện, không trong vai người bệnh đang ngồi chờ thật; một số chức năng có thể chỉ xuất hiện khi có lịch hẹn thật hoặc khi ở cơ sở. Ghi chép này cho biết "app cho mình thấy gì", không chứng minh "người bệnh gặp gì" — phần đó thuộc về phỏng vấn P1–P3. Phần hồ sơ/đơn thuốc xem trên tài khoản người thân có sự đồng ý, mọi ảnh đã che định danh và nội dung y tế.
