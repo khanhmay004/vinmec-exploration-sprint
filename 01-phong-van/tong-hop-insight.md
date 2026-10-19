@@ -1,128 +1,108 @@
 # Tổng hợp insight – "chờ đến lượt khám"
 
-> [ĐIỀN SAU KHI PHỎNG VẤN THẬT] File này là template. Chỉ điền sau khi P1, P2, P3 và ghi chép MyVinmec đã có dữ liệu thật. Không điền gì từ phỏng đoán hay từ kiến thức chung về bệnh viện. Nguyên tắc Day 17: facts trước, diễn giải sau; không tuyên bố "validated".
+> Bản tổng hợp sau P1, P2 (19/10/2026). P3 đang hẹn — các ô P3 để trống, sẽ cập nhật sau cuộc thứ ba và sau khi có ghi chép MyVinmec. Nguyên tắc Day 17: facts trước, diễn giải sau; không tuyên bố "validated".
 
 ## 0. Cơ sở của tổng hợp
 
 | Mục | Ghi |
 |---|---|
-| Số cuộc phỏng vấn đã có | |
-| Mẫu (nhóm tuổi, loại cơ sở, vai trò; không tên) | |
-| Hạn chế của mẫu (mẫu nhỏ, thuận tiện, người quen, kể lại từ trí nhớ...) | |
-| Nguồn khác | `ghi-chep-myvinmec.md` |
+| Số cuộc phỏng vấn đã có | 2 (P1, P2); P3 đang hẹn |
+| Mẫu | P1: nữ, 35-44, tự khám có người nhà đi cùng, BV tư lớn (Vinmec), từng khám nhiều ở công. P2: nữ, 18-24, tự khám có mẹ đi cùng, BV tư (lần gần nhất) + kể chi tiết một lần ở BV công tuyến cuối; bản thân/người nhà là nhân viên y tế |
+| Hạn chế của mẫu | Mẫu nhỏ (n=2), thuận tiện (họ hàng, bạn bè), kể lại từ trí nhớ; CẢ HAI đều "quen hệ thống" theo cách riêng (P1 có nền y khoa; P2 trong ngành y) — thiếu góc nhìn người không rành quy trình; P2 quá mốc 60 ngày của screener |
+| Nguồn khác | `ghi-chep-myvinmec.md` [CHƯA CÓ — đang làm] |
 
 ## 1. Ma trận so sánh P1/P2/P3 theo điểm đau
 
-Mỗi ô: ghi **Có / Không / Không kể / Không rõ**, kèm tham chiếu dòng trong log (ví dụ `P1 §3#4`). "Không kể" khác "Không": người đó chưa nhắc thì không được hiểu là không gặp.
-
-| Điểm đau / hành vi (rút ra từ log, không đặt trước) | P1 | P2 | P3 | Số người nhắc tới |
+| Điểm đau / hành vi | P1 | P2 | P3 | Số người nhắc |
 |---|---|---|---|---|
-| Thời gian chờ thực tế (ghi số người kể đưa ra, nhớ hay đọc từ giấy) | | | | |
-| Không biết còn bao lâu / không biết mình đang ở đâu trong hàng chờ | | | | |
-| Phải tự đi hỏi nhân viên/người xung quanh để biết thông tin | | | | |
-| Không rời chỗ (vệ sinh, ăn, uống, ra ngoài) vì sợ bị gọi mà vắng mặt | | | | |
-| Đã từng lỡ lượt / suýt lỡ lượt | | | | |
-| Hậu quả sau khi lỡ lượt (xếp lại, mất thêm thời gian, phải lấy số mới...) | | | | |
-| Thấy người đến sau vào trước, không hiểu vì sao | | | | |
-| Chờ kết quả cận lâm sàng: không biết trạng thái / thời gian | | | | |
-| Việc khác bị ảnh hưởng (công việc, đón con, bữa ăn, người đi cùng) | | | | |
-| Workaround đã dùng (đến sớm, nhờ người nhà đứng canh, gọi tổng đài, xem app...) | | | | |
-| Đã thay đổi hành vi cho lần khám sau | | | | |
-| (Thêm dòng cho điểm đau mới xuất hiện trong dữ liệu) | | | | |
+| Thời gian chờ thực tế (viện tư) | ~10' khám, 10-15' lấy máu, delay chụp 10-15' (nhớ) `P1 §3#3,7,10` | ~15' hồ sơ, ~10' khám, ~5' điều dưỡng, ~5' thuốc (nhớ, tự tin) `P2 §3#2-4` | | 2 — đều NGẮN, không ai gọi là điểm đau |
+| Thời gian chờ thực tế (viện công) | "nhanh hơn rất nhiều" ở tư = công lâu hơn nhiều (so sánh, không số) `P1 §3#15` | ~6 tiếng cho một lượt siêu âm (8:00 lấy số → ~14:00) `P2 §3#15-18` | | 2 |
+| Không biết còn bao lâu / đang ở đâu trong hàng | Không kể ở lượt có hẹn; mù trạng thái KẾT QUẢ (app không cập nhật sớm) `P1 §3#14` | Có, ở viện công: bảng số 400 vs mình 800, không ước tính nào từ hệ thống `P2 §3#15` | | 2 (hai dạng khác nhau) |
+| Phải tự đi hỏi để biết thông tin | Không kể | Không hỏi — "quen quy trình", biết cách hỏi khi cần `P2 §3#8,12` | | 0 có / 2 không-vì-có-đệm |
+| Không rời chỗ vì sợ bị gọi vắng mặt | Không — có đi vệ sinh, người nhà giữ chỗ `P1 §5#2` | Không — "em sẽ đi luôn", biết luật đẩy số lại `P2 §3#9` | | 0 — nhưng cả 2 đều có "tấm đệm" (xem I2) |
+| Đã từng lỡ lượt | Chưa từng; nghe nói đến muộn chỉ chờ một chút `P1 §3#12` | "Chắc cũng có nhưng không để tâm" `P2 §3#11` | | 0 ca có hậu quả |
+| Thấy người đến sau vào trước | Không kể | Có — do năn nỉ hoàn cảnh, "chả tò tác gì" `P2 §3#13` | | 1, không bực |
+| Chờ kết quả cận lâm sàng: mù trạng thái | CÓ — điểm khó chịu duy nhất tự nêu: "chờ sốt ruột", muốn kết quả đẩy sớm lên app `P1 §3#14, §4#1` | Không áp dụng lượt gần nhất (không cận lâm sàng); lần công: chờ máy 6 tiếng | | 1 trực tiếp + 1 gián tiếp |
+| Việc khác bị ảnh hưởng | Không kể | Mất gần nguyên buổi ở viện công; về nhà giữa chừng `P2 §5#1` | | 1 |
+| Workaround đã dùng | Người nhà giữ chỗ; đi ăn chờ viện gọi `P1 §5#1,2` | TỰ CANH tốc độ siêu âm × số người → về nhà, quay lại đúng giờ `P2 §5#1`; đi sớm hơn | | 2 — workaround đậm nhất của cả bài |
+| Đã thay đổi hành vi cho lần sau | Đến sớm 15' theo tin nhắn | "Đi sớm hơn thôi" | | 2 cùng một kiểu: đệm thời gian |
 
-Cách đọc: chỉ coi là "mẫu lặp" khi có ≥2 người kể **một sự việc cụ thể** (không chỉ cùng dùng một chữ). 1 người = tín hiệu đơn lẻ.
+Ghi chú khác biệt: cả hai đều có người đi cùng; trải nghiệm TỐT tập trung ở viện tư có lịch hẹn, trải nghiệm TỆ tập trung ở viện công hàng dài.
 
-Ghi chú về khác biệt giữa các người (tuổi, loại cơ sở, tự khám hay đi cùng):
-
-## 2. OBSERVED – điều đã quan sát được (chỉ facts, bắt buộc có nguồn)
-
-Mỗi dòng phải có nguồn P# (và mục trong log), hoặc ảnh chụp màn hình MyVinmec. Không dùng chữ "có lẽ", "chắc", "người bệnh thường".
+## 2. OBSERVED – điều đã quan sát được
 
 | # | Quan sát | Nguồn | Mạnh/yếu |
 |---|---|---|---|
-| O1 | | | |
-| O2 | | | |
-| O3 | | | |
+| O1 | P2 ở BV công tuyến cuối: lấy số 8:00 (bảng ~400, mình ~800), chờ 1 tiếng rồi về nhà; tự canh thời gian mỗi ca siêu âm, nhân lên, quay lại ~11:30, được siêu âm ~14:00 — ước lượng tự chế gần trúng | P2 §3#15-19, §5#1 | Mạnh (sự kiện cụ thể + hành động + hậu quả) |
+| O2 | P1: điểm khó chịu duy nhất cả buổi là chờ kết quả xét nghiệm — rời đi được (viện gọi) nhưng muốn xem kết quả sớm trên app; app chỉ cập nhật sau buổi khám | P1 §3#14, §4#1 | Mạnh (tự nêu, có chi tiết cơ chế) |
+| O3 | Cả P1 và P2 đều rời chỗ/sẵn sàng rời chỗ khi chờ, không sợ lỡ lượt — P1 nhờ người nhà giữ chỗ + viện gọi khi có kết quả; P2 nhờ biết luật "nói với người ta thì được đẩy số lên lại" | P1 §5#2; P2 §3#9 | Mạnh |
+| O4 | Thời gian chờ thực tế ở viện tư ngắn (5-15'/chặng) và cả hai đều nói nhanh hơn kỳ vọng; kỳ vọng nền hình thành từ viện công ("mặc định mỗi chỗ chờ ít nhất 30 phút") | P1 §3#3,7,13; P2 §3#10 | Mạnh |
+| O5 | Khi chờ lâu hơn dự kiến, cả hai đều BIẾT lý do: P1 được giải thích delay chụp (người trước chụp nhiều, chờ máy); P2 biết vì tình huống rõ hoặc biết cách hỏi | P1 §3#11; P2 §3#12 | Mạnh |
+| O6 | P2 đổi hành vi dài hạn duy nhất: đi sớm hơn; P1: đến sớm 15' theo tin nhắn hướng dẫn | P2 §3#14; P1 §3#2 | Vừa |
 
-Cách đánh dấu độ mạnh (theo Day 17): **Mạnh** = một lần cụ thể đã xảy ra, có hành động hoặc hậu quả; **Yếu** = ý kiến, dự đoán, compliment, feature request chưa đào vào workaround.
+### Trích dẫn tiêu biểu
 
-Ví dụ cách viết (minh họa định dạng, KHÔNG phải dữ liệu): "O1. P2 kể rằng [hành động cụ thể] khi [tình huống cụ thể]; hậu quả là [điều họ kể]. (P2 §3#5, §5#1) – Mạnh."
-
-### Trích dẫn tiêu biểu (nguyên văn, đã có trong log)
-
-| # | Trích dẫn | Nguồn | Gắn với O# |
+| # | Trích dẫn | Nguồn | Gắn với |
 |---|---|---|---|
-| | "[ĐIỀN SAU KHI PHỎNG VẤN THẬT]" | | |
+| 1 | "em canh coi là một người như vậy người ta sẽ siêu âm bao lâu á… em nhân cái thời gian đó lên rồi em đi về nhà… em lên y như rằng đúng tới lượt em luôn" | P2 §4#1 | O1 |
+| 2 | "Chờ kết quả:)) chờ sốt ruột… mong muốn kết quả xn và chụp chiếu đc cập nhật trước trong phần mềm hồ sơ. Nhưng kq thường cập nhật sau khi kết thúc khám" | P1 §4#1 | O2 |
+| 3 | "bình thường em đi bệnh viện là em mặc định là mỗi chỗ là phải chờ ít nhất 30 phút… Và bệnh viện tư nó không có đối xử với em như vậy" | P2 §4#2 | O4 |
+| 4 | "nếu mà qua tới cái lượt của em thì em chỉ việc nói với người ta thì người ta sẽ đẩy cái số của em lên lại thôi" | P2 §4#3 | O3 |
 
-### Từ ghi chép MyVinmec (facts có screenshot)
+### Từ ghi chép MyVinmec
 
-| # | Điều app cho thấy / không cho thấy về hàng chờ, giờ, đến lượt, rời chỗ | Screenshot |
+| # | Điều app cho thấy / không cho thấy | Screenshot |
 |---|---|---|
-| A1 | | |
+| A1 | [ĐIỀN SAU KHI DÙNG THỬ — đặc biệt: app có chỗ xem kết quả không, có thông tin gì về hàng chờ/trong ngày khám không] | |
 
-## 3. INTERPRETED – diễn giải của mình (suy luận, chưa phải evidence)
+## 3. INTERPRETED – diễn giải của mình
 
-Mỗi diễn giải ghi rõ dựa vào O# nào, và vì sao chưa phải sự thật đã kiểm chứng.
-
-| # | Diễn giải | Dựa trên | Độ chắc (thấp/vừa/cao) và lý do |
+| # | Diễn giải | Dựa trên | Độ chắc |
 |---|---|---|---|
-| I1 | | | |
-| I2 | | | |
+| I1 | Ở viện công hàng dài, hệ thống không cung cấp ước tính nào → nhu cầu "biết còn bao lâu" lớn đến mức người bệnh tự chế công cụ ước lượng. H2 mạnh ở bối cảnh viện công | O1 | Vừa-cao (1 ca rất đậm, cần P3 xác nhận thêm) |
+| I2 | "Không sợ lỡ lượt" ở P1, P2 KHÔNG bác bỏ H3 — cả hai đều có "tấm đệm" (người nhà giữ chỗ / kiến thức trong ngành / viện chủ động gọi). Người không có đệm có thể vẫn bị trói vào ghế | O3 | Thấp-vừa (suy luận từ việc tấm đệm tồn tại, chưa có ca người không-đệm) |
+| I3 | Ở Vinmec có lịch hẹn, "chờ đến lượt" đã được xử lý tốt; bất định còn lại dồn về TRẠNG THÁI KẾT QUẢ cận lâm sàng (xong chưa, bao giờ có, xem ở đâu) | O2, O4 | Vừa (1 ca trực tiếp; cần đối chiếu ghi chép MyVinmec) |
+| I4 | Chờ lâu + ĐƯỢC GIẢI THÍCH thì chấp nhận được (P1 delay chụp có lý do, P2 "biết lý do là do tình huống rõ") — khớp nguyên lý explained wait của Maister trong 04-best-practice | O5 | Vừa |
 
-### Các cách giải thích cạnh tranh cho hành vi chờ
+### Các cách giải thích cạnh tranh
 
-Cùng một hành vi quan sát được (ví dụ: người bệnh ngồi yên nhìn cửa phòng khám, hỏi quầy liên tục, không rời chỗ), có nhiều cách giải thích, mỗi cách dẫn tới hướng giải pháp khác nhau. Giữ ít nhất hai cho đến khi dữ liệu loại được. Dưới đây là ba giả thuyết khởi đầu; thêm bớt theo dữ liệu thật.
-
-| Giả thuyết | Phát biểu | Nếu đúng, ta nên thấy trong dữ liệu | Nếu sai, ta sẽ thấy | Hướng giải pháp mà nó gợi ý (chỉ để so sánh, chưa chọn) |
+| Giả thuyết | Sau P1+P2 | Bằng chứng ủng hộ | Bằng chứng chống | Cần gì để phân xử |
 |---|---|---|---|---|
-| H1: Chờ LÂU | Họ khó chịu chủ yếu vì tổng thời gian chờ dài | Khó chịu tăng theo số phút; người chờ ngắn thì không kể là điểm đau | Người chờ lâu nhưng biết trước thì không kể là điểm đau | Giảm thời gian chờ (vận hành, điều phối) |
-| H2: KHÔNG BIẾT còn bao lâu | Họ khó chịu vì thiếu thông tin: mình đang ở đâu trong hàng, còn bao lâu, vì sao chậm | Họ kể về việc đi hỏi, nhìn đồng hồ, đoán; chờ lâu nhưng có thông tin thì chấp nhận | Họ không hỏi, không tìm thông tin; khó chịu cũng như nhau khi có thông tin | Cho biết trạng thái và ước tính (thông tin) |
-| H3: SỢ LỠ LƯỢT | Họ không dám rời chỗ vì sợ bị gọi mà vắng mặt, bị bỏ qua hoặc xếp lại | Họ kể về nhịn vệ sinh/đói, nhờ người canh, từng lỡ lượt hoặc nghe chuyện lỡ lượt; có hậu quả cụ thể khi lỡ | Họ rời chỗ thoải mái; lỡ lượt không có hậu quả đáng kể | Giữ chỗ / quy tắc gọi lại / báo trước khi gọi |
-| H4 (bổ sung nếu dữ liệu cho thấy): | | | | |
-
-Bản đồ bằng chứng (điền sau):
-
-| Giả thuyết | Bằng chứng ủng hộ (O#) | Bằng chứng chống lại (O#) | Chưa có dữ liệu để phân biệt | Câu hỏi/cuộc phỏng vấn cần để phân biệt |
-|---|---|---|---|---|
-| H1 | | | | |
-| H2 | | | | |
-| H3 | | | | |
-
-Lưu ý: ba giả thuyết không loại trừ nhau. Có thể cả ba cùng đúng ở những người/giai đoạn khác nhau (ví dụ chờ cận lâm sàng khác chờ vào phòng khám). Cần phân biệt "khó chịu" và "hành vi/hậu quả đo được". Câu hỏi bài này quan tâm là hành vi và hậu quả (lỡ lượt, nhịn, phải đi hỏi, mất thêm thời gian), không chỉ cảm xúc.
+| H1: Chờ LÂU | Yếu ở viện tư (chờ ngắn, không ai phàn nàn); sống ở viện công nhưng người kể khó chịu vì KHÔNG BIẾT hơn là vì dài | O4 | O1 (6 tiếng nhưng cái P2 kể là chuyện không có ước tính) | P3 khám công: hỏi tách "lâu" và "không biết" |
+| H2: KHÔNG BIẾT còn bao lâu | MẠNH NHẤT — hai dạng: (a) hàng chờ viện công không có ước tính (O1); (b) trạng thái kết quả cận lâm sàng không hiển thị (O2) | O1, O2 | O5 (khi có giải thích thì ổn — củng cố chứ không chống) | Ghi chép MyVinmec: app hiện gì; P3 |
+| H3: SỢ LỠ LƯỢT | Chưa có ca dương tính, nhưng chưa bác bỏ được vì mẫu toàn người có "tấm đệm" | — | O3 | P3: người ít đi viện, không người nhà ngành y, đi khám một mình |
+| H4: Công bằng | Yếu: P2 thấy người sau vào trước mà không bực (hiểu lý do) | — | P2 §3#13 | Chỉ giữ nếu P3 tự kể |
 
 ## 4. Còn thiếu gì, không nên kết luận gì
 
-- Chưa kiểm chứng được: (ví dụ: hiệu quả của bất kỳ giải pháp nào; mức độ phổ biến trong cả người bệnh; góc nhìn nhân viên y tế)
-- Mẫu chỉ có ... người; thiên lệch có thể có do: 
-- Điều chưa hỏi nhưng nên hỏi ở vòng sau (không phải chỉ trích mẫu hiện tại):
-
-Tuyên bố cho phép dùng: "Trong 3 cuộc phỏng vấn, [n] người kể [việc cụ thể]." Tuyên bố không được dùng: "Người bệnh Việt Nam ...", "đã chứng minh/validated".
+- Chưa kiểm chứng: góc nhìn người KHÔNG quen hệ thống y tế (cả P1 lẫn P2 đều có nền y khoa/trong ngành — thiên lệch lớn nhất của mẫu); số phút chờ kết quả xét nghiệm ở Vinmec; cơ chế "viện gọi" là gọi điện/tin nhắn/app.
+- Mẫu 2 người, thuận tiện, đều nữ, đều có người đi cùng; chưa có người lớn tuổi, chưa có người đi khám một mình.
+- Vòng sau nên hỏi: người không rành quy trình làm gì khi chờ ở viện công; trong lúc chờ kết quả muốn biết GÌ (trạng thái xong/chưa, hay nội dung kết quả).
+- Tuyên bố cho phép: "Trong 2 cuộc phỏng vấn, cả 2 người kể…". KHÔNG dùng "người bệnh Việt Nam…", "đã validated".
 
 ## 5. Insight này đổi gì trong journey map / need statement
 
-Điền sau khi hoàn tất mục 1-4. Mỗi ý phải trỏ về O# hoặc I# (và nói rõ đó là evidence hay diễn giải).
+### 5.1 Đổi gì trong journey map
 
-### 5.1 Đổi gì trong journey map (`02-journey-map/`)
-
-| Bước/ô trong journey map | Trước khi phỏng vấn (giả định) | Sau khi phỏng vấn (đổi gì) | Cơ sở (O#/I#) | Có đánh dấu là điểm đau không? |
+| Bước/ô | Trước (giả định) | Sau (đổi gì) | Cơ sở | Điểm đau? |
 |---|---|---|---|---|
-| | | | | |
+| Chờ trước phòng khám (có hẹn, viện tư) | Giả định mù thông tin, lo lắng | Hạ nhiệt: chờ ngắn, biết cách gọi, cảm xúc gần trung tính | O4, O5 | Hạ mức ở bối cảnh Vinmec có hẹn |
+| Chờ cận lâm sàng/kết quả | Một bước trong nhiều bước | NÂNG thành điểm đau trọng tâm: mù trạng thái kết quả, app không đẩy sớm | O2 | 🔴 Đậm nhất (Vinmec) |
+| Chờ hàng dài không ước tính (viện công — bối cảnh đối chứng) | — | Thêm ô đối chứng: workaround tự canh tốc độ | O1 | 🔴 (công) |
+| Cảm xúc từng bước | Vẽ theo phỏng đoán | Vẽ lại theo lời kể P1, P2; chỗ không có dữ liệu ghi "không có dữ liệu" | — | — |
 
-Cảm xúc ở từng bước: chỉ vẽ theo điều người kể nói hoặc hành vi họ kể. Chỗ không có dữ liệu thì ghi "không có dữ liệu", không vẽ đại.
+### 5.2 Đổi gì trong need statement
 
-### 5.2 Đổi gì trong need statement (`03-need-statement/`)
-
-- Vấn đề (problem) hiện đang viết thế nào, sau phỏng vấn đổi thế nào (dựa trên H nào còn trụ):
-- Nhóm người dùng (population) có cần thu hẹp/mở rộng không:
-- Kết quả mong muốn (outcome) nên đo bằng gì (hành vi/hậu quả đo được, không phải "hài lòng"):
-- Phải đảm bảo need statement **không nêu giải pháp**; giả thuyết nào chưa phân biệt được thì giữ trung lập thay vì chọn:
-
-Bản nháp need statement (điền sau, theo mẫu "Cách để [cải thiện kết quả] cho [nhóm người dùng] gặp [vấn đề]"):
-
-> [ĐIỀN SAU KHI PHỎNG VẤN THẬT]
+- **Problem:** giữ trục "bất định thông tin khi chờ" (H2 trụ vững) nhưng nêu rõ hai mặt: vị trí/ước tính hàng chờ (đậm ở công, nhẹ ở Vinmec có hẹn) và **trạng thái kết quả cận lâm sàng** (đậm ở Vinmec).
+- **Population:** người bệnh khám ngoại trú trong quãng chờ, đặc biệt quãng chờ kết quả; lưu ý mẫu chưa phủ người không rành hệ thống.
+- **Outcome:** đo bằng hành vi/hậu quả: dám rời chỗ có kiểm soát, số lần phải hỏi, thời gian "mù thông tin", không phải "hài lòng".
+- Need statement v0.1 vẫn dùng được; cân nhắc biến thể A (hẹp về chờ kết quả) trong `03-need-statement/need-statement.md` làm phiên bản chính nếu P3 + ghi chép MyVinmec tiếp tục nghiêng về đó. KHÔNG nêu giải pháp.
 
 ### 5.3 Việc cần làm tiếp
 
-| Việc | Vì sao | Ai/khi nào |
+| Việc | Vì sao | Khi nào |
 |---|---|---|
-| | | |
+| Ghi chép MyVinmec (soi chỗ xem kết quả + thông tin trong ngày khám) | Đối chiếu trực tiếp lời P1 về app | Hôm nay |
+| P3: người ít đi viện / không người nhà ngành y | Phân xử H3 (tấm đệm) và kiểm tra I1 | Trước buổi present |
+| Hỏi bù P1: chờ kết quả bao nhiêu phút, "viện gọi" bằng gì | Lấp hai ô trống của đoạn chờ dài nhất | Khi tiện |
+| Thử prototype với 2-3 người, ưu tiên kịch bản "đang chờ kết quả" | Khớp điểm đau trọng tâm mới | Sau khi nộp link |
