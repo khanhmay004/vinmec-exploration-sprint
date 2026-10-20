@@ -53,7 +53,7 @@ Check-in → chờ gọi tên → khám → cận lâm sàng → **chờ kết q
 
 - 🔴🔴 **Chờ kết quả cận lâm sàng = quãng dài nhất + mù nhất**: "sốt ruột", app không đẩy trạng thái (P1); >2 tiếng, không điều phối, sợ mất chỗ (P4)
 - 🔴 **Hàng chờ dài không ước tính** ở viện công: số 800 nhìn bảng 400, tự tính lấy (P2); đến 6h sáng vì 7h hết chỗ ngồi (P4)
-- 🔴 **App trống phần "trong buổi khám"**: không check-in, không hàng chờ, không trạng thái kết quả (ghi chép MyVinmec, 19/10)
+- 🔴 **App trống phần "trong buổi khám"**: không check-in, không hàng chờ, không trạng thái kết quả (ghi chép MyVinmec)
 - Cảm xúc vẽ theo lời kể; chỗ không có dữ liệu ghi "không có dữ liệu" 
 
 ---

@@ -117,6 +117,6 @@ Còn thiếu để Go hẳn (việc của 6 tuần sprint nếu được chọn)
 ## 4. Ghi chú nguồn và AI
 
 - E1–E5: quan sát CarePath 7/2026 và trao đổi với một người điều phối lịch ở bệnh viện công (một người, một lần).
-- E6: ghi chép dùng thử MyVinmec 19/10/2026, screenshot đã che định danh.
+- E6: ghi chép dùng thử MyVinmec 10/2026, screenshot đã che định danh.
 - E7–E20: 4 log phỏng vấn `01-phong-van/P1–P4.md` (ẩn danh, có consent; giới hạn mẫu ghi trong từng log).
 - Phần do AI hỗ trợ: AI giúp dựng cấu trúc bảng và rà lập luận Rule/Workflow/Agent; dữ liệu, trích dẫn và kết luận phân xử lấy từ log phỏng vấn do tác giả thực hiện.

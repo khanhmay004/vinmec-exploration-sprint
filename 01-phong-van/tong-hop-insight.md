@@ -1,6 +1,6 @@
 # Tổng hợp insight – "chờ đến lượt khám"
 
-> Bản tổng hợp sau 4 cuộc phỏng vấn (P1–P4, 19–20/10/2026) + ghi chép dùng thử MyVinmec. Nguyên tắc: facts trước, diễn giải sau; không tuyên bố "validated".
+> Bản tổng hợp sau 4 cuộc phỏng vấn (P1–P4, 10/2026) + ghi chép dùng thử MyVinmec. Nguyên tắc: facts trước, diễn giải sau; không tuyên bố "validated".
 
 ## 0. Cơ sở của tổng hợp
 
@@ -9,7 +9,7 @@
 | Số cuộc phỏng vấn | 4 (đề yêu cầu ≥3) |
 | Mẫu | P1: nữ 35-44, Vinmec có hẹn (+ nhiều lần viện công). P2: nữ 18-24, viện tư + 1 lần công tuyến cuối; bản thân/người nhà ngành y. P3: ít đi khám, không ai nhà ngành y, phòng khám mắt đăng ký online. P4: bạn bè, viện công tuyến cuối (nội soi, 6h sáng→12h trưa) + so sánh viện tư |
 | Hạn chế của mẫu | Mẫu nhỏ, thuận tiện (họ hàng, bạn bè), kể lại từ trí nhớ; P2–P4 quá mốc 60 ngày của screener (ghi rõ trong từng log); P1–P2 "quen hệ thống" (nền y khoa/trong ngành) — được cân lại bằng P3, P4 |
-| Nguồn khác | `ghi-chep-myvinmec.md` (19/10/2026, screenshot đã che định danh) |
+| Nguồn khác | `ghi-chep-myvinmec.md` (10/2026, screenshot đã che định danh) |
 
 ## 1. Ma trận so sánh P1–P4 theo điểm đau
 
