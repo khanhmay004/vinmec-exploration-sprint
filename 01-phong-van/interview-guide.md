@@ -1,6 +1,6 @@
 # Interview guide – "chờ đến lượt khám"
 
-Loại phỏng vấn: **Problem interview** (Day 17). Mục tiêu là lấy evidence về điều đã xảy ra: câu chuyện, hành vi, workaround, hậu quả. Không thử concept, không hỏi ý kiến về giải pháp. Thời lượng dự kiến 25-30 phút, 1 người hỏi + 1 người ghi chép (hoặc tự ghi ngay sau cuộc nói chuyện nếu không ghi âm được).
+Loại phỏng vấn: **Problem interview** (Mom Test). Mục tiêu là lấy evidence về điều đã xảy ra: câu chuyện, hành vi, workaround, hậu quả. Không thử concept, không hỏi ý kiến về giải pháp. Thời lượng dự kiến 25-30 phút, 1 người hỏi + 1 người ghi chép (hoặc tự ghi ngay sau cuộc nói chuyện nếu không ghi âm được).
 
 Phạm vi khoảnh khắc: từ lúc check-in/đăng ký xong ở cơ sở y tế đến lúc được gọi vào phòng khám, gồm cả lúc chờ kết quả cận lâm sàng rồi quay lại phòng khám. Không đi sâu vào đặt lịch, thanh toán, nhận thuốc (nếu người kể tự nhắc thì ghi lại, không dẫn thêm).
 

@@ -1,8 +1,8 @@
 # 03 – Need statement
 
-Trạng thái: **v0.1 (nháp trước phỏng vấn)**. Hướng về giả thuyết H2 (sự bất định thông tin khi chờ) trong `02-journey-map/journey-map.md`. Sau khi có P1–P3, chọn lại giữa bản chính và hai biến thể, hoặc đổi hẳn hướng nếu bằng chứng ủng hộ giả thuyết khác. Bằng chứng nằm ở `bang-chung.md`.
+Need statement hướng về H2 (sự bất định thông tin khi chờ) trong `02-journey-map/journey-map.md`. Sau 4 cuộc phỏng vấn (P1–P4), bản chính được giữ nguyên; căn cứ lựa chọn ở mục 3, bằng chứng đầy đủ ở `bang-chung.md`.
 
-## 1. Need statement chính (v0.1)
+## 1. Need statement chính
 
 Mẫu Biodesign: **Cách để [outcome] cho [population] gặp [problem]**.
 
@@ -14,79 +14,68 @@ Dạng ngắn dùng trên slide:
 
 ## 2. Giải thích từng thành phần P-P-O
 
-| Thành phần | Trong need statement | Vì sao viết vậy | Cần kiểm chứng gì |
+| Thành phần | Trong need statement | Vì sao viết vậy | Dữ liệu 4 cuộc nói gì |
 |---|---|---|---|
-| **Outcome** (kết quả mong muốn) | Người bệnh biết mình đang ở đâu, còn chờ khoảng bao lâu, vì sao | Là trạng thái của người bệnh sau khi vấn đề được giải, không phải một tính năng. Dùng "khoảng bao lâu" thay vì "chính xác bao lâu" để không hứa điều chưa biết có làm được hay không. Cụm "vì sao" tách riêng để giữ chỗ cho H4 (thứ tự gọi trông không công bằng) | Phỏng vấn: người bệnh thực sự cần cả ba thứ (vị trí, thời lượng, lý do) hay chỉ một? |
-| **Population** (nhóm người) | Người bệnh khám ngoại trú, từ check-in đến khi được gọi vào phòng, gồm cả lúc chờ kết quả cận lâm sàng | Gắn với một khoảnh khắc cụ thể thay vì "người bệnh nói chung". Không thu hẹp theo bệnh/khoa vì chưa có bằng chứng nhóm nào chịu nặng nhất. Người nhà đi cùng chưa được tính, xem mục 4 | Nhóm nào chịu nặng nhất (người già, đi một mình, đi cùng con nhỏ...)? Người nhà có phải người chờ thật sự? |
-| **Problem** (vấn đề) | Chỉ biết đã check-in, không có hình dung gì về lượt của mình | Mô tả tình trạng hiện tại ở góc nhìn người bệnh (không biết gì), không mô tả thiếu sót của hệ thống. Không nói "thiếu ứng dụng", "thiếu màn hình" vì như vậy là ngầm chỉ giải pháp | H2 có đứng vững không so với H1, H3, H4? Xem `bang-chung.md` |
+| **Outcome** (kết quả mong muốn) | Người bệnh biết mình đang ở đâu, còn chờ khoảng bao lâu, vì sao | Là trạng thái của người bệnh sau khi vấn đề được giải, không phải một tính năng. Dùng "khoảng bao lâu" thay vì "chính xác bao lâu" để không hứa điều chưa biết có làm được hay không. Cụm "vì sao" giữ chỗ cho khía cạnh công bằng/giải thích (H4) | Lõi là "đang ở đâu + ai gọi mình" (P3 chỉ cần hai con số trên bảng là yên tâm — E13; P4 gọi tên đúng biến số: "đều có người gọi nó rõ ràng" — E19); "khoảng bao lâu" cần ở hàng dài (E10); "vì sao" giúp chấp nhận chờ (P1 delay có lý do; P4 "đúng số" thì thấy bình thường) |
+| **Population** (nhóm người) | Người bệnh khám ngoại trú, từ check-in đến khi được gọi vào phòng, gồm cả lúc chờ kết quả cận lâm sàng | Gắn với một khoảnh khắc cụ thể thay vì "người bệnh nói chung". Không thu hẹp theo bệnh/khoa | Nhóm chịu nặng nhất trong 4 cuộc: người ở hàng dài không ước tính (P2, P4) và người chờ trạng thái kết quả (P1, P4). Người nhà đi cùng xuất hiện như "tấm đệm" (P1) — chưa đủ dữ liệu để đưa vào population, ghi nhận cho sprint |
+| **Problem** (vấn đề) | Chỉ biết đã check-in, không có hình dung gì về lượt của mình | Mô tả tình trạng hiện tại ở góc nhìn người bệnh, không mô tả thiếu sót của hệ thống; không nói "thiếu ứng dụng/màn hình" vì như vậy là ngầm chỉ giải pháp | H2 đứng vững so với H1/H3/H4 (3/4 kể sự kiện kèm workaround; 1 đối chứng dương; H3 và H4 là hệ quả của cùng sự thiếu cơ chế — `bang-chung.md` mục 2) |
 
 ### Vì sao không nêu giải pháp
 
-- Biodesign yêu cầu need statement chỉ gồm vấn đề, nhóm người và kết quả mong muốn. Giải pháp nằm ở bước sau, sau khi vấn đề được xác nhận. Day 17: "Một solution được giao không phải là một problem đã được chứng minh."
-- Mỗi cách giải thích về khó chịu khi chờ dẫn tới nhiều cách giải khác nhau (Day 17: cùng một hành vi, nhiều cách giải thích, mỗi cách một hướng giải). Nếu viết giải pháp vào need statement, ta khóa hướng đi trước khi phân xử giữa H1–H4.
-- Câu trên đã được rà để không chứa tên công cụ, kênh, thiết bị hay công nghệ cụ thể. Các từ như "biết", "vị trí", "còn chờ bao lâu" mô tả trạng thái người bệnh, không mô tả cách đạt được trạng thái đó.
-- Tự kiểm: bỏ câu need statement ra, hỏi "có cách nào khác để đạt cùng outcome không?". Nếu có (điều dưỡng báo trực tiếp, bảng hiển thị, thay đổi quy trình...), câu đang đủ rộng để không chỉ vào một giải pháp.
+- Biodesign yêu cầu need statement chỉ gồm vấn đề, nhóm người và kết quả mong muốn; giải pháp nằm ở bước sau, khi vấn đề đã được xác nhận. Một solution được giao không phải là một problem đã được chứng minh.
+- Cùng một hành vi có nhiều cách giải thích, mỗi cách một hướng giải. Nếu viết giải pháp vào need statement, ta khóa hướng đi trước khi phân xử giữa H1–H4.
+- Câu trên đã được rà để không chứa tên công cụ, kênh, thiết bị hay công nghệ cụ thể. Các từ "biết", "vị trí", "còn chờ bao lâu" mô tả trạng thái người bệnh, không mô tả cách đạt được trạng thái đó.
+- Tự kiểm: bỏ câu need statement ra, hỏi "có cách nào khác để đạt cùng outcome không?". Có — điều dưỡng báo trực tiếp, bảng hiển thị (chính là nơi P3 khám), thay đổi quy trình — nên câu đủ rộng, không chỉ vào một giải pháp.
 
-## 3. Hai biến thể để chọn sau phỏng vấn
+## 3. Lựa chọn giữa bản chính và hai biến thể
 
-### Biến thể A: hẹp hơn, chỉ quãng chờ kết quả cận lâm sàng
+Hai biến thể được chuẩn bị trước phỏng vấn để tránh khóa cứng vào một cách đóng khung:
+
+### Biến thể A: hẹp hơn — chỉ quãng chờ kết quả cận lâm sàng
 
 > Cách để người bệnh biết kết quả cận lâm sàng của mình đã tới đâu và khi nào cần quay lại phòng khám, cho người bệnh khám ngoại trú đang chờ lấy mẫu, chụp hoặc chờ kết quả gặp tình trạng không biết mình đang chờ gì và chờ bao lâu.
 
-- **Chọn A khi:** P1–P3 cho thấy khó chịu rõ nhất rơi vào quãng chờ máy và chờ kết quả (PD-5, PD-6, PD-7) và ít kể về chờ gọi tên lần đầu. Phù hợp với quan sát CarePath rằng phần lớn thời gian mất ở chờ máy và chờ kết quả.
-- **Ưu:** hẹp, dễ đo, dễ làm sâu trong 1 tuần.
-- **Nhược:** bỏ qua quãng chờ gọi tên lần đầu; không phải ai cũng có chỉ định cận lâm sàng.
-
-### Biến thể B: rộng hơn, cả chuyến khám ngoại trú
+### Biến thể B: rộng hơn — cả chuyến khám ngoại trú
 
 > Cách để người bệnh nắm được các chặng còn lại và thời gian dự kiến của cả chuyến khám ngoại trú, từ lúc đến viện đến lúc ra về, cho người bệnh khám ngoại trú gặp tình trạng chỉ thấy từng hàng chờ rời rạc mà không có hình dung tổng thể.
 
-- **Chọn B khi:** P1–P3 cho thấy cảm giác "mất cả buổi mà không biết còn bao nhiêu chặng" quan trọng hơn từng quãng chờ riêng lẻ (PD-5 mạnh).
-- **Ưu:** chạm đúng điều CarePath quan sát về thứ tự đi các phòng.
-- **Nhược:** vượt khỏi khoảnh khắc đã chọn "chờ đến lượt khám", dễ rộng quá để làm sâu.
+### Lựa chọn sau 4 cuộc: GIỮ BẢN CHÍNH, nhấn vế chờ kết quả
 
-### Nếu bằng chứng ủng hộ giả thuyết khác
-
-| Nếu phỏng vấn nghiêng về | Hướng viết lại need statement (chưa phải bản chính thức) |
-|---|---|
-| H3 Sợ lỡ lượt | Cách để người bệnh yên tâm rời chỗ trong lúc chờ mà không lo mất lượt, cho người bệnh khám ngoại trú gặp tình trạng phải ngồi yên một chỗ vì sợ bị gọi khi vắng mặt |
-| H4 Công bằng | Cách để người bệnh hiểu vì sao thứ tự gọi khác với thứ tự đến, cho người bệnh khám ngoại trú gặp cảm giác thứ tự gọi không công bằng |
-| H1 Chờ lâu tuyệt đối | Cách để rút ngắn tổng thời gian chờ của người bệnh khám ngoại trú. Trường hợp này vấn đề thiên về điều phối vận hành hơn là thông tin, cần xem lại có thuộc phạm vi bài tập hay không |
-
-> [CẬP NHẬT SAU PHỎNG VẤN] Ghi lại lựa chọn cuối (bản chính / A / B / hướng khác), lý do, và 1–2 trích dẫn P1–P3 làm căn cứ.
+- **Không chọn A** vì điểm đau không chỉ nằm ở cận lâm sàng: hàng chờ dài không ước tính TRƯỚC khi vào khám cũng đau rõ (P2: số 800 bảng 400, tự canh × nhân — E10), và 2/4 người không có cận lâm sàng trong lần kể. Tuy nhiên dữ liệu xác nhận trọng tâm của A: quãng chờ kết quả là dài nhất và mù nhất (P1 "chờ sốt ruột" — E7; P4 >2 tiếng, không điều phối — E16) — bản chính vốn đã chứa vế này ("kể cả lúc chờ kết quả cận lâm sàng") và từ nay nó được nhấn mạnh khi trình bày.
+- **Không chọn B** vì cảm giác "mất hình dung tổng thể" không xuất hiện như điểm đau độc lập trong 4 cuộc; cái người kể nhấn là từng quãng mù cụ thể. B cũng vượt khỏi khoảnh khắc đã chọn.
+- Trích dẫn làm căn cứ: "không rõ là đang đọc ở số nào… phải tập trung nghe ngóng hỏi han" (P4); "Chờ kết quả:)) chờ sốt ruột… kq thường cập nhật sau khi kết thúc khám" (P1); đối chứng dương: "số mười tám mà mình số hai hai thì biết còn bốn người" (P3 — nơi có thông tin thì không đau).
+- Các hướng viết lại theo H1/H3/H4 (chuẩn bị sẵn phòng khi bằng chứng nghiêng hướng khác) không được dùng: H1 yếu, H3 và H4 là hệ quả của cùng sự thiếu cơ chế — giải trục H2 thì hai cái giảm theo (`bang-chung.md` mục 2).
 
 ## 4. Định nghĩa vận hành các từ trong câu
 
-| Từ | Định nghĩa dùng trong bài | Ghi chú |
+| Từ | Định nghĩa dùng trong bài | Ghi chú sau 4 cuộc |
 |---|---|---|
-| "Đang ở đâu" | Người bệnh biết vị trí tương đối của mình trong hàng chờ hiện tại, và biết mình thuộc chặng nào của chuyến khám | Nếu P1–P3 chỉ cần biết "còn chờ bao lâu" thì rút gọn |
-| "Khoảng bao lâu" | Một khoảng ước lượng, không cam kết chính xác. Có thể nói "chưa rõ" khi thực sự chưa rõ | Sai số chấp nhận được phải hỏi người bệnh, không tự đặt |
-| "Vì sao" | Lý do thứ tự gọi hoặc lý do chờ (ví dụ phòng đang quá tải, ưu tiên ca khẩn) | Chỉ giữ nếu H4 được xác nhận |
+| "Đang ở đâu" | Người bệnh biết vị trí tương đối của mình trong hàng chờ hiện tại, và biết mình thuộc chặng nào của chuyến khám | Là thành phần lõi: P3 cho thấy chỉ riêng nó đã đổi trải nghiệm; P4 cho thấy thiếu nó thì sinh sợ mất chỗ + chen hàng |
+| "Khoảng bao lâu" | Một khoảng ước lượng, không cam kết chính xác; được phép nói "chưa rõ" khi thực sự chưa rõ | Cần nhất ở hàng dài (P2) và chờ kết quả (P4); sai số chấp nhận được sẽ hỏi người thử prototype, không tự đặt |
+| "Vì sao" | Lý do thứ tự gọi hoặc lý do chờ (phòng quá tải, ưu tiên ca khẩn, máy đông) | Giữ: chờ có lý do/đúng quy tắc được chấp nhận (P1, P4-xét nghiệm), chờ không ai giải thích thì khó chịu dồn vào bất công (P4-chen hàng) |
 | "Người bệnh khám ngoại trú" | Người đến khám theo lượt trong ngày, không nằm viện | Chưa gồm người nhà, chưa gồm cấp cứu |
 
-## 5. Bảng định lượng hóa (theo Ngày 2: hiện trạng, mục tiêu, cách đo)
+## 5. Bảng định lượng hóa (hiện trạng – mục tiêu – cách đo)
 
-Nguyên tắc: không có con số nào được điền khi chưa đo. Ô `___` chờ dữ liệu từ P1–P3 hoặc từ thực địa sau này. Mục tiêu ghi dạng khung, chốt ngưỡng sau khi có hiện trạng.
+Nguyên tắc: không điền con số khi chưa đo. Hiện trạng dưới đây là từ lời kể 4 cuộc (người kể nhớ/dựng lại) — đủ làm chỉ báo định tính, không phải thống kê; ngưỡng mục tiêu cụ thể chốt sau khi có đo tại chỗ.
 
-Chỉ số đầu ra (kết quả cần cải thiện) và chỉ số đầu vào (đòn bẩy) được tách riêng, tránh nhầm một chỉ số đầu vào tăng với giá trị thật.
+Chỉ số đầu ra (kết quả cần cải thiện) và chỉ số đầu vào (đòn bẩy) tách riêng, tránh nhầm một chỉ số đầu vào tăng với giá trị thật.
 
-| Chỉ số | Loại | Hiện trạng | Mục tiêu | Cách đo | Nguồn dữ liệu |
-|---|---|---|---|---|---|
-| T1. Thời gian chờ từ check-in đến vào khám lần 1 | Bối cảnh (không phải mục tiêu chính của need này) | ___ phút (đo từ phỏng vấn) | Không đặt mục tiêu giảm ở giai đoạn này. Chỉ dùng làm mốc | Người bệnh tự kể theo lần gần nhất; sau này có thể đo bằng mốc thời gian | P1–P3; sau này dữ liệu hệ thống đã khử định danh |
-| T2. Tổng thời gian chờ từ check-in đến ra về | Bối cảnh | ___ phút | Như trên | Như trên | P1–P3 |
-| U1. Tỷ lệ lúc chờ người bệnh nói là "không biết mình đang ở đâu / còn chờ bao lâu" | **Đầu ra chính** | ___% các lần chờ (từ P1–P3 chỉ có vài người, nên chỉ coi là chỉ báo, không phải tỷ lệ thống kê) | Giảm có ý nghĩa so với hiện trạng; ngưỡng cụ thể: ___ (đặt sau khi có hiện trạng) | Câu hỏi 1 điểm sau khi chờ: "Lúc chờ, bạn có biết mình còn chờ khoảng bao lâu không?" (có / không / đoán) | Phỏng vấn P1–P3; khảo sát ngắn ở vòng thử nghiệm |
-| U2. Mức bực bội / bất an khi chờ (tự đánh giá) | **Đầu ra chính** | ___ / 5 (thang tự đánh giá) | Giảm ___ điểm so với hiện trạng | Thang 1–5, hỏi ngay sau quãng chờ; so sánh trước và sau cải tiến | P1–P3, vòng thử |
-| U3. Số lần người bệnh phải hỏi nhân viên / người xung quanh để biết tình hình chờ | Đầu ra phụ (đo hành vi, mạnh hơn lời nói) | ___ lần mỗi chuyến | Giảm | Người bệnh kể lại sự kiện cụ thể gần nhất; hoặc quan sát | P1–P3 |
-| U4. Tỷ lệ người bệnh rời chỗ trong lúc chờ mà bị lỡ lượt, hoặc không dám rời chỗ | Đầu ra phụ (liên quan H3) | ___ | Giảm lỡ lượt, không buộc tăng rời chỗ | Người bệnh kể sự kiện | P1–P3 |
-| I1. Mức đúng của thông tin dự kiến người bệnh nhận được (chênh lệch giữa dự kiến và thực tế) | **Đầu vào** (đòn bẩy, chỉ có nghĩa nếu có giải pháp) | Chưa có, vì chưa có thông tin dự kiến nào được cung cấp | Chênh lệch trong ngưỡng người bệnh chấp nhận, ngưỡng: ___ (hỏi người bệnh, không tự đặt) | So sánh thời gian dự kiến với thời gian thực | Chỉ đo được khi có prototype hoặc pilot |
+| Chỉ số | Loại | Hiện trạng (từ lời kể P1–P4) | Mục tiêu | Cách đo |
+|---|---|---|---|---|
+| T1. Thời gian chờ từ check-in đến vào khám lần 1 | Bối cảnh | ~10' (P1, Vinmec hẹn); ~10' (P2, tư); ~30' (P3, PK online); ~45' (P4, công) | Không đặt mục tiêu giảm — chỉ làm mốc | Người bệnh kể lần gần nhất; sau này đo bằng mốc thời gian hệ thống đã khử định danh |
+| T2. Tổng thời gian từ check-in đến ra về | Bối cảnh | ~1h (P2 tư); ~45' (P3); ~6h (P4, công có nội soi); riêng một lượt siêu âm ~6h (P2, công) | Như trên | Như trên |
+| U1. Lúc chờ, người bệnh có biết mình đang ở đâu / còn chờ khoảng bao lâu không | **Đầu ra chính** | 3/4 người có ít nhất một quãng hoàn toàn mù: trạng thái kết quả (P1), hàng siêu âm không ước tính (P2), chờ đọc kết quả >2h không rõ số (P4); P3 biết nhờ bảng + khung giờ dự kiến | Tăng số quãng người bệnh trả lời "biết"; ngưỡng chốt sau đo tại chỗ | Hỏi 1 câu ngay sau quãng chờ: "Lúc chờ, bạn có biết mình còn chờ khoảng bao lâu không?" (biết / đoán / không) |
+| U2. Mức bực/bất an khi chờ | **Đầu ra chính** | Chưa đo thang điểm (phỏng vấn hồi tưởng); lời kể: "chờ sốt ruột" (P1), "đợi lâu vãi" (P2), khó chịu nhất vì chen hàng khi không điều phối (P4), P3 "yên tâm" | Giảm so với hiện trạng đo tại chỗ | Thang 1–5 hỏi ngay sau quãng chờ, trước và sau cải tiến |
+| U3. Số lần phải hỏi (nhân viên / người xung quanh) để biết tình hình chờ | Đầu ra phụ (hành vi, mạnh hơn lời nói) | P4: nhiều lần trong một quãng ("nghe ngóng hỏi han", hỏi số, nhắc người khác vào); P1–P3: 0 lần kể | Giảm | Người bệnh kể sự kiện cụ thể; hoặc quan sát tại chỗ |
+| U4. Rời chỗ bị lỡ lượt / không dám rời chỗ | Đầu ra phụ (liên quan H3) | 1/4 không dám rời ngoài việc bắt buộc + 1 lần suýt lỡ (P4); 3/4 rời được nhờ "tấm đệm" riêng (P1 người nhà + viện gọi; P2 biết luật; P3 chờ ngắn có bảng) | Giảm lỡ lượt, không buộc tăng rời chỗ | Người bệnh kể sự kiện |
+| I1. Độ đúng của thông tin dự kiến cung cấp cho người bệnh | **Đầu vào** (đòn bẩy, chỉ có nghĩa khi có giải pháp) | Chưa có — hiện không hệ thống nào cung cấp thông tin dự kiến (E6); tham chiếu: ước lượng TỰ CHẾ của P2 trúng gần đúng | Chênh lệch trong ngưỡng người bệnh chấp nhận (hỏi người thử, không tự đặt) | So thời gian dự kiến với thực tế; chỉ đo được khi có prototype hoặc pilot |
 
-Lưu ý về bẫy chỉ số (Ngày 2): U1 giảm không đồng nghĩa người bệnh yên tâm hơn nếu thông tin sai nhiều. Vì vậy cần đo song song U2 (cảm nhận) và I1 (độ đúng). Nếu thông tin cho người bệnh đúng ít mà vẫn làm U1 tăng "biết", đó là tín hiệu xấu, không phải thành công.
-
-> [CẬP NHẬT SAU PHỎNG VẤN] Điền cột "Hiện trạng" từ P1–P3. Với mỗi số, ghi rõ: số thật (người bệnh kể lại lần cụ thể), hay ước lượng. Những câu "tùy ngày", "không nhớ số cụ thể" thì ghi nguyên văn, không ép ra con số.
+Lưu ý về bẫy chỉ số: U1 tăng "biết" không đồng nghĩa người bệnh yên tâm hơn nếu thông tin sai nhiều. Vì vậy đo song song U2 (cảm nhận) và I1 (độ đúng); thông tin đúng ít mà U1 vẫn tăng là tín hiệu xấu, không phải thành công.
 
 ## 6. Nguồn và giới hạn
 
-- Hướng đề xuất (bất định thông tin) xuất phát từ quan sát CarePath 7/2026 và là giả thuyết của tác giả, không phải kết luận từ dữ liệu phỏng vấn mới.
-- Cỡ mẫu P1–P3 rất nhỏ: chỉ đủ để phân xử giả thuyết định tính, không đủ để chốt số liệu thống kê.
-- Bối cảnh quan sát ban đầu là bệnh viện công, không phải Vinmec; cần đối chiếu với trải nghiệm đi khám ở các cơ sở khác nhau.
-- Phần do AI hỗ trợ: AI giúp rà cấu trúc và kiểm tra câu không chứa giải pháp; nội dung giả thuyết đến từ tác giả.
+- Hướng ban đầu (bất định thông tin) xuất phát từ quan sát CarePath 7/2026; sau đó được phân xử bằng 4 cuộc phỏng vấn P1–P4 và ghi chép dùng thử MyVinmec (`bang-chung.md`).
+- Cỡ mẫu 4 người, thuận tiện, 3/4 lần khám quá mốc 60 ngày của screener (ghi rõ trong từng log): đủ để phân xử giả thuyết định tính, không đủ để chốt số liệu thống kê. Tuyên bố đúng phạm vi: "trong 4 cuộc, 3 người kể…".
+- Bối cảnh trải công–tư (Vinmec, BV tư, PK online, BV công tuyến cuối) nhưng chưa có người lớn tuổi, người đi khám một mình hoàn toàn không có đệm, và góc nhìn nhân viên.
+- Phần do AI hỗ trợ: AI giúp rà cấu trúc và kiểm tra câu không chứa giải pháp; dữ liệu và lựa chọn đến từ phỏng vấn do tác giả thực hiện.

@@ -1,7 +1,6 @@
 # Log thử nghiệm prototype: Trợ lý hàng chờ (A/B/C)
 
-> **Chưa có dữ liệu.** Mọi ô `[ĐIỀN SAU KHI THỬ THẬT]` chỉ được điền bằng quan sát thật từ buổi thử. Không dùng AI để tạo, đoán hay "làm đẹp" dữ liệu, trích dẫn hay nhận xét.
-> Khung template này được soạn với sự hỗ trợ của AI (Claude). Nội dung điền vào là của người phỏng vấn.
+> Log được ghi sau mỗi phiên thử; các ô trống sẽ được điền từ dữ liệu phiên thật.
 
 ## Cách dùng file này
 
@@ -23,7 +22,7 @@
 
 Giữa các phương án: bấm tab tiếp theo (tự reset về 11:20, 7 người trước). Nhắc lại nguyên câu task. Với từng phương án, khi người thử đã có quyết định, người phỏng vấn bấm 🩺 hội chẩn (hoặc để tự kích hoạt ở phút 12) và quan sát họ phản ứng với lý do chậm.
 
-### 4 tầng evidence (Day 18 §5.8)
+### 4 tầng evidence
 
 | Tầng | Loại | Ví dụ dạng ghi | Ghi vào |
 |---|---|---|---|
@@ -38,217 +37,215 @@ Một hành động ở tầng 1 nặng hơn mười câu ở tầng 4. **Quyế
 
 ## Người thử T1
 
-- **Thông tin (ẩn danh):** [ĐIỀN SAU KHI THỬ THẬT]  <!-- nhóm tuổi, mức quen smartphone, lần chờ khám gần nhất bao lâu trước. KHÔNG ghi bệnh -->
-- **Ngày / thời lượng / hình thức:** [ĐIỀN SAU KHI THỬ THẬT]
+- **Thông tin (ẩn danh: nhóm tuổi, mức quen smartphone, lần chờ khám gần nhất bao lâu trước; không ghi bệnh):**
+- **Ngày / thời lượng / hình thức:** 
 - **Đồng ý tham gia:** [ ] Có · Ghi âm: [ ] Có [ ] Không
 - **Thứ tự phương án:** A → B → C
 - **Chế độ AI:** [ ] AI thật (model: ____ ) [ ] Kịch bản mẫu · **Phiên bản prompt:** v__
 - **File log phiên:** `log-T1.json`
 
 ### 01 COMFORT
-- Đã đọc script, người thử có câu hỏi gì: [ĐIỀN SAU KHI THỬ THẬT]
+- Đã đọc script, người thử có câu hỏi gì:
 
 ### 02 CONTEXT (≈2'): lần chờ gần nhất
-- Chuyện đã xảy ra (event → behavior → workaround → consequence): [ĐIỀN SAU KHI THỬ THẬT]
-- Trích dẫn nguyên văn đáng chú ý: "[ĐIỀN SAU KHI THỬ THẬT]"
+- Chuyện đã xảy ra (event → behavior → workaround → consequence):
+- Trích dẫn nguyên văn đáng chú ý: ""
 
 ### 03 TASK + 04 OBSERVE
 
 | Quan sát | A | B | C |
 |---|---|---|---|
-| First action (thao tác đầu tiên, sau bao nhiêu giây) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Hesitation (dừng / đọc lại ở đâu) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Đọc hay bỏ qua evidence (khoảng thời gian, nhãn Ổn định/Dao động, lý do hội chẩn, thẻ KỊP/SÁT GIỜ) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Misinterpretation (hiểu sai chỗ nào) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Correction / recovery (sửa thời gian, Ẩn/Tắt thông báo, bỏ nhắc, gọi nhân viên) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Cần cứu hộ? (dùng câu rescue nào) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Quyết định cuối của task (đi ăn / không / đi việc khác) và dựa vào đâu | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Thời gian hoàn thành task | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| AI trả lời sai / lạ (trích nguyên văn, chế độ AI thật hay mẫu) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
+| First action (thao tác đầu tiên, sau bao nhiêu giây) |  |  |  |
+| Hesitation (dừng / đọc lại ở đâu) |  |  |  |
+| Đọc hay bỏ qua evidence (khoảng thời gian, nhãn Ổn định/Dao động, lý do hội chẩn, thẻ KỊP/SÁT GIỜ) |  |  |  |
+| Misinterpretation (hiểu sai chỗ nào) |  |  |  |
+| Correction / recovery (sửa thời gian, Ẩn/Tắt thông báo, bỏ nhắc, gọi nhân viên) |  |  |  |
+| Cần cứu hộ? (dùng câu rescue nào) |  |  |  |
+| Quyết định cuối của task (đi ăn / không / đi việc khác) và dựa vào đâu |  |  |  |
+| Thời gian hoàn thành task |  |  |  |
+| AI trả lời sai / lạ (trích nguyên văn, chế độ AI thật hay mẫu) |  |  |  |
 
 **Lời nói tại hiện trường (nguyên văn, ghi kèm phương án):**
-- A: "[ĐIỀN SAU KHI THỬ THẬT]"
-- B: "[ĐIỀN SAU KHI THỬ THẬT]"
-- C: "[ĐIỀN SAU KHI THỬ THẬT]"
+- A: ""
+- B: ""
+- C: ""
 
 ### 05 COMPARE
 
 | Câu hỏi | Trả lời (nguyên văn nếu được) |
 |---|---|
-| **CHOICE:** chọn A, B hay C? Vì sao? | [ĐIỀN SAU KHI THỬ THẬT] |
-| **TRADE-OFF:** chọn nó thì chấp nhận đánh đổi gì? | [ĐIỀN SAU KHI THỬ THẬT] |
-| **BOUNDARY:** trường hợp nào muốn phương án khác? (ví dụ đi một mình / có con nhỏ / đang mệt / ít thời gian) | [ĐIỀN SAU KHI THỬ THẬT] |
-| Tiêu chí người thử thật sự dùng để so sánh | [ĐIỀN SAU KHI THỬ THẬT] |
+| **CHOICE:** chọn A, B hay C? Vì sao? |  |
+| **TRADE-OFF:** chọn nó thì chấp nhận đánh đổi gì? |  |
+| **BOUNDARY:** trường hợp nào muốn phương án khác? (ví dụ đi một mình / có con nhỏ / đang mệt / ít thời gian) |  |
+| Tiêu chí người thử thật sự dùng để so sánh |  |
 
 ### Bảng evidence 4 tầng: T1
 
 | Tầng | Nội dung | Phương án liên quan |
 |---|---|---|
-| 1 · OBSERVED (hành vi) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 2 · OBSERVED (nói lúc làm) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 3 · INTERPRETED (giải thích sau) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 4 · STILL UNPROVEN (dự đoán) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
+| 1 · OBSERVED (hành vi) |  |  |
+| 2 · OBSERVED (nói lúc làm) |  |  |
+| 3 · INTERPRETED (giải thích sau) |  |  |
+| 4 · STILL UNPROVEN (dự đoán) |  |  |
 
 ### Sự cố an toàn / ngoài phạm vi (nếu có)
-- Người thử có hỏi câu y khoa không? AI xử lý thế nào? (handoff có hiện không): [ĐIỀN SAU KHI THỬ THẬT]
-- Khối khẩn cấp có hiện đúng hay sai không: [ĐIỀN SAU KHI THỬ THẬT]
+- Người thử có hỏi câu y khoa không? AI xử lý thế nào? (handoff có hiện không):
+- Khối khẩn cấp có hiện đúng hay sai không:
 
 ### Tôi sửa gì sau lượt này
 | Vấn đề quan sát được (dẫn về tầng 1–2 ở trên) | Quyết định thiết kế (Decided) | Sửa ở đâu (prompt vN / UI / logic ước tính) | Đã sửa? |
 |---|---|---|---|
-| [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ ] |
-| [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ ] |
+|  |  |  | [ ] |
+|  |  |  | [ ] |
 
-- Điều muốn test tiếp ở người sau: [ĐIỀN SAU KHI THỬ THẬT]
+- Điều muốn test tiếp ở người sau:
 
 ---
 
 ## Người thử T2
 
-- **Thông tin (ẩn danh):** [ĐIỀN SAU KHI THỬ THẬT]  <!-- nhóm tuổi, mức quen smartphone, lần chờ khám gần nhất bao lâu trước. KHÔNG ghi bệnh -->
-- **Ngày / thời lượng / hình thức:** [ĐIỀN SAU KHI THỬ THẬT]
+- **Thông tin (ẩn danh: nhóm tuổi, mức quen smartphone, lần chờ khám gần nhất bao lâu trước; không ghi bệnh):**
+- **Ngày / thời lượng / hình thức:** 
 - **Đồng ý tham gia:** [ ] Có · Ghi âm: [ ] Có [ ] Không
 - **Thứ tự phương án:** B → C → A
 - **Chế độ AI:** [ ] AI thật (model: ____ ) [ ] Kịch bản mẫu · **Phiên bản prompt:** v__
 - **File log phiên:** `log-T2.json`
 
 ### 01 COMFORT
-- Đã đọc script, người thử có câu hỏi gì: [ĐIỀN SAU KHI THỬ THẬT]
+- Đã đọc script, người thử có câu hỏi gì:
 
 ### 02 CONTEXT (≈2'): lần chờ gần nhất
-- Chuyện đã xảy ra (event → behavior → workaround → consequence): [ĐIỀN SAU KHI THỬ THẬT]
-- Trích dẫn nguyên văn đáng chú ý: "[ĐIỀN SAU KHI THỬ THẬT]"
+- Chuyện đã xảy ra (event → behavior → workaround → consequence):
+- Trích dẫn nguyên văn đáng chú ý: ""
 
 ### 03 TASK + 04 OBSERVE
 
 | Quan sát | A | B | C |
 |---|---|---|---|
-| First action (thao tác đầu tiên, sau bao nhiêu giây) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Hesitation (dừng / đọc lại ở đâu) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Đọc hay bỏ qua evidence (khoảng thời gian, nhãn Ổn định/Dao động, lý do hội chẩn, thẻ KỊP/SÁT GIỜ) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Misinterpretation (hiểu sai chỗ nào) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Correction / recovery (sửa thời gian, Ẩn/Tắt thông báo, bỏ nhắc, gọi nhân viên) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Cần cứu hộ? (dùng câu rescue nào) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Quyết định cuối của task (đi ăn / không / đi việc khác) và dựa vào đâu | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Thời gian hoàn thành task | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| AI trả lời sai / lạ (trích nguyên văn, chế độ AI thật hay mẫu) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
+| First action (thao tác đầu tiên, sau bao nhiêu giây) |  |  |  |
+| Hesitation (dừng / đọc lại ở đâu) |  |  |  |
+| Đọc hay bỏ qua evidence (khoảng thời gian, nhãn Ổn định/Dao động, lý do hội chẩn, thẻ KỊP/SÁT GIỜ) |  |  |  |
+| Misinterpretation (hiểu sai chỗ nào) |  |  |  |
+| Correction / recovery (sửa thời gian, Ẩn/Tắt thông báo, bỏ nhắc, gọi nhân viên) |  |  |  |
+| Cần cứu hộ? (dùng câu rescue nào) |  |  |  |
+| Quyết định cuối của task (đi ăn / không / đi việc khác) và dựa vào đâu |  |  |  |
+| Thời gian hoàn thành task |  |  |  |
+| AI trả lời sai / lạ (trích nguyên văn, chế độ AI thật hay mẫu) |  |  |  |
 
 **Lời nói tại hiện trường (nguyên văn, ghi kèm phương án):**
-- A: "[ĐIỀN SAU KHI THỬ THẬT]"
-- B: "[ĐIỀN SAU KHI THỬ THẬT]"
-- C: "[ĐIỀN SAU KHI THỬ THẬT]"
+- A: ""
+- B: ""
+- C: ""
 
 ### 05 COMPARE
 
 | Câu hỏi | Trả lời (nguyên văn nếu được) |
 |---|---|
-| **CHOICE:** chọn A, B hay C? Vì sao? | [ĐIỀN SAU KHI THỬ THẬT] |
-| **TRADE-OFF:** chọn nó thì chấp nhận đánh đổi gì? | [ĐIỀN SAU KHI THỬ THẬT] |
-| **BOUNDARY:** trường hợp nào muốn phương án khác? (ví dụ đi một mình / có con nhỏ / đang mệt / ít thời gian) | [ĐIỀN SAU KHI THỬ THẬT] |
-| Tiêu chí người thử thật sự dùng để so sánh | [ĐIỀN SAU KHI THỬ THẬT] |
+| **CHOICE:** chọn A, B hay C? Vì sao? |  |
+| **TRADE-OFF:** chọn nó thì chấp nhận đánh đổi gì? |  |
+| **BOUNDARY:** trường hợp nào muốn phương án khác? (ví dụ đi một mình / có con nhỏ / đang mệt / ít thời gian) |  |
+| Tiêu chí người thử thật sự dùng để so sánh |  |
 
 ### Bảng evidence 4 tầng: T2
 
 | Tầng | Nội dung | Phương án liên quan |
 |---|---|---|
-| 1 · OBSERVED (hành vi) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 2 · OBSERVED (nói lúc làm) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 3 · INTERPRETED (giải thích sau) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 4 · STILL UNPROVEN (dự đoán) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
+| 1 · OBSERVED (hành vi) |  |  |
+| 2 · OBSERVED (nói lúc làm) |  |  |
+| 3 · INTERPRETED (giải thích sau) |  |  |
+| 4 · STILL UNPROVEN (dự đoán) |  |  |
 
 ### Sự cố an toàn / ngoài phạm vi (nếu có)
-- Người thử có hỏi câu y khoa không? AI xử lý thế nào? (handoff có hiện không): [ĐIỀN SAU KHI THỬ THẬT]
-- Khối khẩn cấp có hiện đúng hay sai không: [ĐIỀN SAU KHI THỬ THẬT]
+- Người thử có hỏi câu y khoa không? AI xử lý thế nào? (handoff có hiện không):
+- Khối khẩn cấp có hiện đúng hay sai không:
 
 ### Tôi sửa gì sau lượt này
 | Vấn đề quan sát được (dẫn về tầng 1–2 ở trên) | Quyết định thiết kế (Decided) | Sửa ở đâu (prompt vN / UI / logic ước tính) | Đã sửa? |
 |---|---|---|---|
-| [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ ] |
-| [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ ] |
+|  |  |  | [ ] |
+|  |  |  | [ ] |
 
-- Điều muốn test tiếp ở người sau: [ĐIỀN SAU KHI THỬ THẬT]
+- Điều muốn test tiếp ở người sau:
 
 ---
 
 ## Người thử T3
 
-- **Thông tin (ẩn danh):** [ĐIỀN SAU KHI THỬ THẬT]  <!-- nhóm tuổi, mức quen smartphone, lần chờ khám gần nhất bao lâu trước. KHÔNG ghi bệnh -->
-- **Ngày / thời lượng / hình thức:** [ĐIỀN SAU KHI THỬ THẬT]
+- **Thông tin (ẩn danh: nhóm tuổi, mức quen smartphone, lần chờ khám gần nhất bao lâu trước; không ghi bệnh):**
+- **Ngày / thời lượng / hình thức:** 
 - **Đồng ý tham gia:** [ ] Có · Ghi âm: [ ] Có [ ] Không
 - **Thứ tự phương án:** C → A → B
 - **Chế độ AI:** [ ] AI thật (model: ____ ) [ ] Kịch bản mẫu · **Phiên bản prompt:** v__
 - **File log phiên:** `log-T3.json`
 
 ### 01 COMFORT
-- Đã đọc script, người thử có câu hỏi gì: [ĐIỀN SAU KHI THỬ THẬT]
+- Đã đọc script, người thử có câu hỏi gì:
 
 ### 02 CONTEXT (≈2'): lần chờ gần nhất
-- Chuyện đã xảy ra (event → behavior → workaround → consequence): [ĐIỀN SAU KHI THỬ THẬT]
-- Trích dẫn nguyên văn đáng chú ý: "[ĐIỀN SAU KHI THỬ THẬT]"
+- Chuyện đã xảy ra (event → behavior → workaround → consequence):
+- Trích dẫn nguyên văn đáng chú ý: ""
 
 ### 03 TASK + 04 OBSERVE
 
 | Quan sát | A | B | C |
 |---|---|---|---|
-| First action (thao tác đầu tiên, sau bao nhiêu giây) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Hesitation (dừng / đọc lại ở đâu) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Đọc hay bỏ qua evidence (khoảng thời gian, nhãn Ổn định/Dao động, lý do hội chẩn, thẻ KỊP/SÁT GIỜ) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Misinterpretation (hiểu sai chỗ nào) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Correction / recovery (sửa thời gian, Ẩn/Tắt thông báo, bỏ nhắc, gọi nhân viên) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Cần cứu hộ? (dùng câu rescue nào) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Quyết định cuối của task (đi ăn / không / đi việc khác) và dựa vào đâu | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Thời gian hoàn thành task | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| AI trả lời sai / lạ (trích nguyên văn, chế độ AI thật hay mẫu) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
+| First action (thao tác đầu tiên, sau bao nhiêu giây) |  |  |  |
+| Hesitation (dừng / đọc lại ở đâu) |  |  |  |
+| Đọc hay bỏ qua evidence (khoảng thời gian, nhãn Ổn định/Dao động, lý do hội chẩn, thẻ KỊP/SÁT GIỜ) |  |  |  |
+| Misinterpretation (hiểu sai chỗ nào) |  |  |  |
+| Correction / recovery (sửa thời gian, Ẩn/Tắt thông báo, bỏ nhắc, gọi nhân viên) |  |  |  |
+| Cần cứu hộ? (dùng câu rescue nào) |  |  |  |
+| Quyết định cuối của task (đi ăn / không / đi việc khác) và dựa vào đâu |  |  |  |
+| Thời gian hoàn thành task |  |  |  |
+| AI trả lời sai / lạ (trích nguyên văn, chế độ AI thật hay mẫu) |  |  |  |
 
 **Lời nói tại hiện trường (nguyên văn, ghi kèm phương án):**
-- A: "[ĐIỀN SAU KHI THỬ THẬT]"
-- B: "[ĐIỀN SAU KHI THỬ THẬT]"
-- C: "[ĐIỀN SAU KHI THỬ THẬT]"
+- A: ""
+- B: ""
+- C: ""
 
 ### 05 COMPARE
 
 | Câu hỏi | Trả lời (nguyên văn nếu được) |
 |---|---|
-| **CHOICE:** chọn A, B hay C? Vì sao? | [ĐIỀN SAU KHI THỬ THẬT] |
-| **TRADE-OFF:** chọn nó thì chấp nhận đánh đổi gì? | [ĐIỀN SAU KHI THỬ THẬT] |
-| **BOUNDARY:** trường hợp nào muốn phương án khác? (ví dụ đi một mình / có con nhỏ / đang mệt / ít thời gian) | [ĐIỀN SAU KHI THỬ THẬT] |
-| Tiêu chí người thử thật sự dùng để so sánh | [ĐIỀN SAU KHI THỬ THẬT] |
+| **CHOICE:** chọn A, B hay C? Vì sao? |  |
+| **TRADE-OFF:** chọn nó thì chấp nhận đánh đổi gì? |  |
+| **BOUNDARY:** trường hợp nào muốn phương án khác? (ví dụ đi một mình / có con nhỏ / đang mệt / ít thời gian) |  |
+| Tiêu chí người thử thật sự dùng để so sánh |  |
 
 ### Bảng evidence 4 tầng: T3
 
 | Tầng | Nội dung | Phương án liên quan |
 |---|---|---|
-| 1 · OBSERVED (hành vi) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 2 · OBSERVED (nói lúc làm) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 3 · INTERPRETED (giải thích sau) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| 4 · STILL UNPROVEN (dự đoán) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
+| 1 · OBSERVED (hành vi) |  |  |
+| 2 · OBSERVED (nói lúc làm) |  |  |
+| 3 · INTERPRETED (giải thích sau) |  |  |
+| 4 · STILL UNPROVEN (dự đoán) |  |  |
 
 ### Sự cố an toàn / ngoài phạm vi (nếu có)
-- Người thử có hỏi câu y khoa không? AI xử lý thế nào? (handoff có hiện không): [ĐIỀN SAU KHI THỬ THẬT]
-- Khối khẩn cấp có hiện đúng hay sai không: [ĐIỀN SAU KHI THỬ THẬT]
+- Người thử có hỏi câu y khoa không? AI xử lý thế nào? (handoff có hiện không):
+- Khối khẩn cấp có hiện đúng hay sai không:
 
 ### Tôi sửa gì sau lượt này
 | Vấn đề quan sát được (dẫn về tầng 1–2 ở trên) | Quyết định thiết kế (Decided) | Sửa ở đâu (prompt vN / UI / logic ước tính) | Đã sửa? |
 |---|---|---|---|
-| [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ ] |
-| [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ ] |
+|  |  |  | [ ] |
+|  |  |  | [ ] |
 
-- Điều muốn test tiếp ở người sau: [ĐIỀN SAU KHI THỬ THẬT]
+- Điều muốn test tiếp ở người sau:
 
 ---
 
 ## Tổng hợp sau 3 người thử
 
-> Điền sau khi đã xong cả 3 lượt. Chỉ tổng hợp những gì đã có ở trên, không thêm suy đoán mới.
-
 | | A (User-led) | B (Proactive) | C (Collaborative) |
 |---|---|---|---|
-| Số người chọn | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Hành vi lặp lại ở ≥ 2 người (tầng 1) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Đánh đổi được nêu | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
-| Bối cảnh muốn dùng (BOUNDARY) | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] | [ĐIỀN SAU KHI THỬ THẬT] |
+| Số người chọn |  |  |  |
+| Hành vi lặp lại ở ≥ 2 người (tầng 1) |  |  |  |
+| Đánh đổi được nêu |  |  |  |
+| Bối cảnh muốn dùng (BOUNDARY) |  |  |  |
 
-- **Trả lời QUESTION** ("đứng ngoài / chủ động / hỏi lại"): [ĐIỀN SAU KHI THỬ THẬT]
-- **Next design decision** (không phải "validated"): [ĐIỀN SAU KHI THỬ THẬT]
-- **Điều vẫn chưa biết, cần vòng thử sau:** [ĐIỀN SAU KHI THỬ THẬT]
-- **Giới hạn của vòng thử này** (số người, ai thử, dữ liệu mock, chế độ AI…): [ĐIỀN SAU KHI THỬ THẬT]
+- **Trả lời QUESTION** ("đứng ngoài / chủ động / hỏi lại"):
+- **Next design decision** (không phải "validated"):
+- **Điều vẫn chưa biết, cần vòng thử sau:** 
+- **Giới hạn của vòng thử này** (số người, ai thử, dữ liệu mock, chế độ AI…):

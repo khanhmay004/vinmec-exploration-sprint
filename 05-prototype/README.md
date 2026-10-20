@@ -1,15 +1,15 @@
 # 05 — Prototype: Trợ lý hàng chờ (A/B/C)
 
 > **Prototype học tập, không phải sản phẩm Vinmec.** Dữ liệu hàng chờ là giả lập. Prototype không đưa lời khuyên y khoa.
-> Mã nguồn `index.html`, prompt và khung tài liệu trong thư mục này được soạn với sự hỗ trợ của AI (Claude). Dữ liệu thử nghiệm trong `log-thu-nghiem.md` chỉ được điền sau khi thử với người thật, không do AI tạo.
+> Mã nguồn `index.html`, prompt và khung tài liệu trong thư mục này được soạn với sự hỗ trợ của AI (Claude). Dữ liệu thử nghiệm trong `log-thu-nghiem.md` chỉ ghi từ các phiên thử với người thật, không do AI tạo.
 
 Đây là một màn hình mô phỏng trong app đặt khám, dành cho người bệnh **đang ngồi chờ sau khi check-in**. Có 3 phương án A/B/C cho cùng một khoảnh khắc. Chúng chỉ khác nhau ở **cơ chế** AI tham gia.
 
 | File | Nội dung |
 |---|---|
 | `index.html` | Prototype một file (HTML + CSS + JS thuần), có AI thật (OpenAI) và chế độ kịch bản mẫu khi offline |
-| `prompts.md` | System prompt, prompt riêng cho từng phương án, template context nhúng, lịch sử phiên bản prompt |
-| `log-thu-nghiem.md` | Template log thử với 3 người theo 5 nhịp prototype interview |
+| `prompts.md` | System prompt, prompt riêng cho từng phương án, template context nhúng, prompt hiện hành |
+| `log-thu-nghiem.md` | Log thử với 3 người theo 5 nhịp prototype interview |
 
 ---
 

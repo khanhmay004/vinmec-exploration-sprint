@@ -2,7 +2,7 @@
 
 Phạm vi: khoảnh khắc "chờ đến lượt khám"; prototype là màn hình MyVinmec giả lập có trợ lý AI báo tiến độ hàng chờ (3 phương án: A user-led, B proactive, C collaborative, model GPT). Tài liệu chia 4 nhóm: (a) người tham gia nghiên cứu, (b) sản phẩm nếu triển khai thật, (c) đường chuyển tuyến khẩn cấp, (d) giới hạn của chính bài này.
 
-Khung phân tích ở nhóm (b) lấy từ Day 5 và Day 18: trust calibration, agency = độ chắc × cost-of-error, precision/recall xem ai gánh hậu quả, error vs failure, graceful handoff.
+Khung phân tích ở nhóm (b) lấy từ: trust calibration, agency = độ chắc × cost-of-error, precision/recall xem ai gánh hậu quả, error vs failure, graceful handoff.
 
 ---
 
@@ -41,12 +41,12 @@ Hai kiểu sai, hậu quả không đối xứng:
 | Có sửa được không | Khó: lỡ rồi thì mất lượt | Dễ hơn: chờ thêm, nhưng đã mất lòng tin |
 | Cost-of-error | **Cao** | Thấp đến vừa |
 
-Câu hỏi chọn ngưỡng theo Day 18: "bỏ lọt" hay "báo nhầm" cái nào đắt hơn? Ở đây, bỏ lỡ lượt đắt hơn, nên **thiên về báo dè dặt**: khi AI không chắc, thà nói "có thể sắp tới lượt" còn hơn nói "bạn còn rảnh 30 phút".
+Câu hỏi chọn ngưỡng theo recall/precision: "bỏ lọt" hay "báo nhầm" cái nào đắt hơn? Ở đây, bỏ lỡ lượt đắt hơn, nên **thiên về báo dè dặt**: khi AI không chắc, thà nói "có thể sắp tới lượt" còn hơn nói "bạn còn rảnh 30 phút".
 
 Giảm thiểu trong thiết kế:
 
 - **Hiện khoảng thay vì số**: "khoảng 15–30 phút" thay vì "22 phút". Khoảng phải được tính ở phía an toàn: cận dưới thấp hơn thực tế dự đoán một chút, để người bệnh không đi quá xa.
-- **Khi độ chắc thấp, nói "chưa rõ"** và hành xử khác (xem b2), theo ý Day 5 về categorical confidence: cao thì báo khoảng hẹp, vừa thì báo khoảng rộng kèm "có thể thay đổi", thấp thì không đưa số và nói rõ lý do.
+- **Khi độ chắc thấp, nói "chưa rõ"** và hành xử khác (xem b2), theo ý categorical confidence: cao thì báo khoảng hẹp, vừa thì báo khoảng rộng kèm "có thể thay đổi", thấp thì không đưa số và nói rõ lý do.
 - **Không bao giờ nói "bạn có thể rời chỗ" như một cam kết.** Nếu có tính năng này thì dùng mức Ask thay vì Act (theo thang Inaction / Ask / Act): "Bạn muốn mình nhắc khi còn khoảng 3 người trước bạn không?", và luôn kèm "ở lại gần khu chờ sẽ an toàn hơn".
 - **Nhắc trước khi sắp tới lượt**, không chỉ khi đã tới lượt. Gọi tên tại quầy vẫn là kênh chính thức và vẫn hoạt động song song.
 - **Lỡ lượt không bị phạt**: nếu người bệnh vắng mặt khi được gọi, quy trình mặc định là gọi lại / xếp ưu tiên quay lại, không bị xếp xuống cuối. Đây là yêu cầu vận hành, không phải việc của app, cần Vinmec xác nhận.
@@ -119,7 +119,7 @@ Nguyên tắc: **ưu tiên an toàn hơn mọi chức năng báo chờ.** Chuy�
 
 Thiết kế kỹ thuật cho đường khẩn:
 
-- **Phát hiện từ khoá bằng luật xác định (rule-based) chạy trước LLM**, không phụ thuộc việc model có "hiểu" hay không. Danh sách từ khoá thiên về nhạy (nhận nhầm còn hơn bỏ sót): trong bài này, bỏ lọt đắt hơn báo nhầm, theo đúng cách chọn ngưỡng recall ưu tiên ở Day 18; báo nhầm chỉ tốn một lần người bệnh nhìn thấy khối đỏ và gặp điều dưỡng, chấp nhận được.
+- **Phát hiện từ khoá bằng luật xác định (rule-based) chạy trước LLM**, không phụ thuộc việc model có "hiểu" hay không. Danh sách từ khoá thiên về nhạy (nhận nhầm còn hơn bỏ sót): trong bài này, bỏ lọt đắt hơn báo nhầm, theo đúng cách chọn ngưỡng recall ưu tiên; báo nhầm chỉ tốn một lần người bệnh nhìn thấy khối đỏ và gặp điều dưỡng, chấp nhận được.
 - Có đường kháng nghị cho báo nhầm: nút "Mình không cần hỗ trợ khẩn" quay lại màn hình chờ, nhưng nút "Tôi cảm thấy không ổn" luôn còn.
 - Số điện thoại và vị trí quầy trong prototype là **giả lập**; ở bản thật phải lấy từ Vinmec và kiểm tra bởi bộ phận có trách nhiệm trước khi phát hành. Mình không tự đặt số điện thoại y tế.
 - Nhật ký các lần kích hoạt khẩn được xem lại hàng tuần bởi người có trách nhiệm, vì đó là nơi lộ lỗ hổng sớm nhất.
@@ -132,7 +132,7 @@ Giới hạn: bản prototype của bài này chỉ mô phỏng giao diện củ
 
 - **Dữ liệu là mock.** Số thứ tự, thời gian chờ, tình huống trong prototype là mình dựng. Không có dữ liệu hàng chờ thật nào.
 - **Ước tính chưa validate.** Bài này không chứng minh được rằng ước tính trong prototype đúng. Khoảng thời gian trong prototype lấy từ quy tắc mình đặt, không phải đo từ hệ thống thật.
-- **Mẫu rất nhỏ**: 3 cuộc phỏng vấn (người quen, thuận tiện, kể lại từ trí nhớ) và 2–3 người thử. Chỉ đủ để rút ra **quyết định thiết kế tiếp theo** và biết cần hỏi gì ở vòng sau; **không đủ để nói "đã kiểm chứng" (validated)**, không nói được tỷ lệ hay mức phổ biến.
+- **Mẫu rất nhỏ**: 4 cuộc phỏng vấn (người quen, thuận tiện, kể lại từ trí nhớ) và 2–3 người thử. Chỉ đủ để rút ra **quyết định thiết kế tiếp theo** và biết cần hỏi gì ở vòng sau; **không đủ để nói "đã kiểm chứng" (validated)**, không nói được tỷ lệ hay mức phổ biến.
 - **Thiếu góc nhìn** nhân viên y tế (điều dưỡng, nhân viên quầy), người cao tuổi, người không dùng smartphone. Đây là nhóm quan trọng nhất cho phần (b4) và mình chưa tiếp cận được trong thời gian làm bài.
 - **Chưa có thử nghiệm đối kháng** quy mô lớn cho từ chối câu hỏi y khoa và nhận diện từ khoá khẩn cấp. Hai phần này mới là thiết kế, chưa được chứng minh đủ an toàn.
 - **Người thử có thể lịch sự**: người quen thường khen. Log thử ghi hành vi quan sát được, tách khỏi lời khen.

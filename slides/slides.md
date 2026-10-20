@@ -39,7 +39,7 @@ Bài tập 1 tuần · Vinmec Exploration Sprint
 # Mình đã làm gì
 
 - **Dùng thử MyVinmec**, ghi lại làm gì, thấy gì, vướng ở đâu
-- **Phỏng vấn ẩn danh theo Mom Test** (P1, P2 đã xong; P3 đang hẹn): hỏi chuyện đã xảy ra, không hỏi ý kiến
+- **4 phỏng vấn ẩn danh theo Mom Test** (P1–P4, vượt mức ≥3 của đề): hỏi chuyện đã xảy ra, không hỏi ý kiến
 - **Journey map** và need statement theo Biodesign
 - **Prototype 3 phương án A / B / C** (model GPT, dữ liệu giả lập)
 - **Thử với 2–3 người**, ghi log, sửa sau mỗi lượt
@@ -51,8 +51,8 @@ Bài tập 1 tuần · Vinmec Exploration Sprint
 
 Check-in → chờ gọi tên → khám → cận lâm sàng → **chờ kết quả** → đọc kết quả (chi tiết: `02-journey-map/`)
 
-- 🔴 **Mù trạng thái kết quả cận lâm sàng**: rời chỗ được (viện gọi) nhưng không biết xong chưa, xem ở đâu (P1)
-- 🔴 **Hàng chờ dài không có ước tính** ở viện công: số 800 nhìn bảng 400, tự tính lấy (P2)
+- 🔴🔴 **Chờ kết quả cận lâm sàng = quãng dài nhất + mù nhất**: "sốt ruột", app không đẩy trạng thái (P1); >2 tiếng, không điều phối, sợ mất chỗ (P4)
+- 🔴 **Hàng chờ dài không ước tính** ở viện công: số 800 nhìn bảng 400, tự tính lấy (P2); đến 6h sáng vì 7h hết chỗ ngồi (P4)
 - 🔴 **App trống phần "trong buổi khám"**: không check-in, không hàng chờ, không trạng thái kết quả (ghi chép MyVinmec, 19/10)
 - Cảm xúc vẽ theo lời kể; chỗ không có dữ liệu ghi "không có dữ liệu" 
 
@@ -63,10 +63,11 @@ Check-in → chờ gọi tên → khám → cận lâm sàng → **chờ kết q
 
 - **O1 · P2, viện công:** lấy số 8h (bảng ~400, mình ~800) → về nhà, *tự canh thời gian mỗi ca siêu âm rồi nhân lên*, quay lại trúng lượt ~14h. Hệ thống không cho ước tính → người bệnh tự chế công cụ
 - **O2 · P1, Vinmec:** điểm khó chịu duy nhất cả buổi = chờ kết quả: *"chờ sốt ruột… mong kết quả cập nhật trước trong phần mềm, nhưng thường cập nhật sau khi kết thúc khám"*
-- **O3 · cả hai:** không sợ lỡ lượt — nhưng nhờ "tấm đệm" riêng (người nhà giữ chỗ, viện gọi, biết luật đẩy số). Người không có đệm? → P3
-- **O4 · cả hai:** chờ lâu mà **được giải thích** thì chấp nhận được
+- **O3 · P4, viện công (chờ kết quả >2h, không điều phối):** không rõ đang đến số nào → hỏi bệnh nhân khác, *chỉ rời chỗ khi bắt buộc vì "sợ có người chen trước"*, suýt lỡ lượt; khó chịu nhất = người chen hàng
+- **O4 · P3 (đối chứng dương):** bảng hiện số đang khám → tự tính "còn 4 người", yên tâm ngồi — chỉ cần thông tin tối thiểu
+- **O5 · P4 so viện tư:** "không gian không hơn mấy… nhưng *đều có người gọi rõ ràng* → không lo mất chỗ"
 
-Trong 2 cuộc đã phỏng vấn, cả 2 người kể… — không nói "người bệnh Việt Nam…", không nói "validated".
+→ Biến số không phải chờ LÂU, mà là CÓ CƠ CHẾ biết mình ở đâu & ai gọi mình. "Trong 4 cuộc, 3 người kể…" — không nói "validated".
 
 ---
 
@@ -104,7 +105,7 @@ Không nêu giải pháp.
 
 Thiết kế thử: 5 nhịp (comfort → context → task → observe → compare), người thử cầm chuột, đổi thứ tự A/B/C giữa các người, log tự ghi first action và hesitation
 
-- <span class="todo">Vòng thử đang thực hiện — log và phần "mình sửa gì" cập nhật trong `05-prototype/log-thu-nghiem.md` trước buổi present</span>
+- Đang thử với 2–3 người dùng — dữ liệu bổ sung trước buổi present
 - Task giao theo đích, không chỉ đường: "quyết định xem bạn có kịp đi ăn trưa không"
 - Giới hạn: n = 2–3, đủ cho quyết định thiết kế tiếp theo, **không phải "validated"**
 
@@ -113,7 +114,7 @@ Thiết kế thử: 5 nhịp (comfort → context → task → observe → compa
 <!-- Slide 9: Best practice + rủi ro -->
 # Bài học cho Vinmec và rủi ro chính
 
-**Best practice quốc tế** (nguồn đã verify trong `04-best-practice/`)
+**Best practice quốc tế** (nguồn trong `04-best-practice/`)
 - **SingHealth Health Buddy** (Singapore): số người trước mình, cập nhật ~5 phút → minh bạch vị trí hàng chờ là làm được ở quy mô hệ thống
 - **Maister, *Psychology of Waiting Lines***: chờ không lời giải thích dài hơn chờ được giải thích — khớp O4
 - **RCT Alrajhi 2020**: riêng việc báo số phút chưa chắc tăng hài lòng (p=0.476) nhưng 70% người bệnh vẫn muốn có — đừng hứa số chính xác, hãy cho khoảng + lý do

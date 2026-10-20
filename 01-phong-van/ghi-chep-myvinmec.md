@@ -6,7 +6,6 @@
 |---|---|
 | Ngày/giờ dùng | Tối 19/10/2026, ~21:30–23:15 |
 | Thiết bị, hệ điều hành | iPhone, iOS |
-| Phiên bản app | [BẠN ĐIỀN nếu tiện — App Store] |
 | Tài khoản | Tài khoản mới tự đăng ký (để xem luồng người dùng mới) + xem màn hình hồ sơ trên một tài khoản người thân trong gia đình có dữ liệu khám thật, **với sự đồng ý của người đó**; mọi screenshot liên quan đã che tên, hồ sơ, đơn thuốc |
 | Mình đã đến cơ sở Vinmec nào trong phiên này chưa? | Không — phần "ngày khám" chỉ ghi những gì app cho thấy trước/sau lịch hẹn |
 
@@ -14,7 +13,7 @@ Lưu ý tuân thủ: luồng đặt lịch được đi đến **màn hình xác
 
 ## 1. Kịch bản nhiệm vụ
 
-(Theo template: 1 cài app → 2 đăng ký → 3 đặt lịch tới bước xác nhận → 4 thông báo/nhắc lịch → 5 chức năng trong ngày khám → 6 xem kết quả → 7 kênh hỗ trợ.)
+Các nhiệm vụ đã thực hiện: 1 cài app → 2 đăng ký → 3 đặt lịch tới bước xác nhận → 4 thông báo/nhắc lịch → 5 chức năng trong ngày khám → 6 xem kết quả → 7 kênh hỗ trợ.
 
 ## 2. Bảng ghi chép từng bước
 
@@ -30,7 +29,7 @@ Lưu ý tuân thủ: luồng đặt lịch được đi đến **màn hình xác
 | 4 | Mở mục Lịch hẹn (tài khoản mới) | "Hiện tại bạn chưa có lịch hẹn nào" + hướng dẫn: "Nếu bạn đã nhận được tin nhắn SMS xác nhận đặt hẹn từ BV ĐKQT Vinmec nhưng chưa thấy thông tin lịch hẹn ở đây: 1. Kiểm tra bạn đã kết nối hồ sơ y tế chưa… 3. Liên hệ CSKH theo số hotline" | Lịch đặt xong có thể KHÔNG tự hiện trong app nếu chưa "kết nối hồ sơ y tế" — thêm một tầng bất định | mv-4-1 |
 | 5 | Tìm mọi chức năng cho NGÀY KHÁM (check-in, số thứ tự, hàng chờ, ước giờ) trên trang chủ, Đặt lịch, Hồ sơ, Tất cả dịch vụ | **Không tìm thấy chức năng nào.** Không check-in, không số thứ tự, không trạng thái hàng chờ, không ước tính giờ, không thông báo "sắp đến lượt" | Đây là khoảng trống lớn nhất đối với khoảnh khắc đã chọn | — |
 | 6 | Xem mục Hồ sơ trên tài khoản có dữ liệu thật (đã được đồng ý, ảnh đã che) | "Hồ sơ sức khỏe Vinmec" chia Ngoại trú/Nội trú/Cấp cứu/Giải phẫu bệnh, liệt kê **từng lượt khám đã xong** theo ngày với nút "Xem chi tiết"; "Đơn thuốc" theo ngày | Hồ sơ là dữ liệu **sau buổi khám**; không thấy trạng thái "kết quả đang xử lý / sắp có" cho buổi khám đang diễn ra — khớp lời P1 "kq thường cập nhật sau khi kết thúc khám" | mv-6-1, mv-6-2, mv-6-3 |
-| 7 | Kênh hỗ trợ | Thấy nút Zalo nổi, mascot chat AI, mục "Cộng đồng hỏi đáp bác sĩ", hotline trong màn Lịch hẹn | [CHƯA THỬ HỎI mascot AI một câu về thời gian chờ — làm bổ sung] | mv-1-1 |
+| 7 | Kênh hỗ trợ | Thấy nút Zalo nổi, mascot chat AI, mục "Cộng đồng hỏi đáp bác sĩ", hotline trong màn Lịch hẹn | Chưa thử hỏi mascot AI về thời gian chờ trong phiên này (ghi ở mục 4) | mv-1-1 |
 
 ## 3. Câu hỏi định hướng cho riêng khoảnh khắc chờ
 
