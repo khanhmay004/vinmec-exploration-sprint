@@ -103,11 +103,16 @@ Không nêu giải pháp.
 <!-- Slide 8: Kết quả thử -->
 # Thử với người dùng và mình sửa gì
 
-Thiết kế thử: 5 nhịp (comfort → context → task → observe → compare), người thử cầm chuột, đổi thứ tự A/B/C giữa các người, log tự ghi first action và hesitation
+Thiết kế thử: 5 nhịp (comfort → context → task → observe → compare), người thử tự cầm máy, task theo đích: *"quyết định xem bạn có kịp đi ăn trưa không"* — AI thật (gpt-4o-mini), log máy tự ghi
 
-- Đang thử với 2–3 người dùng — dữ liệu bổ sung trước buổi present
-- Task giao theo đích, không chỉ đường: "quyết định xem bạn có kịp đi ăn trưa không"
-- Giới hạn: n = 2–3, đủ cho quyết định thiết kế tiếp theo, **không phải "validated"**
+**T1** (nữ 18-24, không trùng P1–P4): chọn **C** "vì custom được"; *thử lại ước tính bằng con số của mình* ("nếu ăn 10p thì sao?") rồi mới quyết đi ăn — đúng hành vi cần cho trust
+
+**Prototype sai 2 chỗ → đã sửa (prompt v2 + logic):**
+- 🔴 Khối khẩn cấp bắn nhầm 3 lần: "**ko có** bị khó thở" vẫn kích cảnh báo → thêm lọc phủ định trước từ khóa
+- 🔴 AI **hứa** "nhắc khi còn 6 người" nhưng cơ chế vẫn nổ ở mốc 3 → app parse ngưỡng thật, cấm model hứa thay hệ thống
+- Bot tự giả định "đi ăn 40 phút" → chưa biết thời lượng thì phải hỏi lại; khoảng ±30' và nhãn "dao động" phải hỏi mới hiểu
+
+Giới hạn: mới n=1, quyết định thiết kế tiếp theo chứ **không phải "validated"**; cần thêm người lớn tuổi (T1 dự đoán "người lớn chọn B" — chưa kiểm chứng)
 
 ---
 
