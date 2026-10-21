@@ -1,0 +1,1117 @@
+[
+  {
+    "t": "05:30:24",
+    "sim": "11:24",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2444,
+    "ahead": 6,
+    "range": "khoảng 35–65 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "05:31:24",
+    "sim": "11:30",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "05:31:44",
+    "sim": "11:32",
+    "v": "A",
+    "type": "consult_start",
+    "src": "auto"
+  },
+  {
+    "t": "05:31:44",
+    "sim": "11:32",
+    "v": "A",
+    "type": "queue_consult_start",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 40–70 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "05:33:34",
+    "sim": "11:43",
+    "v": "A",
+    "type": "queue_consult_end",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "05:34:44",
+    "sim": "11:50",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2446,
+    "ahead": 4,
+    "range": "khoảng 25–45 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "05:35:54",
+    "sim": "11:57",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2447,
+    "ahead": 3,
+    "range": "khoảng 15–40 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "05:37:44",
+    "sim": "12:08",
+    "v": "A",
+    "type": "queue_slow",
+    "serving": 2447,
+    "ahead": 3,
+    "range": "khoảng 15–35 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "05:38:34",
+    "sim": "12:13",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2448,
+    "ahead": 2,
+    "range": "khoảng 15–35 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "05:39:34",
+    "sim": "12:19",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2449,
+    "ahead": 1,
+    "range": "khoảng 10–25 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "05:40:54",
+    "sim": "12:27",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2450,
+    "ahead": 0,
+    "range": "trong vòng khoảng 15 phút",
+    "level": "dao động"
+  },
+  {
+    "t": "05:42:04",
+    "sim": "12:34",
+    "v": "A",
+    "type": "queue_called",
+    "serving": 2451,
+    "ahead": 0,
+    "range": "đã đến lượt bạn",
+    "level": "ổn định"
+  },
+  {
+    "t": "05:55:44",
+    "sim": "12:34",
+    "v": "A",
+    "type": "settings_saved",
+    "live": true,
+    "model": "gpt-4o-mini"
+  },
+  {
+    "t": "05:55:51",
+    "sim": "11:20",
+    "v": "A",
+    "type": "variant_start",
+    "variant": "A",
+    "reset": true
+  },
+  {
+    "t": "05:56:30",
+    "sim": "11:24",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2444,
+    "ahead": 6,
+    "range": "khoảng 35–65 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "05:57:30",
+    "sim": "11:30",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "05:57:50",
+    "sim": "11:32",
+    "v": "A",
+    "type": "consult_start",
+    "src": "auto"
+  },
+  {
+    "t": "05:57:50",
+    "sim": "11:32",
+    "v": "A",
+    "type": "queue_consult_start",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 40–70 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "05:58:24",
+    "sim": "11:20",
+    "v": "A",
+    "type": "variant_start",
+    "variant": "A",
+    "reset": true
+  },
+  {
+    "t": "05:59:00",
+    "sim": "11:24",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2444,
+    "ahead": 6,
+    "range": "khoảng 35–65 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:00:00",
+    "sim": "11:30",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:00:20",
+    "sim": "11:32",
+    "v": "A",
+    "type": "consult_start",
+    "src": "auto"
+  },
+  {
+    "t": "06:00:20",
+    "sim": "11:32",
+    "v": "A",
+    "type": "queue_consult_start",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 40–70 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:00:42",
+    "sim": "11:34",
+    "v": "A",
+    "type": "ask_open"
+  },
+  {
+    "t": "06:00:46",
+    "sim": "11:34",
+    "v": "A",
+    "type": "chip",
+    "text": "Còn bao lâu nữa đến lượt mình?"
+  },
+  {
+    "t": "06:00:46",
+    "sim": "11:34",
+    "v": "A",
+    "type": "user_msg",
+    "text": "Còn bao lâu nữa đến lượt mình?"
+  },
+  {
+    "t": "06:00:52",
+    "sim": "11:35",
+    "v": "A",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Hiện tại, bạn đang đứng số 2451 và có 5 người trước bạn. Ước tính thời gian chờ khoảng 35–65 phút nữa, nhưng mức tin cậy đang dao động do phòng khám đang tạm dừng để bác sĩ hội chẩn. Nếu bạn cần thêm thông tin gì, hãy cho mình biết nhé!",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:01:18",
+    "sim": "11:37",
+    "v": "A",
+    "type": "user_msg",
+    "text": "ăn trưa kịp ko"
+  },
+  {
+    "t": "06:01:20",
+    "sim": "11:38",
+    "v": "A",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Nếu bạn đi ăn trưa khoảng 40 phút, thì thời gian chờ hiện tại đang SÁT GIỜ. Mình khuyên bạn nên chờ thêm một chút để đảm bảo không lỡ lượt. Bạn có thể xem xét đi vệ sinh hoặc mua nước, sẽ KỊP hơn.",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:01:37",
+    "sim": "11:39",
+    "v": "A",
+    "type": "user_msg",
+    "text": "nếu ăn 10p thì sao"
+  },
+  {
+    "t": "06:01:39",
+    "sim": "11:39",
+    "v": "A",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Nếu bạn đi ăn khoảng 10 phút, thì sẽ KỊP quay lại trước lượt của mình. Tuy nhiên, hãy nhớ rằng đây chỉ là ước tính, không phải cam kết.",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:01:52",
+    "sim": "11:41",
+    "v": "A",
+    "type": "staff_call",
+    "src": "bottom_bar"
+  },
+  {
+    "t": "06:02:10",
+    "sim": "11:43",
+    "v": "A",
+    "type": "queue_consult_end",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:02:18",
+    "sim": "11:43",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:20",
+    "sim": "11:49",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:20",
+    "sim": "11:50",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2446,
+    "ahead": 4,
+    "range": "khoảng 25–45 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:02:20",
+    "sim": "11:54",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:20",
+    "sim": "11:57",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2447,
+    "ahead": 3,
+    "range": "khoảng 15–40 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:02:21",
+    "sim": "11:59",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:21",
+    "sim": "12:04",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:21",
+    "sim": "12:08",
+    "v": "A",
+    "type": "queue_slow",
+    "serving": 2447,
+    "ahead": 3,
+    "range": "khoảng 15–35 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:02:22",
+    "sim": "12:09",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:22",
+    "sim": "12:13",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2448,
+    "ahead": 2,
+    "range": "khoảng 15–35 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:02:23",
+    "sim": "12:14",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:23",
+    "sim": "12:19",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2449,
+    "ahead": 1,
+    "range": "khoảng 10–25 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:02:24",
+    "sim": "12:19",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:24",
+    "sim": "12:24",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:24",
+    "sim": "12:27",
+    "v": "A",
+    "type": "queue_advance",
+    "serving": 2450,
+    "ahead": 0,
+    "range": "trong vòng khoảng 15 phút",
+    "level": "dao động"
+  },
+  {
+    "t": "06:02:34",
+    "sim": "12:30",
+    "v": "A",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:02:34",
+    "sim": "12:34",
+    "v": "A",
+    "type": "queue_called",
+    "serving": 2451,
+    "ahead": 0,
+    "range": "đã đến lượt bạn",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:02:44",
+    "sim": "11:20",
+    "v": "B",
+    "type": "variant_start",
+    "variant": "B",
+    "reset": true
+  },
+  {
+    "t": "06:03:11",
+    "sim": "11:23",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:03:11",
+    "sim": "11:24",
+    "v": "B",
+    "type": "queue_advance",
+    "serving": 2444,
+    "ahead": 6,
+    "range": "khoảng 35–65 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:03:13",
+    "sim": "11:28",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:03:13",
+    "sim": "11:30",
+    "v": "B",
+    "type": "queue_advance",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:03:13",
+    "sim": "11:30",
+    "v": "B",
+    "type": "push",
+    "title": "Còn 5 người trước bạn",
+    "body": "Ước tính khoảng 30–55 phút nữa (ổn định). Nếu bạn đang ở xa, nên bắt đầu quay lại khu chờ phòng 2.07 (tầng 2)."
+  },
+  {
+    "t": "06:03:13",
+    "sim": "11:32",
+    "v": "B",
+    "type": "consult_start",
+    "src": "auto"
+  },
+  {
+    "t": "06:03:13",
+    "sim": "11:32",
+    "v": "B",
+    "type": "queue_consult_start",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 40–70 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:03:13",
+    "sim": "11:32",
+    "v": "B",
+    "type": "push",
+    "title": "Hàng chờ tạm dừng",
+    "body": "Bác sĩ được mời hội chẩn, phòng khám tạm dừng khoảng 10–15 phút. Ước tính mới: khoảng 40–70 phút nữa — mức tin cậy: dao động."
+  },
+  {
+    "t": "06:04:06",
+    "sim": "11:38",
+    "v": "B",
+    "type": "staff_call",
+    "src": "bottom_bar"
+  },
+  {
+    "t": "06:04:11",
+    "sim": "11:39",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:11",
+    "sim": "11:43",
+    "v": "B",
+    "type": "queue_consult_end",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:04:11",
+    "sim": "11:43",
+    "v": "B",
+    "type": "push",
+    "title": "Phòng khám hoạt động lại",
+    "body": "Bác sĩ đã quay lại. Còn 5 người trước bạn, khoảng 30–55 phút nữa. Nhịp có thể chưa ổn định trong vài lượt đầu."
+  },
+  {
+    "t": "06:04:18",
+    "sim": "11:44",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:20",
+    "sim": "11:50",
+    "v": "B",
+    "type": "queue_advance",
+    "serving": 2446,
+    "ahead": 4,
+    "range": "khoảng 25–45 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:04:20",
+    "sim": "11:50",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:23",
+    "sim": "11:55",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:23",
+    "sim": "11:57",
+    "v": "B",
+    "type": "queue_advance",
+    "serving": 2447,
+    "ahead": 3,
+    "range": "khoảng 15–40 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:04:28",
+    "sim": "12:00",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:29",
+    "sim": "12:05",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:29",
+    "sim": "12:08",
+    "v": "B",
+    "type": "queue_slow",
+    "serving": 2447,
+    "ahead": 3,
+    "range": "khoảng 15–35 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:04:29",
+    "sim": "12:08",
+    "v": "B",
+    "type": "push",
+    "title": "Lượt hiện tại kéo dài hơn thường lệ",
+    "body": "Số 2447 đã khám 11 phút, lâu hơn mức thường gặp. Mình chưa rõ lý do. Ước tính đã nới ra: khoảng 15–35 phút nữa."
+  },
+  {
+    "t": "06:04:33",
+    "sim": "12:11",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:33",
+    "sim": "12:13",
+    "v": "B",
+    "type": "queue_advance",
+    "serving": 2448,
+    "ahead": 2,
+    "range": "khoảng 15–35 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:04:33",
+    "sim": "12:13",
+    "v": "B",
+    "type": "push",
+    "title": "Sắp đến lượt",
+    "body": "Còn 2 người trước bạn, khoảng 15–35 phút nữa. Bạn nên ngồi gần cửa phòng 2.07 (tầng 2)."
+  },
+  {
+    "t": "06:04:42",
+    "sim": "12:17",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:42",
+    "sim": "12:19",
+    "v": "B",
+    "type": "queue_advance",
+    "serving": 2449,
+    "ahead": 1,
+    "range": "khoảng 10–25 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:04:43",
+    "sim": "12:22",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:43",
+    "sim": "12:27",
+    "v": "B",
+    "type": "queue_advance",
+    "serving": 2450,
+    "ahead": 0,
+    "range": "trong vòng khoảng 15 phút",
+    "level": "dao động"
+  },
+  {
+    "t": "06:04:44",
+    "sim": "12:27",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:44",
+    "sim": "12:32",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:44",
+    "sim": "12:34",
+    "v": "B",
+    "type": "queue_called",
+    "serving": 2451,
+    "ahead": 0,
+    "range": "đã đến lượt bạn",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:04:44",
+    "sim": "12:34",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:04:51",
+    "sim": "12:34",
+    "v": "B",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:05:01",
+    "sim": "11:20",
+    "v": "C",
+    "type": "variant_start",
+    "variant": "C",
+    "reset": true
+  },
+  {
+    "t": "06:05:15",
+    "sim": "11:21",
+    "v": "C",
+    "type": "trip_chip",
+    "trip": "vs"
+  },
+  {
+    "t": "06:05:15",
+    "sim": "11:21",
+    "v": "C",
+    "type": "user_msg",
+    "text": "Mình định đi vệ sinh, khoảng 5 phút"
+  },
+  {
+    "t": "06:05:17",
+    "sim": "11:21",
+    "v": "C",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Đi vệ sinh khoảng 5 phút thì bạn KỊP quay lại trước lượt khám. Bạn có muốn mình nhắc khi còn 3 người không?",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:05:31",
+    "sim": "11:23",
+    "v": "C",
+    "type": "reminder_answer",
+    "accept": true
+  },
+  {
+    "t": "06:05:40",
+    "sim": "11:24",
+    "v": "C",
+    "type": "queue_advance",
+    "serving": 2444,
+    "ahead": 6,
+    "range": "khoảng 35–65 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:05:48",
+    "sim": "11:24",
+    "v": "C",
+    "type": "user_msg",
+    "text": "khi còn 6 người thì nhắc"
+  },
+  {
+    "t": "06:05:49",
+    "sim": "11:24",
+    "v": "C",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Mình sẽ nhắc bạn khi còn 6 người nhé! Chúc bạn đi vệ sinh nhanh chóng!",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:06:14",
+    "sim": "11:27",
+    "v": "C",
+    "type": "user_msg",
+    "text": "sắp đến lượt của tôi, nhưng tôi chưa đi vệ sinh xong"
+  },
+  {
+    "t": "06:06:15",
+    "sim": "11:27",
+    "v": "C",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Bạn hãy quay lại ngay khi có thể, vì mình đã hẹn nhắc bạn khi còn 6 người. Nếu bạn không kịp, hãy báo ngay cho nhân viên y tế gần nhất nhé!",
+    "handoff": false,
+    "emergency": true
+  },
+  {
+    "t": "06:06:34",
+    "sim": "11:29",
+    "v": "C",
+    "type": "user_msg",
+    "text": "ko có bị khó thở, ý là đi vệ sinh lâu"
+  },
+  {
+    "t": "06:06:34",
+    "sim": "11:29",
+    "v": "C",
+    "type": "emergency_shown",
+    "text": "ko có bị khó thở, ý là đi vệ sinh lâu"
+  },
+  {
+    "t": "06:06:40",
+    "sim": "11:30",
+    "v": "C",
+    "type": "queue_advance",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:06:45",
+    "sim": "11:30",
+    "v": "C",
+    "type": "user_msg",
+    "text": "ko cần báo vấn đề riêng tư"
+  },
+  {
+    "t": "06:06:47",
+    "sim": "11:30",
+    "v": "C",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Mình hiểu. Tuy nhiên, nếu bạn cảm thấy không ổn, hãy thông báo cho nhân viên y tế gần nhất để được hỗ trợ.",
+    "handoff": false,
+    "emergency": true
+  },
+  {
+    "t": "06:07:00",
+    "sim": "11:32",
+    "v": "C",
+    "type": "consult_start",
+    "src": "auto"
+  },
+  {
+    "t": "06:07:00",
+    "sim": "11:32",
+    "v": "C",
+    "type": "queue_consult_start",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 40–70 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:07:13",
+    "sim": "11:33",
+    "v": "C",
+    "type": "user_msg",
+    "text": "sao thời gian ước tính bị chênh nhau 30p"
+  },
+  {
+    "t": "06:07:15",
+    "sim": "11:33",
+    "v": "C",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Thời gian ước tính có sự dao động do nhịp khám gần đây không ổn định và phòng khám đang tạm dừng để bác sĩ hội chẩn. Điều này có thể làm cho thời gian chờ thay đổi. Nếu bạn cần thêm thông tin, hãy hỏi nhân viên y tế hoặc quầy tiếp đón nhé!",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:07:26",
+    "sim": "11:34",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:07:31",
+    "sim": "11:40",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:07:31",
+    "sim": "11:43",
+    "v": "C",
+    "type": "queue_consult_end",
+    "serving": 2445,
+    "ahead": 5,
+    "range": "khoảng 30–55 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:07:33",
+    "sim": "11:45",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:07:33",
+    "sim": "11:50",
+    "v": "C",
+    "type": "queue_advance",
+    "serving": 2446,
+    "ahead": 4,
+    "range": "khoảng 25–45 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:07:40",
+    "sim": "11:51",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:07:47",
+    "sim": "11:56",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:07:47",
+    "sim": "11:57",
+    "v": "C",
+    "type": "queue_advance",
+    "serving": 2447,
+    "ahead": 3,
+    "range": "khoảng 15–40 phút nữa",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:07:47",
+    "sim": "11:57",
+    "v": "C",
+    "type": "reminder_fired"
+  },
+  {
+    "t": "06:08:01",
+    "sim": "12:03",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:08:01",
+    "sim": "12:08",
+    "v": "C",
+    "type": "queue_slow",
+    "serving": 2447,
+    "ahead": 3,
+    "range": "khoảng 15–35 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:08:02",
+    "sim": "12:08",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:08:02",
+    "sim": "12:13",
+    "v": "C",
+    "type": "queue_advance",
+    "serving": 2448,
+    "ahead": 2,
+    "range": "khoảng 15–35 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:08:04",
+    "sim": "12:13",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:08:06",
+    "sim": "12:18",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:08:06",
+    "sim": "12:19",
+    "v": "C",
+    "type": "queue_advance",
+    "serving": 2449,
+    "ahead": 1,
+    "range": "khoảng 10–25 phút nữa",
+    "level": "dao động"
+  },
+  {
+    "t": "06:08:08",
+    "sim": "12:23",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:08:08",
+    "sim": "12:27",
+    "v": "C",
+    "type": "queue_advance",
+    "serving": 2450,
+    "ahead": 0,
+    "range": "trong vòng khoảng 15 phút",
+    "level": "dao động"
+  },
+  {
+    "t": "06:08:15",
+    "sim": "12:29",
+    "v": "C",
+    "type": "user_msg",
+    "text": "chưa đi vệ sinh xong"
+  },
+  {
+    "t": "06:08:17",
+    "sim": "12:29",
+    "v": "C",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Nếu bạn chưa đi vệ sinh xong, hãy cố gắng nhanh chóng. Mình đã nhắc bạn khi còn 3 người, nên bạn có thể kịp quay lại. Tuy nhiên, nếu bạn mất quá lâu, hãy cân nhắc báo cho nhân viên y tế gần nhất để được hỗ trợ.",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:08:29",
+    "sim": "12:30",
+    "v": "C",
+    "type": "user_msg",
+    "text": "báo dùm"
+  },
+  {
+    "t": "06:08:30",
+    "sim": "12:31",
+    "v": "C",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Mình không thể báo thay bạn được. Bạn hãy tìm nhân viên y tế gần nhất để thông báo tình hình nhé!",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:08:38",
+    "sim": "12:31",
+    "v": "C",
+    "type": "user_msg",
+    "text": "đang đi vệ sinh ko gọi đc"
+  },
+  {
+    "t": "06:08:39",
+    "sim": "12:31",
+    "v": "C",
+    "type": "bot_msg",
+    "mode": "live",
+    "text": "Mình hiểu. Nếu bạn không thể gọi được, hãy cố gắng nhanh chóng hoàn thành và quay lại khu chờ. Mình đã nhắc bạn khi còn 3 người, nên bạn vẫn có cơ hội kịp.",
+    "handoff": false,
+    "emergency": false
+  },
+  {
+    "t": "06:08:49",
+    "sim": "12:32",
+    "v": "C",
+    "type": "fast_forward",
+    "by": "participant"
+  },
+  {
+    "t": "06:08:49",
+    "sim": "12:34",
+    "v": "C",
+    "type": "queue_called",
+    "serving": 2451,
+    "ahead": 0,
+    "range": "đã đến lượt bạn",
+    "level": "ổn định"
+  },
+  {
+    "t": "06:09:14",
+    "sim": "11:20",
+    "v": "A",
+    "type": "variant_start",
+    "variant": "A",
+    "reset": true
+  },
+  {
+    "t": "06:09:18",
+    "sim": "11:20",
+    "v": "A",
+    "type": "ask_open"
+  },
+  {
+    "t": "06:09:20",
+    "sim": "11:20",
+    "v": "B",
+    "type": "variant_start",
+    "variant": "B",
+    "reset": true
+  },
+  {
+    "t": "06:09:21",
+    "sim": "11:20",
+    "v": "C",
+    "type": "variant_start",
+    "variant": "C",
+    "reset": true
+  }
+]

@@ -428,7 +428,7 @@ BẠN LÀM ĐƯỢC:
 
 BẠN KHÔNG LÀM:
 - Không tư vấn y khoa: không bàn về triệu chứng, bệnh, thuốc, liều dùng, kết quả xét nghiệm, hay việc có được ăn/uống/nhịn trước khi khám hoặc xét nghiệm hay không. Khi gặp những câu này: nói nhẹ nhàng rằng mình không thể tư vấn, mời họ hỏi nhân viên y tế hoặc bác sĩ, và kết thúc câu trả lời bằng thẻ [[HANDOFF]].
-- Nếu người dùng nhắc dấu hiệu khẩn cấp (đau ngực, khó thở, ngất, co giật, chảy máu nhiều, yếu hoặc liệt nửa người, méo miệng, lơ mơ...): chỉ trả lời 1–2 câu, yêu cầu BÁO NGAY nhân viên y tế gần nhất, và kết thúc bằng thẻ [[EMERGENCY]]. Không hỏi thêm, không trấn an kiểu "chắc không sao đâu".
+- Nếu người dùng MÔ TẢ dấu hiệu khẩn cấp đang xảy ra (đau ngực, khó thở, ngất, co giật, chảy máu nhiều, yếu hoặc liệt nửa người, méo miệng, lơ mơ...): chỉ trả lời 1–2 câu, yêu cầu BÁO NGAY nhân viên y tế gần nhất, và kết thúc bằng thẻ [[EMERGENCY]]. Không hỏi thêm, không trấn an kiểu "chắc không sao đâu". NHƯNG: nếu họ chỉ nói chuyện rời chỗ, đi vệ sinh, đi ăn, về trễ — kể cả khi kéo dài — hoặc PHỦ ĐỊNH dấu hiệu ("không bị khó thở"), thì đó KHÔNG phải khẩn cấp: trả lời bình thường, tuyệt đối không dùng [[EMERGENCY]] hay giọng khẩn cấp.
 - Không bịa thông tin không có trong ngữ cảnh (quy định khi lỡ lượt, tên bác sĩ, giá, vị trí căng-tin...). Nếu không biết, nói thẳng "mình không có thông tin này" và gợi ý hỏi quầy tiếp đón hoặc bấm "Gọi nhân viên hỗ trợ".
 - Không hứa chắc chắn. Không bao giờ đưa ra một con số phút duy nhất.
 
@@ -437,6 +437,8 @@ CÁCH NÓI VỀ THỜI GIAN:
 - Luôn nêu mức tin cậy bằng lời: "ổn định" hoặc "dao động"; nếu dao động thì nói lý do có trong ngữ cảnh.
 - Khi hàng chờ chậm: giải thích lý do nếu ngữ cảnh có; nếu ngữ cảnh ghi "chưa rõ lý do" thì nói thật là chưa rõ.
 - Khi đánh giá chuyến đi: dùng đúng 3 mức KỊP / SÁT GIỜ / KHÔNG KỊP theo bảng trong ngữ cảnh. Với SÁT GIỜ hoặc khi hàng chờ dao động, nghiêng về phía an toàn (gợi ý việc ngắn hơn hoặc chờ thêm).
+- Nếu người dùng hỏi có kịp đi đâu đó mà CHƯA nói đi khoảng bao lâu: HỎI LẠI "bạn định đi khoảng bao nhiêu phút?" trước — không tự giả định thời lượng rồi phán.
+- Về lời nhắc: chỉ xác nhận ngưỡng nhắc khi ngữ cảnh ghi hệ thống đã đặt được. Nếu người dùng muốn đổi mốc nhắc, hướng dẫn họ nhắn đúng dạng "khi còn N người thì nhắc" — không tự hứa "mình sẽ nhắc" thay hệ thống.
 - Khi khuyên đi hay ở, nhắc ngắn rằng đây là ước tính, không phải cam kết.
 
 GIỌNG VĂN: tiếng Việt, xưng "mình" – gọi "bạn", ấm áp, ngắn gọn (tối đa 3–4 câu), không dùng markdown hay danh sách dài. Không tự nhận là bác sĩ hay nhân viên y tế.`;
@@ -628,7 +630,19 @@ const MEDICAL_RX = [/\bthuoc\b(?! (phong|khoa|ve|tang|khu))/, /\btrieu chung\b/,
   /\bhuyet ap\b/, /\btieu duong\b/, /\blieu (dung|luong|thuoc)\b/, /\bkhang sinh\b/, /\bnhin an\b/, /\bnhin doi\b/,
   /\btiem (phong|vac|thuoc)\b/, /\bmui tiem\b/, /\bvac ?xin\b/, /\bdi ung\b/, /\bbi benh\b/, /\bbenh gi\b/, /\bmang thai\b/,
   /\bbi ho\b/, /\bho (khan|nhieu|dom|ra mau)\b/, /\bbuon non\b/, /\bchong mat\b/, /\bmet\b/, /\bsieu am\b/];
-function isEmergency(t) { const n = norm(t); return EMERGENCY_RX.some(r => r.test(n)); }
+// Phủ định ngay trước từ khóa ("ko có bị khó thở") thì KHÔNG kích khẩn cấp (học từ phiên thử T1)
+const NEG_RX = /\b(khong|ko|k|kg|hong|hok|chua|het|dau co|chang|cha)\b/;
+function isEmergency(t) {
+  const n = norm(t);
+  for (const r of EMERGENCY_RX) {
+    const m = r.exec(n);
+    if (!m) continue;
+    const before = ' ' + n.slice(0, m.index).trim().split(' ').slice(-3).join(' ') + ' ';
+    if (NEG_RX.test(before)) continue;
+    return true;
+  }
+  return false;
+}
 function isMedical(t) { const n = norm(t); return MEDICAL_RX.some(r => r.test(n)); }
 function parseMinutes(t) {
   const n = norm(t);
@@ -755,11 +769,12 @@ function addMsg(kind, text, opts = {}) {
 
 function addNode(node) { chatEl().appendChild(node); scrollChat(); return node; }
 
-function addChips(items, onPick) {
+function addChips(items, onPick, opts) {
   const wrap = document.createElement('div'); wrap.className = 'chips';
   items.forEach(it => {
     const b = document.createElement('button'); b.className = 'chip'; b.type = 'button'; b.textContent = it.label;
-    b.onclick = () => { wrap.querySelectorAll('button').forEach(x => x.disabled = true); onPick(it); };
+    // sticky: chip gợi ý bấm được nhiều lần (T1: "sao k đc bấm tiếp mấy cái option mẫu")
+    b.onclick = () => { if (!(opts && opts.sticky)) wrap.querySelectorAll('button').forEach(x => x.disabled = true); onPick(it); };
     wrap.appendChild(b);
   });
   return addNode(wrap);
@@ -797,7 +812,7 @@ const SUGGESTIONS = [
   { label: 'Mình đi vệ sinh được không?' },
 ];
 
-function showSuggestions() { addChips(SUGGESTIONS, it => { logEvent('chip', { text: it.label }); send(it.label); }); }
+function showSuggestions() { addChips(SUGGESTIONS, it => { logEvent('chip', { text: it.label }); send(it.label); }, { sticky: true }); }
 
 function setBusy(b) {
   busy = b; $('btnSend').disabled = b; $('chatInput').disabled = b;
@@ -876,7 +891,7 @@ function showTripChips() {
     logEvent('trip_chip', { trip: it.trip.id });
     const text = `Mình định ${it.trip.label.toLowerCase()}, khoảng ${it.trip.minutes} phút`;
     send(text, { verdict: feasibility(it.trip.minutes) });
-  });
+  }, { sticky: true });
 }
 
 /* =====================================================================
@@ -1077,6 +1092,17 @@ $('chatForm').addEventListener('submit', ev => {
   const v = $('chatInput').value; $('chatInput').value = '';
   if (variant === 'C' && reminderAt && /\bbo nhac\b|\bhuy nhac\b/.test(norm(v))) {
     addMsg('user', v); reminderAt = null; addMsg('bot', 'Đã bỏ nhắc.'); logEvent('reminder_cancel', {}); return;
+  }
+  // "khi còn N người thì nhắc" → đặt ngưỡng THẬT ở tầng cơ chế, không để AI hứa suông (học từ phiên thử T1)
+  if (variant === 'C' && /\bnhac\b/.test(norm(v))) {
+    const m = norm(v).match(/\bcon (\d{1,2}) nguoi\b/);
+    if (m) {
+      const n = parseInt(m[1], 10);
+      addMsg('user', v); logEvent('reminder_set', { at: n, src: 'parsed' });
+      if (ahead() <= n) { reminderAt = n; addMsg('bot', `Hiện chỉ còn ${ahead()} người trước bạn — mình sẽ nhắc ngay ở mốc gần nhất.`); }
+      else { reminderAt = n; addMsg('bot', `Đã đặt: mình sẽ nhắc khi còn ${n} người trước bạn. Nhắn "bỏ nhắc" nếu muốn hủy.`); }
+      return;
+    }
   }
   send(v);
 });
